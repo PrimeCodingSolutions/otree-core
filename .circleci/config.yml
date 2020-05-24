@@ -24,21 +24,11 @@ jobs:
   deploy:
     docker:
       - image: circleci/python:3.7
-    steps: 
-      - deploy: 
+    steps:
+      - deploy:
           command: |
           if [ "${CIRCLE_BRANCH}" == "master" ]; then
-            rancher \
-              --url "${<< parameters.rancher-url >>}" \
-              --access-key "${<< parameters.access-key >>}" \
-              --secret-key "${<< parameters.secret-key >>}" \
-              --env "<< parameters.env >>" \
-              up \
-              -s "<< parameters.stack-name >>" \
-              -f "<< parameters.stack-definition >>" \
-              --force-upgrade \
-              --confirm-upgrade \
-              --pull -d
+            rancher 
           fi
 
 workflows:
