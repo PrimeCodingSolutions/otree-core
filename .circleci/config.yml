@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  rancher: ware2go/rancher@0.5.68
-
 jobs:
   build:
     docker:
