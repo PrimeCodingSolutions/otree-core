@@ -28,9 +28,9 @@ jobs:
     steps:
       - deploy:
           command: |
-          if [ "${CIRCLE_BRANCH}" == "master" ]; then
-            rancher 
-          fi
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              rancher 
+            fi
 
 workflows:
   version: 2
