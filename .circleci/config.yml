@@ -24,6 +24,7 @@ jobs:
   deploy:
     docker:
       - image: circleci/python:3.7
+
     steps:
       - deploy:
           command: |
