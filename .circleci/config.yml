@@ -1,16 +1,19 @@
-version: 2
+version: 2.1
+
+orbs:
+  rancher: ware2go/rancher@0.5.68
+
 jobs:
   build:
     docker:
       - image: circleci/python:3.7
-      
+
     working_directory: ~/repo
-        
+
     steps:
       - checkout
       - setup_remote_docker
-      - deploy:
-          name: Build and Push
+      - build:
           command: |
             if [ "${CIRCLE_TAG}" != "" ]; then
               IMAGE_NAME=$CIRCLE_PROJECT_REPONAME:$CIRCLE_TAG
@@ -18,6 +21,24 @@ jobs:
               docker build -t $DOCKER_USER/$IMAGE_NAME .
               docker push $DOCKER_USER/$IMAGE_NAME
             fi
+  deploy:
+    docker:
+      - image: circleci/python:3.7
+      - deploy: 
+          command: |
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            rancher \
+              --url "${<< parameters.rancher-url >>}" \
+              --access-key "${<< parameters.access-key >>}" \
+              --secret-key "${<< parameters.secret-key >>}" \
+              --env "<< parameters.env >>" \
+              up \
+              -s "<< parameters.stack-name >>" \
+              -f "<< parameters.stack-definition >>" \
+              --force-upgrade \
+              --confirm-upgrade \
+              --pull -d
+          fi
 
 workflows:
   version: 2
