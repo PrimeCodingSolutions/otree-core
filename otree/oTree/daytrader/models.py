@@ -38,7 +38,7 @@ class Constants(BaseConstants):
     num_shares = 100000
     start_price = 50.0
     start_wallet = 10000
-    price_change_per_share = 0.001
+    price_change_per_share = 0.0005
     kurtage = 0.01
 
     # firm attributes
@@ -100,7 +100,6 @@ class Subsession(BaseSubsession):
         plt.rc('axes', prop_cycle=(cycler(color=graph_colors)))
         fig = plt.figure(figsize=(4, 3))
         ax = plt.axes()
-        print(self.session.vars)
         for company_name in self.session.vars['company_names']:
             # find the number of rounds played by looking in the dict and store
             # in tmp0:
@@ -111,7 +110,7 @@ class Subsession(BaseSubsession):
             prices = [self.session.vars['{}{}'.format(company_name, r)][0]
                       for r in range(1, tmp0)]
             # add the closing price
-            if self.round_number == Constants.num_rounds:
+            if '{}{}'.format(company_name, 11) in self.session.vars:
                 prices.append(self.session.vars['{}{}'.format(company_name, 11)])
             x = np.linspace(1, len(prices), len(prices))
             ax.plot(x, prices, marker='o', label=company_name)
