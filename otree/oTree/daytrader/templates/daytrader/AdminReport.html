@@ -244,15 +244,15 @@
         return min;
     }
 
-    const margin = {top: 40, right: 40, bottom: 40, left: 40};
-    const width = 800;
+    const margin = {top: 100, right: 100, bottom: 20, left: 100};
+    const width = 1000;
     const height = 400;
 
     const minPrice = d3.min(data.series, function (company) { return d3.min(company.values) })
     const maxPrice = d3.max(data.series, function (company) { return d3.max(company.values) })
 
     const x = d3.scaleLinear().domain(d3.extent(data.rounds)).range([margin.left, width - margin.right]);
-    const y = d3.scaleLinear().domain([minPrice*0.95, maxPrice*1.05]).range([height, 0]);
+    const y = d3.scaleLinear().domain([minPrice*0.90, maxPrice*1.05]).range([height, 0]);
 
     const xAxis = function (g) { 
         g
@@ -269,7 +269,8 @@
         .attr("x", 3)
         .attr("text-anchor", "start")
         .attr("font-weight", "bold")
-        .text(data.y))
+        // .text(data.y)
+        )
     }
 
     const line = d3.line()
@@ -318,7 +319,7 @@
           "transform",
           `translate(${x(data.rounds[i])},${y(s.values[i])})`
         );
-        dot.select("text").text(s.name);
+        dot.select("text").text(`(${s.name}, ${s.values[i]})`);
       }
 
       function entered() {
