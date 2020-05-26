@@ -117,32 +117,13 @@ class Subsession(BaseSubsession):
 
             price_table += [{'label': name, 'prices': [{'round': i + 1, 'price': float(p)} for i, p in enumerate(prices)]}]
 
-        for company_name in self.session.vars['company_names']:
-            # find the number of rounds played by looking in the dict and store
-            # in tmp0:
-                        for r in range(1, Constants.num_rounds + 2)])
-            prices = [self.session.vars['{}{}'.format(company_name, r)][0]
-                      for r in range(1, tmp0)]
-            # add the closing price
-            if '{}{}'.format(company_name, 11) in self.session.vars:
-                prices.append(self.session.vars['{}{}'.format(company_name, 11)])
-            x = np.linspace(1, len(prices), len(prices))
-            ax.plot(x, prices, marker='o', label=company_name)
-        ax.legend(loc='upper left', bbox_to_anchor=(1.04, 1))
-        ax.set_xlabel('runde', fontdict={'fontsize': 12})
-        ax.set_ylabel('pris', fontdict={'fontsize': 12})
-        ax.set_title('Aktieprisudvikling', fontsize='x-large')
-        fig.savefig('_static/daytrader/test.pdf', transparent=True,
-                    bbox_inches='tight', dpi=300)
-        fig.savefig('_static/daytrader/test.png', transparent=True,
-                    bbox_inches='tight', dpi=300)
-
         names = self.session.vars['company_names']
         states = self.session.vars['company_states']
         choices = [[self.session.vars['{}{}'.format(name, r)][3]
                     for r in range(1, number_of_rounds)] for name in names]
         drawn_faces = [[self.session.vars['{}{}'.format(name, r)][2]
                     for r in range(1, number_of_rounds)] for name in names]
+        round_list = [r for r in range(1, number_of_rounds + 1)]
 
         rankings = []
         if 'profit' in self.session.vars:
@@ -162,14 +143,7 @@ class Subsession(BaseSubsession):
             }
 
 
-class Group(BaseGroup):
-    pass
-
-
-class Player(BasePlayer):
-    wallet = models.CurrencyField()
     company_name = models.StringField()
-    company_state = models.StringField()
     # number_of_glad_faces = models.PositiveIntegerField()
     drawn_face = models.BooleanField()
     choice_of_trade = models.IntegerField(
