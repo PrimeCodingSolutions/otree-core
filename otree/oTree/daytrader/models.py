@@ -89,6 +89,18 @@ class Subsession(BaseSubsession):
             # player.number_of_glad_faces = sum(Json_action.from_string(player.company_state))
 
     def vars_for_admin_report(self):
+        graph_colors = [
+            [0.996, 0.875, 0.431, 1],  # Yellow
+            [0.302, 0.82, 0.208, 1],   # Green
+            [0.416, 0.953, 0.984, 1],  # Turkish
+            [0.686, 0.686, 0.686, 1],  # Grey
+            [0.984, 0.729, 0.816, 1],  # Pink
+            [0.98, 0.251, 0.329, 1],   # Red
+        ]
+        plt.rc('axes', prop_cycle=(cycler(color=graph_colors)))
+        fig = plt.figure(figsize=(4, 3))
+        ax = plt.axes()
+
         number_of_rounds = sum([1 if '{}{}'.format(self.session.vars['company_names'][0], r) in self.session.vars else 0 for r in range(1, Constants.num_rounds + 2)])
         number_of_companies = len(self.session.vars['company_names'])
 
@@ -97,16 +109,33 @@ class Subsession(BaseSubsession):
 
         for idx, name in enumerate(self.session.vars['company_names']):
             company_data[name] = {}
-            
             prices = [self.session.vars['{}{}'.format(name, r)][0]
                       for r in range(1, number_of_rounds)]
-
-            prices += [self.session.vars['{}{}'.format(name, number_of_rounds)]]
             
             company_data[name]['stock_price'] = prices
             company_data[name]['state'] = self.session.vars['company_states'][idx]
 
-            price_table += [{'name': name, 'values': [float(p) for i, p in enumerate(prices)]}]
+            price_table += [{'label': name, 'prices': [{'round': i + 1, 'price': float(p)} for i, p in enumerate(prices)]}]
+
+        for company_name in self.session.vars['company_names']:
+            # find the number of rounds played by looking in the dict and store
+            # in tmp0:
+                        for r in range(1, Constants.num_rounds + 2)])
+            prices = [self.session.vars['{}{}'.format(company_name, r)][0]
+                      for r in range(1, tmp0)]
+            # add the closing price
+            if '{}{}'.format(company_name, 11) in self.session.vars:
+                prices.append(self.session.vars['{}{}'.format(company_name, 11)])
+            x = np.linspace(1, len(prices), len(prices))
+            ax.plot(x, prices, marker='o', label=company_name)
+        ax.legend(loc='upper left', bbox_to_anchor=(1.04, 1))
+        ax.set_xlabel('runde', fontdict={'fontsize': 12})
+        ax.set_ylabel('pris', fontdict={'fontsize': 12})
+        ax.set_title('Aktieprisudvikling', fontsize='x-large')
+        fig.savefig('_static/daytrader/test.pdf', transparent=True,
+                    bbox_inches='tight', dpi=300)
+        fig.savefig('_static/daytrader/test.png', transparent=True,
+                    bbox_inches='tight', dpi=300)
 
         names = self.session.vars['company_names']
         states = self.session.vars['company_states']
@@ -114,7 +143,6 @@ class Subsession(BaseSubsession):
                     for r in range(1, number_of_rounds)] for name in names]
         drawn_faces = [[self.session.vars['{}{}'.format(name, r)][2]
                     for r in range(1, number_of_rounds)] for name in names]
-        round_list = [r for r in range(1, number_of_rounds + 1)]
 
         rankings = []
         if 'profit' in self.session.vars:
@@ -130,11 +158,7 @@ class Subsession(BaseSubsession):
             'faces': drawn_faces,
             'rankins': sorted(rankings, key=lambda x: x[1], reverse=True),
             'tilstand': states,
-            'graph_data': json.dumps({
-                'y': 'Priser',
-                'series': price_table,
-                'rounds': round_list
-                })
+            'price_table': json.dumps(price_table)
             }
 
 
