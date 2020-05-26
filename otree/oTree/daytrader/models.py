@@ -97,8 +97,11 @@ class Subsession(BaseSubsession):
 
         for idx, name in enumerate(self.session.vars['company_names']):
             company_data[name] = {}
+            
             prices = [self.session.vars['{}{}'.format(name, r)][0]
                       for r in range(1, number_of_rounds)]
+
+            prices += [self.session.vars['{}{}'.format(name, number_of_rounds)]]
             
             company_data[name]['stock_price'] = prices
             company_data[name]['state'] = self.session.vars['company_states'][idx]
