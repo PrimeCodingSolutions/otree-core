@@ -127,6 +127,8 @@ class Subsession(BaseSubsession):
         states = self.session.vars['company_states']
         choices = [[self.session.vars['{}{}'.format(name, r)][3]
                     for r in range(1, tmp0)] for name in names]
+        drawn_faces = [[self.session.vars['{}{}'.format(name, r)][2]
+                    for r in range(1, tmp0)] for name in names]
         round_list = [r for r in range(1, tmp0 + 1)]
 
         rankings = []
