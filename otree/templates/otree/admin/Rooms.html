@@ -5,58 +5,70 @@
     <style>
         body {
             background-color: #901A1E;
-
+            color: #901A1E;
         }
     </style>
 {% endblock %}
 
 {% block content %}
+    <div class="room-container container">
+        {% if all_rooms %}
+            <div class="rooms-table-container">
+                <div class="same-line">
+                    <div class="header-left">
+                        <h2 class="rapport-header ">Oversigt over dine klasserum</h2>
+                    </div>
 
-<div class="room-container container">
-    <div class="rooms-table-container">
-    <h2 class="rapport-header ">Oversigt over dine klasserum</h2>
-        <table class="table" id="#roomsTable">
-            <thead>
-                <tr class="rooms-table-row">
-                    <th class="border-corner-left"> Klasserum</th>
-                    <th>Opret spil</th>
-                    <th>Redigere rum</th>
-                    <th class="border-corner-right" >Slet rum</th>
-                </tr>
-            </thead>
+                    <div class="button-right">
+                            <form action="{% url 'create_room' %}">
+                                <button class="btn btn-primary">
+                                   <i class="fas fa-plus"></i> Opret klasserum
+                                </button>
+                            </form>
+                    </div>
 
-            {% for room in all_rooms %}
-                     <tbody class="rooms-table-data">
+                </div>
+                 <p>Dette er en oversigt over dine klasserum. Her kan du rediger dit klasserum eller slette det.</p>
+            <p>Hvis du ønsker og starte et spil, kan du enten trykke på klasserummets navn eller <b>opret spil</b></p>
+                <table id="roomsTable">
+                    <tr class="rooms-table-row">
+                        <th class="border-corner-left"> Klasserum</th>
+
+                        <th>Rediger rum</th>
+                        <th class="border-corner-right">Slet rum</th>
+                    </tr>
+
+                    {% for room in all_rooms %}
                         <tr class="rooms-table-row-data">
                             <td>
                                 <a href="{% url "RoomWithoutSession" room.name %}">{{ room.display_name }}</a>
                             </td>
 
-                            <td>
-                                <i class="fas fa-home"></i>
-                            </td>
 
                             <td>
-                                <i class="fas fa-home"></i>
-                                </td>
+                                <a href="{% url 'update_view_with_pk' room.id %}" data-toggle="tooltip"
+                                title="Redigere klasserum" data-placement="bottom"><i class="fas fa-pen"></i></a>
+                            </td>
 
                             <td>
                                 <a href="{% url 'delete_view_with_pk' room.id %}" data-toggle="tooltip"
-                                   title="Slet Evaluering" data-placement="bottom">
-                                    <span class="fas fa-times slet_eval" aria-hidden="true"></span>
-                                </a>
+                                   title="Slet Evaluering" data-placement="bottom"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
-                    </tbody>
-                {% empty %}
-             <p>Der er ikke oprettet nogle klasserum endnu - vil du oprette et klasserum?</p>
-                    <p>**TODO knap til opret klasserum</p>
-                   <!-- <button class="btn btn-primary" type="button" href="{% url 'create_room' %}">Ja tak</button> -->
-            {% endfor %}
-        </table>
-</div>
-</div>
-
-
-
+                    {% endfor %}
+                </table>
+            </div>
+            </div>
+        {% else %}
+            <div class="create-room-container">
+                <div class="content-container">
+                      <h2 class="rapport-header ">Oversigt over dine klasserum</h2>
+                    <p>Der er ikke oprettet nogle klasserum endnu - vil du oprette et klasserum?</p>
+                    <form method="post" action="{% url 'create_room' %}">
+                        {% csrf_token %}
+                        <button class="btn btn-primary" id="create-room">Opret rum</button>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
 {% endblock %}

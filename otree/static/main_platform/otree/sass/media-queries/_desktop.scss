@@ -22,34 +22,48 @@
   *  Front Page  - games.html  *
   ******************************/
   .title-container {
-    margin-bottom: 5%;
+    margin-left: 0;
+    margin-right: 0;
+
+    .games-title {
+      font-size: 60px;
+      margin-bottom: 0;
+      margin-top: 12%;
+    }
+
+    p {
+    text-align: center;
+      font-size: 18px;
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+      button {
+        justify-content: center;
+        width: 30%;
+        background-color: white;
+        border-color: $ku-red;
+        border-width: revert;
+        color: $ku-red;
+        font-weight: bold;
+        margin-bottom: 4%;
+
+        &:hover {
+          background-color: $ku-dark-green;
+          border-color: transparent;
+        }
+      }
+    }
   }
 
-  .games-title {
-    color: white;
-    font-weight: bold;
-    font-family: 'Catamaran', sans-serif;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-size: 60px;
-    margin-top: 6%;
-    margin-bottom: 0;
-  }
+
 
   .sub-games-title {
-    color: white;
-    display: flex;
-    justify-content: center;
-    text-align: center;
     font-size: 30px;
   }
 
   .align-games {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
 
     .card {
       margin-bottom: 30px;
@@ -135,6 +149,33 @@
     }
   }
 
+  div.welcome-container {
+    .card {
+      width: 60%;
+
+      header.card-header {
+        font-size: 24px;
+      }
+
+      div.card-body {
+        div.body-row {
+          p, b {
+            font-size: 18px;
+          }
+
+          div.form-container {
+            form {
+              button.btn-primary {
+                font-size: 18px;
+                width: 35%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   /******************************
   *        Navbar Styling       *
   ******************************/
@@ -151,7 +192,8 @@
   *  Create Game - e.g. CreateSessionFormBadInfluence.html  *
   ***********************************************************/
 
-  .create-game {
+  .create-game-container {
+    margin-top: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -326,7 +368,6 @@
     text-align: center;
     font-size: 26px;
     padding-bottom: 4%;
-
 
 
     .start-link {
@@ -553,77 +594,190 @@
   /****************************
   *  Rooms view - Rooms.html  *
   ****************************/
-  .room-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 7%;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    border-radius: 10px;
-    width: 90%;
-    background-color: white;
-    padding-top: 40px;
-    font-family: 'Roboto Slab', serif;
+  div.room-container {
+    margin-top: 15%;
+    padding: 50px 0;
 
-    .border-corner-left {
-      border-radius: 10px 0 0 10px;
+    div.rooms-table-container {
+      h2.rapport-header {
+        font-size: 40px;
+      }
+
+      p {
+        font-size: 18px;
+      }
     }
 
-    .border-corner-right {
-      border-radius: 0 10px 10px 0;
-    }
-
-    .table {
-
-      display: inline-table;
-      border-collapse: separate;
-      border-spacing: 0 0.5rem;
-
-    }
-
-    .rooms-table-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: $ku-red;
-      font-family: 'Roboto Slab', serif;
-
-
-      .rooms-table-row {
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
-        border-radius: 10px;
-        padding: 10px;
-        background: $ku-red;
-        color: white;
+    div.content-container {
+      h2.rapport-header {
+        font-size: 40px;
       }
 
-
-      thead {
-        background: $ku-red;
-        color: white;
-        font-size: 20px;
-        border-top: none !important;
-        text-align: center;
-        box-shadow: 0 0 20px rgba(157, 52, 55, 0.5);
-        border-radius: 10px;
+      p {
+        font-size: 18px;
       }
 
-      .rooms-table-data {
-        font-size: 26px;
-        border-top: none !important;
-        text-align: center;
-        vertical-align: middle;
-
+      form {
+        button#create-room {
+          width: 260px;
+          border-radius: 20px;
+          font-size: 24px;
+        }
       }
-
-      .rooms-table-row-data {
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
-        border-radius: 10px;
-      }
-
 
     }
   }
+
+
+
+
+  /****************************
+  * Create_room inline header  *
+  ****************************/
+  .same-line {
+
+    .header-left {
+      text-align: center;
+
+    }
+
+    div.button-right {
+      width: 20%;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      right: 5%;
+
+      button {
+      justify-content: flex-end;
+      background-color: $ku-red;
+        border: $ku-red;
+        padding: 10px 10px 10px 10px;
+
+        &:hover {
+          background-color: $ku-dark-green;
+        }
+      }
+    }
+  }
+
+
+  /***************************************
+  *  Rooms without session - Rooms.html  *
+  ***************************************/
+  div.room-without-container {
+    margin-top: 10%;
+
+    form {
+      div.form-group {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        div.controls {
+          width: 40%;
+        }
+      }
+
+      button.btn-primary {
+        width: 40%;
+      }
+    }
+  }
+
+  /****************************
+  *  Rooms with session - Rooms.html  *
+  ****************************/
+  div.room-with-container {
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+
+    div.content-container {
+      width: 60%;
+      text-align: center;
+
+      h2.rapport-header {
+        font-size: 40px;
+        margin-bottom: 5%;
+        text-align: center;
+        font-weight: bolder;
+      }
+
+      p {
+        font-size: 22px;
+      }
+
+      h4.content-header {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      #url-btn {
+        width: 75%;
+      }
+
+      form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        button#go-to-game, button#close-room {
+          width: 30%;
+        }
+      }
+    }
+
+
+  }
+
+  /****************************
+*  Rooms delete view - Rooms.html  *
+****************************/
+  div.delete-room-container {
+    margin-top: 10%;
+    width: 30%;
+  }
+
+  /****************************
+*  Rooms delete view - Rooms.html  *
+****************************/
+  div.update-room-container {
+    width: 400px;
+
+    div.content-container {
+      display: flex;
+      justify-content: center;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 75%;
+
+        p {
+          width: 100%;
+        }
+
+        button.btn-primary {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .start-link-white {
+      width: 60%;
+
+      a {
+        font-size: 16px;
+
+        &:hover {
+          color: $ku-dark-green;
+        }
+      }
+    }
+
 
 }
 

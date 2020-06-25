@@ -1,9 +1,7 @@
 import json
 import os
 from collections import OrderedDict
-
 from django.views.generic.edit import FormMixin
-
 import otree
 import re
 import otree.bots.browser
@@ -36,7 +34,8 @@ from django.http import HttpResponse
 
 
 class CreateRoomForm(forms.ModelForm):
-    name = forms.CharField(required=True, widget=forms.TextInput(attrs={
+    name = forms.CharField(required=True, label="", error_messages={"unique": "Dette klassenavn findes allerede. Venligst benyt et andet."},
+                           widget=forms.TextInput(attrs={
         'spellcheck': "false",
         "class": "room_name_input",
         'placeholder': "Navngiv dit klasserum"}),
@@ -432,10 +431,23 @@ class SessionMonitor(AdminSessionPageMixin, vanilla.TemplateView):
 
         page_url_active = {"next_page": "active"}
 
+        session = self.session
+        room = session.get_room()
+
+        session_start_urls = [
+            self.request.build_absolute_uri(participant._start_url())
+            for participant in session.get_participants()
+        ]
+
+        app = dict(SessionConfig(self.session.config))
+
         return dict(
             column_names=column_names,
             advance_users_button_text=advance_users_button_text,
             page_url_active=page_url_active,
+            room_wide_url=room.get_room_wide_url(self.request),
+            num_participants=len(session_start_urls),
+            game_name=app
         )
 
     def get(self, request, *args, **kwargs):

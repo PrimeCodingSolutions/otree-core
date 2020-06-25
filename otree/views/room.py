@@ -44,7 +44,6 @@ class Rooms(vanilla.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(Rooms, self).get_context_data(**kwargs)
         context["all_rooms"] = RoomsStorage.objects.filter(teacher=self.request.user).values()
-        print(context)
         return context
 
 
@@ -53,6 +52,22 @@ class DeleteRoom(vanilla.DeleteView):
     model = RoomsStorage
     template_name = 'otree/admin/DeleteRoom.html'
     success_url = reverse_lazy("Rooms")
+
+
+# This class UpdateRoom, updates a room record ("Mine klasserum")
+class UpdateRoom(vanilla.UpdateView):
+    model = RoomsStorage
+    form_class = CreateRoomForm
+    template_name = 'otree/admin/UpdateRoom.html'
+    success_url = reverse_lazy("Rooms")
+
+    def form_valid(self, form):
+        form.instance.teacher = self.request.user
+        form.instance.display_name = form.cleaned_data['name']
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy("Rooms")
 
 
 class RoomWithoutSession(vanilla.TemplateView):

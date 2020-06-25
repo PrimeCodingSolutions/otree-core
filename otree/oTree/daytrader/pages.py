@@ -85,11 +85,13 @@ class Choose(Page):
 
         data = zip(rounds, prices, choices, deals, states)
         game_rounds = Constants.num_rounds
+        current_round = self.player.round_number
 
         return {
             'data': data,
             'rounds': rounds,
-            'runder': game_rounds
+            'runder': game_rounds,
+            'current_round': current_round
         }
 
 
@@ -125,6 +127,8 @@ class Results(Page):
         data = zip(firma, tilstand, choices, handler, price, closing, tjent)
         handelsvaerdi = c(sum([p.price * p.choice_of_number_of_shares
                                for p in self.player.in_all_rounds()]))
+
+        print(choices)
 
         return {
             'handlet': handelsvaerdi,
