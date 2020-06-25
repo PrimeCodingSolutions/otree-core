@@ -32,8 +32,8 @@ class Constants(BaseConstants):
     name_in_url = 'daytrader'
     players_per_group = None
     num_rounds = 10
-    timeouts90 = 90
-    timesout30 = 30
+    timeout90 = 90
+    timeout30 = 30
 
     # share attributes
     num_shares = 100000

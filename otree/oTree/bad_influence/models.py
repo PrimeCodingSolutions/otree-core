@@ -7,11 +7,16 @@ from networkx.readwrite import json_graph
 from operator import itemgetter
 from itertools import groupby
 import numpy as np
+import pandas as pd
 import random
 from itertools import chain
 from .questions import make_question, question_order
 from django.db import models as django_models
 from otree.models import Participant
+unisex_names = pd.read_excel("bad_influence/fornavne.xlsx", usecols="A")
+girls_names = pd.read_excel("bad_influence/fornavne.xlsx", usecols="B")
+boys_names = pd.read_excel("bad_influence/fornavne.xlsx", usecols="C")
+
 
 class Constants(BaseConstants):
     name_in_url = 'bad_influence'
@@ -87,7 +92,15 @@ class Subsession(BaseSubsession):
 
         G = nx.relabel_nodes(G, lambda x: relabels.get(x))
 
+        # generate names:
+        uni = random.sample(unisex_names.tolist(), self.session.num_participants)
+        girls = random.sample(girls_names.tolist(), self.session.num_participants)
+        boys = random.sample(boys_names.tolist(), self.session.num_participants)
+
         for p in self.get_players():
+            #three_names = [random.sample(unisex_names.tolist()),
+            #               random.sample(girls_names.tolist()),
+            #               random.sample(boys_names.tolist())]
             if p.id_in_group in hubs_for_this_round:
                 p.hub = p.choice = G.nodes[p.id_in_group]['choice'] = True
                 G.nodes[p.id_in_group]['preference'] = True
@@ -270,7 +283,12 @@ class Player(BasePlayer):
     points_total = models.IntegerField(initial=0)
     fulgt_flertallet_pct = models.FloatField(initial=0)
     fulgt_preference_pct = models.FloatField(initial=0)
+    navn = models.StringField()
 
+    def navn_choices(self):
+        choices = [uni[self.id_in_group], girls[self.id_in_group], boys[self.id_in_group]]
+        random.shuffle(choices)
+        return choices
 
     def get_personal_channel_name(self):
         return '{}-{}'.format(self.id_in_group, self.id)
