@@ -26,15 +26,12 @@ class Constants(BaseConstants):
     high_bonus = 10
     low_bonus = 5
     hub_fraction = 0.33
-    round_length = 600
+    round_length = 120
 
 
 class Subsession(BaseSubsession):
     full_network = models.LongStringField()
     consensus = models.FloatField()
-    uni = models.StringField()
-    girls = models.StringField()
-    boys = models.StringField()
 
     def print_graph_stats(self, G):
         print('average clustering: ', nx.average_clustering(G))
@@ -97,17 +94,9 @@ class Subsession(BaseSubsession):
 
         # generate names:
         if self.round_number == 1:
-            self.uni = json.dumps(random.sample(unisex, self.session.num_participants))
-            self.girls = json.dumps(random.sample(girls_names, self.session.num_participants))
-            self.boys = json.dumps(random.sample(boys_names, self.session.num_participants))
-            print('subsession:', self.uni, self.girls, self.boys)
-            self.session.vars['uni'] = self.uni
-            self.session.vars['girls'] = self.girls
-            self.session.vars['boys'] = self.boys
-        else:
-            self.uni = self.session.vars['uni']
-            self.girls = self.session.vars['girls']
-            self.boys = self.session.vars['boys']
+            self.session.vars['uni'] = json.dumps(random.sample(unisex, self.session.num_participants))
+            self.session.vars['girls'] = json.dumps(random.sample(girls_names, self.session.num_participants))
+            self.session.vars['boys'] = json.dumps(random.sample(boys_names, self.session.num_participants))
 
         for p in self.get_players():
             #three_names = [random.sample(unisex_names.tolist()),
