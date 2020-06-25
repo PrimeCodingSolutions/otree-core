@@ -25,6 +25,8 @@ class Intro2(Page):
 
 class Intro3(Page):
     timeout_seconds = Constants.round_length
+    form_model = 'player'
+    form_fields = ['navn']
     def is_displayed(self):
         return self.round_number == 1
 

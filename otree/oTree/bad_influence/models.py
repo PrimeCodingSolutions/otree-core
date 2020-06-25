@@ -13,10 +13,10 @@ from itertools import chain
 from .questions import make_question, question_order
 from django.db import models as django_models
 from otree.models import Participant
-unisex_names = pd.read_excel("bad_influence/fornavne.xlsx", usecols="A")
-girls_names = pd.read_excel("bad_influence/fornavne.xlsx", usecols="B")
-boys_names = pd.read_excel("bad_influence/fornavne.xlsx", usecols="C")
-
+df = pd.read_excel("bad_influence/fornavne.xlsx")
+unisex = df['unisex'].dropna().tolist()
+girls_names = df['girls'].dropna().tolist()
+boys_names = df['boys'].dropna().tolist()
 
 class Constants(BaseConstants):
     name_in_url = 'bad_influence'
@@ -26,12 +26,15 @@ class Constants(BaseConstants):
     high_bonus = 10
     low_bonus = 5
     hub_fraction = 0.33
-    round_length = 60
+    round_length = 600
 
 
 class Subsession(BaseSubsession):
     full_network = models.LongStringField()
     consensus = models.FloatField()
+    uni = models.StringField()
+    girls = models.StringField()
+    boys = models.StringField()
 
     def print_graph_stats(self, G):
         print('average clustering: ', nx.average_clustering(G))
@@ -93,9 +96,18 @@ class Subsession(BaseSubsession):
         G = nx.relabel_nodes(G, lambda x: relabels.get(x))
 
         # generate names:
-        uni = random.sample(unisex_names.tolist(), self.session.num_participants)
-        girls = random.sample(girls_names.tolist(), self.session.num_participants)
-        boys = random.sample(boys_names.tolist(), self.session.num_participants)
+        if self.round_number == 1:
+            self.uni = json.dumps(random.sample(unisex, self.session.num_participants))
+            self.girls = json.dumps(random.sample(girls_names, self.session.num_participants))
+            self.boys = json.dumps(random.sample(boys_names, self.session.num_participants))
+            print('subsession:', self.uni, self.girls, self.boys)
+            self.session.vars['uni'] = self.uni
+            self.session.vars['girls'] = self.girls
+            self.session.vars['boys'] = self.boys
+        else:
+            self.uni = self.session.vars['uni']
+            self.girls = self.session.vars['girls']
+            self.boys = self.session.vars['boys']
 
         for p in self.get_players():
             #three_names = [random.sample(unisex_names.tolist()),
@@ -286,8 +298,10 @@ class Player(BasePlayer):
     navn = models.StringField()
 
     def navn_choices(self):
-        choices = [uni[self.id_in_group], girls[self.id_in_group], boys[self.id_in_group]]
-        random.shuffle(choices)
+        uni = json.loads(self.session.vars['uni'])
+        girl = json.loads(self.session.vars['girls'])
+        boy = json.loads(self.session.vars['boys'])
+        choices = [uni[self.id_in_group], girl[self.id_in_group], boy[self.id_in_group]]
         return choices
 
     def get_personal_channel_name(self):
@@ -314,19 +328,19 @@ class Player(BasePlayer):
             self.points = 0
 
     def get_question_title(self):
-        self.spg = make_question(self.group, self.hub, self.gender, self.number_of_friends)['title']
+        self.spg = estion(self.group, self.hub, self.gender, self.number_of_friends)['title']
 
     def get_preference_text(self):
         if self.hub == 0:
-            self.preference_str = make_question(self.group, self.hub, self.gender, self.number_of_friends)['majority_choice']
+            self.preference_str = estion(self.group, self.hub, self.gender, self.number_of_friends)['majority_choice']
         else:
-            self.preference_str = make_question(self.group, self.hub, self.gender, self.number_of_friends)['minority_choice']
+            self.preference_str = estion(self.group, self.hub, self.gender, self.number_of_friends)['minority_choice']
 
     def get_choice_text(self):
         if self.choice == 0:
-            self.choice_str = make_question(self.group, self.hub, self.gender, self.number_of_friends)['majority_choice']
+            self.choice_str = estion(self.group, self.hub, self.gender, self.number_of_friends)['majority_choice']
         else:
-            self.choice_str = make_question(self.group, self.hub, self.gender, self.number_of_friends)['minority_choice']
+            self.choice_str = estion(self.group, self.hub, self.gender, self.number_of_friends)['minority_choice']
 
     def get_friends(self):
         E = json.loads(self.ego_network)
