@@ -301,7 +301,7 @@ class Player(BasePlayer):
         uni = json.loads(self.session.vars['uni'])
         girl = json.loads(self.session.vars['girls'])
         boy = json.loads(self.session.vars['boys'])
-        choices = [uni[self.id_in_group], girl[self.id_in_group], boy[self.id_in_group]]
+        choices = [uni[self.id_in_group - 1], girl[self.id_in_group - 1], boy[self.id_in_group - 1]]
         return choices
 
     def get_personal_channel_name(self):
