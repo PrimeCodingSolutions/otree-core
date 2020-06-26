@@ -25,7 +25,7 @@ class Constants(BaseConstants):
     num_initial_friends = 3
     high_bonus = 10
     low_bonus = 5
-    hub_fraction = 0.33
+    hub_fraction = 0.4
     round_length = 120
 
 
@@ -92,6 +92,7 @@ class Subsession(BaseSubsession):
 
         G = nx.relabel_nodes(G, lambda x: relabels.get(x))
 
+
         # generate names:
         if self.round_number == 1:
             self.session.vars['uni'] = json.dumps(random.sample(unisex, self.session.num_participants))
@@ -99,15 +100,14 @@ class Subsession(BaseSubsession):
             self.session.vars['boys'] = json.dumps(random.sample(boys_names, self.session.num_participants))
 
         for p in self.get_players():
-            #three_names = [random.sample(unisex_names.tolist()),
-            #               random.sample(girls_names.tolist()),
-            #               random.sample(boys_names.tolist())]
             if p.id_in_group in hubs_for_this_round:
                 p.hub = p.choice = G.nodes[p.id_in_group]['choice'] = True
                 G.nodes[p.id_in_group]['preference'] = True
             else:
                 p.hub = p.choice = G.nodes[p.id_in_group]['choice'] = False
                 G.nodes[p.id_in_group]['preference'] = False
+            G.nodes[p.id_in_group]['name'] = 'dummy'
+            G.nodes[p.id_in_group]['exp_score'] = 0
 
         # generate ego-networks to be displayed
         for p in self.get_players():
@@ -129,7 +129,7 @@ class Subsession(BaseSubsession):
         data = [{
             "graph": json_graph.node_link_data(group.get_graph()),
             "history": json.loads(group.history),
-            "question": make_question(group, False, False, False),
+            "question": make_question(group, False, True, False),
             "start_time": group.round_start_time,
             "end_time": group.round_end_time,
         } for group in group.in_all_rounds()]
@@ -171,11 +171,17 @@ class Group(BaseGroup):
 
     def get_graph(self):
         graph = json_graph.node_link_graph(json.loads(self.graph))
-
         for p in self.get_players():
             graph.nodes[p.id_in_group]['choice'] = p.choice
-
+            graph.nodes[p.id_in_group]['name'] = p.set_names()
+            graph.nodes[p.id_in_group]['exp_score'] = p.get_expected_score()
         return graph
+
+    # def set_name_in_graph(self):
+    #     graph = json_graph.node_link_graph(json.loads(self.graph))
+    #     for p in self.get_players():
+    #         graph.nodes[p.id_in_group]['name'] = p.navn
+    #     return graph
 
     def get_consensus(self):
         graph = self.get_graph()
@@ -270,7 +276,7 @@ class Player(BasePlayer):
     )
     choice_str = models.StringField()
     preference_str = models.StringField()
-    gender = models.BooleanField()
+    gender = models.BooleanField(initial=True)
     number_of_friends = models.IntegerField()
     spg = models.LongStringField()
     last_choice_made_at = models.IntegerField()
@@ -285,6 +291,7 @@ class Player(BasePlayer):
     fulgt_flertallet_pct = models.FloatField(initial=0)
     fulgt_preference_pct = models.FloatField(initial=0)
     navn = models.StringField()
+    expected_score = models.IntegerField(initial=0)
 
     def navn_choices(self):
         uni = json.loads(self.session.vars['uni'])
@@ -293,10 +300,19 @@ class Player(BasePlayer):
         choices = [uni[self.id_in_group - 1], girl[self.id_in_group - 1], boy[self.id_in_group - 1]]
         return choices
 
+    def set_names(self):
+        if self.round_number == 1:
+            self.participant.vars['name'] = self.navn
+        else:
+            self.navn = self.participant.vars['name']
+        return self.navn
+
     def get_personal_channel_name(self):
         return '{}-{}'.format(self.id_in_group, self.id)
 
     def set_points(self):
+        # print('round ', self.round_number)
+        # print(json_graph.node_link_data(self.group.get_graph()))
         all_choices = [p.choice for p in self.group.get_players()]
         self.group.choice = sum(all_choices) > len(all_choices) / 2
         if sum(all_choices) > len(all_choices) / 2:  # if hubs have gotten the majority
@@ -316,20 +332,44 @@ class Player(BasePlayer):
         else:  # if there is a tie:
             self.points = 0
 
+    def get_expected_score(self):
+        friends = self.get_friends()
+        sum_choices = sum([friend.choice for friend in self.get_others_in_group() if friend.id_in_group in friends])
+        if self.hub == False:
+            if sum_choices < len(friends)/2 and self.choice == False:
+                self.expected_score = 3 + len(friends) - 1
+            elif sum_choices >= len(friends)/2 and self.choice == False:
+                self.expected_score = 0
+            elif self.choice == True and sum_choices <= len(friends)/2:
+                self.expected_score = 0
+            else:
+                self.expected_score = 3
+        if self.hub == True:
+            if sum_choices < len(friends)/2 and self.choice == False:
+                self.expected_score = 3
+            elif sum_choices >= len(friends)/2 and self.choice == False:
+                self.expected_score = 0
+            elif self.choice == True and sum_choices <= len(friends)/2:
+                self.expected_score = 0
+            else:
+                self.expected_score = 3 + len(friends) - 1
+        # print(self.id_in_group, self.choice, self.hub, sum_choices, len(friends), self.expected_score)
+        return self.expected_score
+
     def get_question_title(self):
-        self.spg = estion(self.group, self.hub, self.gender, self.number_of_friends)['title']
+        self.spg = make_question(self.group, self.hub, self.gender, self.number_of_friends)['title']
 
     def get_preference_text(self):
         if self.hub == 0:
-            self.preference_str = estion(self.group, self.hub, self.gender, self.number_of_friends)['majority_choice']
+            self.preference_str = make_question(self.group, self.hub, self.gender, self.number_of_friends)['majority_choice']
         else:
-            self.preference_str = estion(self.group, self.hub, self.gender, self.number_of_friends)['minority_choice']
+            self.preference_str = make_question(self.group, self.hub, self.gender, self.number_of_friends)['minority_choice']
 
     def get_choice_text(self):
         if self.choice == 0:
-            self.choice_str = estion(self.group, self.hub, self.gender, self.number_of_friends)['majority_choice']
+            self.choice_str = make_question(self.group, self.hub, self.gender, self.number_of_friends)['majority_choice']
         else:
-            self.choice_str = estion(self.group, self.hub, self.gender, self.number_of_friends)['minority_choice']
+            self.choice_str = make_question(self.group, self.hub, self.gender, self.number_of_friends)['minority_choice']
 
     def get_friends(self):
         E = json.loads(self.ego_network)
