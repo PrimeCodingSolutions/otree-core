@@ -37,11 +37,11 @@
                 </div>
             </div>
             <div class="header-block">
-                    <div class="table-description">
-                        <p>Du er trader <b>{{ player.round_number }}</b> og du skal nu handle aktier i firmaet</p>
-                    </div>
+                <div class="table-description">
+                    <p>Du er trader <b>{{ player.round_number }}</b> og du skal nu handle aktier i firmaet</p>
+                </div>
 
-             <h2 class="company-title">
+                <h2 class="company-title">
                     {{ player.company_name }}
                 </h2>
 
@@ -49,50 +49,50 @@
 
 
             <div class="game-block">
-                 {% if subsession.round_number == 1 %}
-                     <div class="first-round-game-block">
+                {% if subsession.round_number == 1 %}
+                    <div class="first-round-game-block">
 
                         <div class="sack-button-container">
                             <div class="sack-buttons">
                                 <table>
                                     <tr>
-                                    <td></td>
-                                    <td id="sack-container-1">
-                                        <img
-                                            src="{% static 'daytrader/media/unknown-face-green.png' %}"
-                                            alt="unknown face"
-                                            class="sack-button">
-                                    </td>
-                                    <td></td>
+                                        <td></td>
+                                        <td id="sack-container-1">
+                                            <img
+                                                    src="{% static 'daytrader/media/unknown-face-green.png' %}"
+                                                    alt="unknown face"
+                                                    class="sack-button">
+                                        </td>
+                                        <td></td>
                                     </tr>
                                     <tr>
-                                    <td id="sack-container-2">
-                                        <img
-                                            src="{% static 'daytrader/media/unknown-face-green.png' %}"
-                                            alt="unknown face"
-                                            class="sack-button">
-                                    </td>
-                                    <td></td>
-                                    <td id="sack-container-3">
-                                        <img
-                                            src="{% static 'daytrader/media/unknown-face-green.png' %}"
-                                            alt="unknown face"
-                                            class="sack-button">
-                                    </td>
+                                        <td id="sack-container-2">
+                                            <img
+                                                    src="{% static 'daytrader/media/unknown-face-green.png' %}"
+                                                    alt="unknown face"
+                                                    class="sack-button">
+                                        </td>
+                                        <td></td>
+                                        <td id="sack-container-3">
+                                            <img
+                                                    src="{% static 'daytrader/media/unknown-face-green.png' %}"
+                                                    alt="unknown face"
+                                                    class="sack-button">
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
-                            </div>
-                             <div class="help-text">
-                                     <p>(Tryk på et af spørgsmålstegnene i sækken for at se din private info)</p>
-                             </div>
+                        </div>
+                        <div class="help-text">
+                            <p>(Tryk på et af spørgsmålstegnene i sækken for at se din private info)</p>
+                        </div>
 
 
-                            <div class="game-choice">
-                                 <div class="game-text">
+                        <div class="game-choice">
+                            <div class="game-text">
                                 {% if subsession.round_number == 1 %}
-                                <p>Du skal handle aktier i 10 runde i 10 forskellige firmaer.</p>
-                                <p>Det er første runde, og du er den første trader i dag.</p>
+                                    <p>Du skal handle aktier i 10 runde i 10 forskellige firmaer.</p>
+                                    <p>Det er første runde, og du er den første trader i dag.</p>
                                 {% else %}
                                 {% endif %}
 
@@ -100,161 +100,159 @@
                             <div class="radio-choose">
                                 <p>
                                     Du har <b>{{ player.wallet|c }}</b>
-                                <br>
+                                    <br>
                                     Aktieprisen er lige nu <b>{{ player.price|c }}</b>
                                 </p>
                                 <p><b><u>Hvad vil du gøre?</u></b></p>
                             </div>
 
-                                <div class="choice-container">
-                                     <div class="choice-fields">
-                                        {% formfield player.choice_of_trade label=None %}
-                                    </div>
-                                    <div class="submit-value">
-                                            <p><b><u>Hvor mange aktier?</u></b></p>
-                                            <p>Du kan handle med maks. <b>{{ player.can_buy }} aktier. </b>
-                                                <br>
-                                            {% if subsession.round_number == 1 %}
-                                                <small><i>Husk at gemme nogle penge til de næste 9 runder.</i></small>
-                                            {% else %}
-                                            {% endif %}
-
-                                            {% formfield player.choice_of_number_of_shares label=None %}
-                                            <small><b>Når tiden udløber vil værdien blive gemt.</b></small>
-                                        </div>
-                                    </div>
-                                </div>
-
-                         </div>
-                    </div>
-                 {% else %}
-                <div class="left-game-block">
-
-                    <div class="sack-button-container">
-                        <div class="sack-buttons">
-                            <table>
-                                <tr>
-                                <td></td>
-                                <td id="sack-container-1">
-                                    <img
-                                        src="{% static 'daytrader/media/unknown-face-green.png' %}"
-                                        alt="unknown face"
-                                        class="sack-button">
-                                </td>
-                                <td></td>
-                                </tr>
-                                <tr>
-                                <td id="sack-container-2">
-                                    <img
-                                        src="{% static 'daytrader/media/unknown-face-green.png' %}"
-                                        alt="unknown face"
-                                        class="sack-button">
-                                </td>
-                                <td></td>
-                                <td id="sack-container-3">
-                                    <img
-                                        src="{% static 'daytrader/media/unknown-face-green.png' %}"
-                                        alt="unknown face"
-                                        class="sack-button">
-                                </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    {% if subsession.round_number == 1 %}
-                    <div class="help-text">
-                         <p>(Tryk på et af spørgsmålstegnene i sækken for at se din private info)</p>
-                    </div>
-                    {% else %}
-
-                    {% endif %}
-
-                    <div class="game-choice">
-                         <div class="game-text">
-                        {% if subsession.round_number == 1 %}
-                        <p>Du skal handle aktier i 10 runde i 10 forskellige firmaer.</p>
-                        <p>Det er første runde, og du er den første trader i dag.</p>
-                        {% else %}
-                        {% endif %}
-
-                    </div>
-                   <div class="radio-choose">
-                        <p>
-                            Du har <b>{{ player.wallet|c }}</b>
-                        <br>
-                            Aktieprisen er lige nu <b>{{ player.price|c }}</b>
-                        </p>
-                        <p><b><u>Hvad vil du gøre?</u></b></p>
-                   </div>
-
-
-
-
-                        <div class="choice-container">
-                                 <div class="choice-fields">
+                            <div class="choice-container">
+                                <div class="choice-fields">
                                     {% formfield player.choice_of_trade label=None %}
                                 </div>
-                                <div class="submit-value" >
-                                         <p><b><u>Hvor mange aktier?</u></b></p>
-                                        <p>Du kan handle med maks. <b>{{ player.can_buy }} aktier. </b>
+                                <div class="submit-value">
+                                    <p><b><u>Hvor mange aktier?</u></b></p>
+                                    <p>Du kan handle med maks. <b>{{ player.can_buy }} aktier. </b>
+                                        <br>
+                                        {% if subsession.round_number == 1 %}
+                                            <small><i>Husk at gemme nogle penge til de næste 9 runder.</i></small>
+                                        {% else %}
+                                        {% endif %}
+
+                                        {% formfield player.choice_of_number_of_shares label=None %}
+                                        <small><b>Når tiden udløber vil værdien blive gemt.</b></small>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    </div>
+                {% else %}
+                    <div class="left-game-block">
+
+                        <div class="sack-button-container">
+                            <div class="sack-buttons">
+                                <table>
+                                    <tr>
+                                        <td></td>
+                                        <td id="sack-container-1">
+                                            <img
+                                                    src="{% static 'daytrader/media/unknown-face-green.png' %}"
+                                                    alt="unknown face"
+                                                    class="sack-button">
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="sack-container-2">
+                                            <img
+                                                    src="{% static 'daytrader/media/unknown-face-green.png' %}"
+                                                    alt="unknown face"
+                                                    class="sack-button">
+                                        </td>
+                                        <td></td>
+                                        <td id="sack-container-3">
+                                            <img
+                                                    src="{% static 'daytrader/media/unknown-face-green.png' %}"
+                                                    alt="unknown face"
+                                                    class="sack-button">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        {% if subsession.round_number == 1 %}
+                            <div class="help-text">
+                                <p>(Tryk på et af spørgsmålstegnene i sækken for at se din private info)</p>
+                            </div>
+                        {% else %}
+
+                        {% endif %}
+
+                        <div class="game-choice">
+                            <div class="game-text">
+                                {% if subsession.round_number == 1 %}
+                                    <p>Du skal handle aktier i 10 runde i 10 forskellige firmaer.</p>
+                                    <p>Det er første runde, og du er den første trader i dag.</p>
+                                {% else %}
+                                {% endif %}
+
+                            </div>
+                            <div class="radio-choose">
+                                <p>
+                                    Du har <b>{{ player.wallet|c }}</b>
+                                    <br>
+                                    Aktieprisen er lige nu <b>{{ player.price|c }}</b>
+                                </p>
+                                <p><b><u>Hvad vil du gøre?</u></b></p>
+                            </div>
+
+
+                            <div class="choice-container">
+                                <div class="choice-fields">
+                                    {% formfield player.choice_of_trade label=None %}
+                                </div>
+                                <div class="submit-value">
+                                    <p><b><u>Hvor mange aktier?</u></b></p>
+                                    <p>Du kan handle med maks. <b>{{ player.can_buy }} aktier. </b>
                                         {% formfield player.choice_of_number_of_shares label=None %}
                                         <small><b>Når tiden udløber vil værdien blive gemt.</b></small>
                                 </div>
                             </div>
                         </div>
                     </div>
-                <div class="right-game-block">
-                    {% if subsession.round_number > 1 %}
-                    <table class="table company-table">
-                        <tr class="table-corners">
-                            <th class="table-header border-corner-left">Trader</th>
-                            <th class="table-header">Pris</th>
-                            <th class="table-header">Private info</th>
-                            <th class="table-header border-corner-right">Handel</th>
-                        </tr>
-                        {% for r, price, choice, deals, states in data %}
-                            <tr class="table-row">
-                                <td class="company-id table-data"> {{ r }}</td>
-                                <td class="table-data"> {{ price|c }}</td>
-                                <td class="table-data">
-                                    <img src="{% static 'daytrader/media/unknown_face_daytrader.png' %}" alt="unknown face"
-                                     class="reveal-face">
-                                </td>
-                                <td class="table-data">
-                                {% if choice == True %}
-                                    +
-                                {% else %}
-                                    {% if deals > 0 %}
-                                        -
-                                    {% endif %}
-                                {% endif %}
-                                {{ deals }} aktier.
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                    {% else %}
+                    <div class="right-game-block">
+                        {% if subsession.round_number > 1 %}
+                            <table class="table company-table">
+                                <tr class="table-corners">
+                                    <th class="table-header border-corner-left">Trader</th>
+                                    <th class="table-header">Pris</th>
+                                    <th class="table-header">Private info</th>
+                                    <th class="table-header border-corner-right">Handel</th>
+                                </tr>
+                                {% for r, price, choice, deals, states in data %}
+                                    <tr class="table-row">
+                                        <td class="company-id table-data"> {{ r }}</td>
+                                        <td class="table-data"> {{ price|c }}</td>
+                                        <td class="table-data">
+                                            <img src="{% static 'daytrader/media/unknown_face_daytrader.png' %}"
+                                                 alt="unknown face"
+                                                 class="reveal-face">
+                                        </td>
+                                        <td class="table-data">
+                                            {% if choice == 2 %}
+                                                +
+                                            {% else %}
+                                                {% if deals > 0 %}
+                                                    -
+                                                {% endif %}
+                                            {% endif %}
+                                            {{ deals }} aktier.
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        {% else %}
 
 
-                    {% endif %}
+                        {% endif %}
 
-                </div>
+                    </div>
 
-            </div>
-          {% endif %}
-        </div>
+                    </div>
+                {% endif %}
+    </div>
     </div>
 
 
 
 {% endblock %}
 {% block scripts %}
-       <script>
+    <script>
 
 
-
-       // Prevent submit with enter key
-       $(document).on("keydown", "form", function(event) {
+        // Prevent submit with enter key
+        $(document).on("keydown", "form", function (event) {
             return event.key !== "Enter";
         });
 
@@ -282,12 +280,11 @@
         for (let button = 0; button < radioButton.length; button++) {
             try {
                 radioButton[button].onclick = event => {
-                inputContainer.style.display = "block";
-                document.getElementById("myInput").focus();
-                document.getElementById("myInput").select();
+                    inputContainer.style.display = "block";
+                    document.getElementById("myInput").focus();
+                    document.getElementById("myInput").select();
                 }
-            }
-              catch(err) {
+            } catch (err) {
                 console.log("ERROR: Unable to focus")
             }
         }

@@ -109,9 +109,9 @@
 
                     let tableDataChoice = document.createElement("td");
                     tableDataChoice.className = "daytrader-table-data";
-                    if (choices[i] === 1) {
+                    if (choices[i] === 2) {
                         tableDataChoice.textContent = `+${deals[i]}`;
-                    } else if (choices[i] === 0) {
+                    } else if (choices[i] === 1) {
                         tableDataChoice.textContent = `-${deals[i]}`;
                     } else {
                         tableDataChoice.textContent = deals[i];
