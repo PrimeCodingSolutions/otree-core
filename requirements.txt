@@ -33,7 +33,7 @@ hyperlink==19.0.0
 idna==2.8
 incremental==17.5.0
 matplotlib==3.2.1
-msgpack==0.6.1
+msgpack==1.0.0
 # msgpack-python was renamed to msgpack.
 # supposedly installing version 0.5.6 allows
 # a smooth upgrade to msgpack
