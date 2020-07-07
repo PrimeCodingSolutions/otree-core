@@ -1014,7 +1014,45 @@
     display: flex;
     justify-content: center;
   }
-  div.choose-game-container div#error {
+
+  div.ranking-container {
+    width: 80%;
+  }
+  div.ranking-container h2.rapport-header {
+    font-family: "Roboto Slab", serif;
+    text-align: center;
+    font-size: 32px;
+    padding: 20px 0;
+  }
+  div.ranking-container #rankingTable {
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
+    display: inline-table;
+    font-family: "Roboto Slab", serif;
+  }
+  div.ranking-container #rankingTable .border-corner-left {
+    border-radius: 10px 0 0 10px;
+  }
+  div.ranking-container #rankingTable .border-corner-right {
+    border-radius: 0 10px 10px 0;
+  }
+  div.ranking-container #rankingTable .table-ranking-header {
+    background: #41739D;
+    color: white;
+    box-shadow: 0px 0px 20px rgba(65, 115, 157, 0.5);
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  div.ranking-container #rankingTable .table-ranking-row {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+  }
+  div.ranking-container #rankingTable .table-ranking-data {
+    text-align: center;
+    font-size: 13px;
+  }
+  div.ranking-container div#error {
     color: #BF0A30;
     font-weight: bold;
     font-style: italic;
@@ -1022,7 +1060,7 @@
     margin: 0;
     font-size: 13px;
   }
-  div.choose-game-container div#error p {
+  div.ranking-container div#error p {
     margin-bottom: 0;
   }
 }
@@ -3216,22 +3254,44 @@
     flex-direction: column;
     justify-content: center;
   }
-  div.choose-game-container div.game-block div.game-choice div.submit-value #myInput {
+  div.choose-game-container div.game-block div.game-choice div.submit-value div.submit-value {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+  }
+  div.choose-game-container div.game-block div.game-choice div.submit-value div.submit-value #myInput {
     font-size: 22px;
     display: flex;
     justify-content: center;
     text-align: center;
   }
-  div.choose-game-container div.game-block div.game-choice div.submit-value .form-group {
+  div.choose-game-container div.game-block div.game-choice div.submit-value div.submit-value .form-group {
     display: flex;
     justify-content: center;
     margin-bottom: 0;
   }
-  div.choose-game-container div.game-block div.game-choice div.submit-value .form-control {
+  div.choose-game-container div.game-block div.game-choice div.submit-value div.submit-value .form-control {
     display: flex;
     justify-content: center;
     width: 100%;
     border: solid 3px #41739D;
+  }
+  div.choose-game-container div.game-block div.game-choice div.submit-value div.submit-value #id_choice_of_number_of_shares {
+    max-width: 166px;
+    height: 40px;
+    left: 550px;
+    top: 1637px;
+    font-size: 20px;
+    color: black;
+    border: 5px solid #41739D;
+    box-sizing: border-box;
+    border-radius: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  div.choose-game-container div.game-block div.game-choice div.submit-value div#error {
+    font-size: 20px;
   }
   div.choose-game-container div.game-block div.game-choice div.submit-value #id_choice_of_number_of_shares {
     max-width: 166px;
@@ -3246,9 +3306,6 @@
     text-align: center;
     display: flex;
     justify-content: center;
-  }
-  div.choose-game-container div.game-block div.game-choice div#error {
-    font-size: 20px;
   }
 }
 
