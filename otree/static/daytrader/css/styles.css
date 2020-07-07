@@ -60,7 +60,8 @@
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     border-radius: 10px;
     background-color: white;
-    width: 98%;
+    width: 90%;
+    margin-bottom: 2%;
     padding: 10px 10px 30px 10px;
     /*******************
     *   intro1.html    *
@@ -301,6 +302,7 @@
     border-top: none !important;
     text-align: center;
     box-shadow: 0 0 20px rgba(65, 115, 157, 0.5);
+    vertical-align: middle;
   }
   div.daytrader-game-container .daytrader-table .daytrader-table-data {
     font-size: 13px;
@@ -1012,6 +1014,44 @@
     display: flex;
     justify-content: center;
   }
+
+  div.ranking-container {
+    width: 80%;
+  }
+  div.ranking-container h2.rapport-header {
+    font-family: "Roboto Slab", serif;
+    text-align: center;
+    font-size: 32px;
+    padding: 20px 0;
+  }
+  div.ranking-container #rankingTable {
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
+    display: inline-table;
+    font-family: "Roboto Slab", serif;
+  }
+  div.ranking-container #rankingTable .border-corner-left {
+    border-radius: 10px 0 0 10px;
+  }
+  div.ranking-container #rankingTable .border-corner-right {
+    border-radius: 0 10px 10px 0;
+  }
+  div.ranking-container #rankingTable .table-ranking-header {
+    background: #41739D;
+    color: white;
+    box-shadow: 0px 0px 20px rgba(65, 115, 157, 0.5);
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  div.ranking-container #rankingTable .table-ranking-row {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+  }
+  div.ranking-container #rankingTable .table-ranking-data {
+    text-align: center;
+    font-size: 13px;
+  }
 }
 @media (min-width: 375px) {
   /******************************
@@ -1039,6 +1079,13 @@
     /****************************
       *  All day trader pages   *
     *****************************/
+  }
+  .daytrader-game-container div.ranking-container table#rankingTable th.table-ranking-header {
+    font-size: 15px;
+  }
+  .daytrader-game-container div.ranking-container table#rankingTable td.table-ranking-data {
+    text-align: center;
+    font-size: 14px;
   }
   .daytrader-game-container .content-container {
     display: flex;
@@ -1106,6 +1153,9 @@
     font-family: "Patrick Hand", sans-serif;
     border-top: none !important;
     text-align: center;
+  }
+  .daytrader-game-container .daytrader-table tr.daytrader-table-row td:first-child {
+    padding-left: 15px;
   }
   .daytrader-game-container .daytrader-table .daytrader-table-row {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
@@ -1692,6 +1742,13 @@
       *  All day trader pages   *
     *****************************/
   }
+  div.daytrader-game-container div.ranking-container table#rankingTable th.table-ranking-header {
+    font-size: 18px;
+  }
+  div.daytrader-game-container div.ranking-container table#rankingTable td.table-ranking-data {
+    text-align: center;
+    font-size: 17px;
+  }
   div.daytrader-game-container div.content-container {
     width: 80%;
   }
@@ -1788,6 +1845,9 @@
   div.daytrader-game-container .daytrader-table .daytrader-table-row {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
+  }
+  div.daytrader-game-container .daytrader-table .daytrader-table-row td:first-child {
+    padding-left: 20px;
   }
   div.daytrader-game-container .daytrader-form-container {
     display: flex;
@@ -2347,6 +2407,16 @@
       *  All day trader pages   *
     *****************************/
   }
+  div.daytrader-game-container div.ranking-container {
+    width: 50%;
+  }
+  div.daytrader-game-container div.ranking-container table#rankingTable th.table-ranking-header {
+    font-size: 26px;
+  }
+  div.daytrader-game-container div.ranking-container table#rankingTable td.table-ranking-data {
+    text-align: center;
+    font-size: 20px;
+  }
   div.daytrader-game-container div.daytrader-sack-button-container {
     margin: 0 10px;
     height: 290px;
@@ -2805,7 +2875,7 @@
     flex-direction: column;
     align-items: center;
     color: black;
-    padding: 5% 0;
+    padding: 5% 7.5%;
   }
   .report-info .report-description {
     font-family: "Patrick Hand", sans-serif;
