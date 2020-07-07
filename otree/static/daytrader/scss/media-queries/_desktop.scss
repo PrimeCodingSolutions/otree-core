@@ -1033,26 +1033,49 @@
           flex-direction: column;
           justify-content: center;
 
-          #myInput {
-            font-size: 22px;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-          }
+              div.submit-value {
+                display: none;
+                flex-direction: column;
+                justify-content: center;
 
-          .form-group {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 0;
-          }
+                #myInput {
+                  font-size: 22px;
+                  display: flex;
+                  justify-content: center;
+                  text-align: center;
+                }
+
+                .form-group {
+                  display: flex;
+                  justify-content: center;
+                  margin-bottom: 0;
+                }
 
 
-          .form-control {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            border: solid 3px $ku-dark-blue;
-          }
+               .form-control {
+                  display: flex;
+                  justify-content: center;
+                  width: 100%;
+                  border: solid 3px $ku-dark-blue;
+                }
+
+                #id_choice_of_number_of_shares {
+                  max-width: 166px;
+                  height: 40px;
+                  left: 550px;
+                  top: 1637px;
+                  font-size: 20px;
+                  color: black;
+                  border: 5px solid #41739D;
+                  box-sizing: border-box;
+                  border-radius: 30px;
+                  text-align: center;
+                  display: flex;
+                  justify-content: center;
+              }
+            }  div#error {
+        font-size: 20px;
+      }
 
           #id_choice_of_number_of_shares {
             max-width: 166px;
@@ -1071,8 +1094,8 @@
         }
 
       }
-    }
-  }
 
+   }
+  }
 }
 
