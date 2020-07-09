@@ -180,7 +180,7 @@
             .attr("dx", 15)
             .attr("dy", 20)
             .text(function (d) {
-                return (d.id === {{ player.id_in_group }} ? ("\u00A0" + d.id + " " + "(Dig)") : d.id);
+                return (d.name === "{{ player.navn }}" ? ("\u00A0" + d.name + " " + "(Dig)") : d.name);
             });
 
         force.on("tick", function () {

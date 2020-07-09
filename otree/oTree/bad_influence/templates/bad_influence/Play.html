@@ -98,6 +98,7 @@
         // else it should be ws
         let isHTTPS = window.location.protocol.includes('https')
         let ws_scheme = isHTTPS ? "wss" : "ws";
+        let player_name = "{{ player.navn }}"
 
         // Defines the WebSocket route to listen to
         let ws_path = ws_scheme + '://' + window.location.host + "/ws/chat/{{ group.pk }}";
@@ -193,7 +194,8 @@
                     'message': message,
                     'player_id': {{ player.id }},
                     'chat_id': {{ player.id_in_group }},
-                    'group_id': {{ group.id }}
+                    'group_id': {{ group.id }},
+                    'player_name': player_name
                 }));
             }
             // Finally reset the input field with an empty value
@@ -236,9 +238,9 @@
             // if the data's chat_id is equal to the player's id in the group, display (Dig) after the Player's name in
             // the frontend. If not just display the Player's name
             if (data.chat_id === {{ player.id_in_group }}) {
-                bElement.textContent = "Spiller " + data.chat_id + " (Dig):";
+                bElement.textContent = player_name + " (Dig):";
             } else {
-                bElement.textContent = "Spiller " + data.chat_id + ":";
+                bElement.textContent = data.player_name + ":";
             }
 
             // Append the bold and paragraph elements into the div element
