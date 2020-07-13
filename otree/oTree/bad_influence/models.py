@@ -357,6 +357,7 @@ class Player(BasePlayer):
             else:
                 self.expected_score = 3 + len(friends) - 1
         # print(self.id_in_group, self.choice, self.hub, sum_choices, len(friends), self.expected_score)
+        print("Spiller {} har {} point".format(self.id_in_group, self.expected_score))
         return self.expected_score
 
     def get_question_title(self):
