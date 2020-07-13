@@ -101,13 +101,14 @@
         let ws_scheme = isHTTPS ? "wss" : "ws";
 
         let expectedScore = {{ player.expected_score }};
-        let choiceButton = document.querySelector(".choice-button");
+        let choiceButton = document.getElementsByClassName("choice-button");
         let scoreTag = document.querySelector(".expected-score");
+
 
         for(let i = 0; i < choiceButton.length; i++) {
             choiceButton[i].onclick = () => {
-                console.log(choiceButton[i]);
-                scoreTag.innerHTML = `Forventet score: ${expectedScore}`;
+                console.log(expectedScore);
+                {#scoreTag.innerHTML = `Forventet score: ${expectedScore}`;#}
             }
         }
 
