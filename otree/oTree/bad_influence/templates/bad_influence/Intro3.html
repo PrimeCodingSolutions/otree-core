@@ -37,6 +37,7 @@
 
     <div class="bad_influence-form-container">
         {% formfield player.navn label=None %}
+        <h2 class="ready-player text-center"></h2>
         <div class="button-container">
             <button class="start-game">
                 <span class="button-text">Jeg er klar!</span>
@@ -46,5 +47,16 @@
 </div>
 
 {% endblock %}
+{% block scripts %}
+    <script>
+        let radioButton = document.getElementsByClassName("form-check-input");
+        let readyPlayer = document.querySelector(".ready-player");
 
+        for(let i = 0; i < radioButton.length; i++) {
+             radioButton[i].onclick = () => {
+                readyPlayer.innerHTML = `Klar til at spille ${radioButton[i].value}?`
+             }
+        }
+    </script>
+{% endblock %}
 

@@ -23,14 +23,14 @@
 
 
     <div class="daytrader-game-container">
-
-        <p class="daytrader-round-info">
-            Børsen er lukket for i dag.
-        </p>
-        <p class="daytrader-round-info">
-            Vi lukker nu dine positioner. Du har handlet for i alt {{ handlet }}.
-            I tabellen kan du se, hvordan det gik.
-        </p>
+        <div class="content-container">
+            <p class="daytrader-round-info">
+                Børsen er lukket for i dag.
+            </p>
+            <p class="daytrader-round-info">
+                Vi lukker nu dine positioner. Du har handlet for i alt {{ handlet }}.
+                I tabellen kan du se, hvordan det gik.
+            </p>
 
         <table class="table daytrader-table table-responsive" id="tableResults">
             <tr class="table-corners">
@@ -41,21 +41,46 @@
                 <th class="daytrader-table-header"> lukkepris</th>
                 <th class="daytrader-table-header border-corner-right"> tjent</th>
             </tr>
-            {#            {% for firma, tilstand, choice, deal, price, closing, tjent in data %}#}
-            {#                <tr class="daytrader-table-row daytrader-table-result-row">#}
-            {#                    <td class="daytrader-table-data"> {{ firma }}    </td>#}
-            {#                    <td class="daytrader-table-data" id="state-data">#}
-            {##}
-            {#                    </td>#}
-            {#                    <td class="daytrader-table-data"> {% if choice == True %} + {% else %} - {% endif %}#}
-            {#                        {{ deal }}     </td>#}
-            {#                    <td class="daytrader-table-data"> {{ price }}    </td>#}
-            {#                    <td class="daytrader-table-data"> {{ closing }}  </td>#}
-            {#                    <td class="daytrader-table-data"><strong> {{ tjent }} </strong></td>#}
-            {#                </tr>#}
-            {##}
-            {#            {% endfor %}#}
 
+        </table>
+
+        <p class="daytrader-round-info results-desc">
+            Du er spiller nummer {{ player.id_in_group }} og
+            du har tjent i alt {{ player.tjent_ialt }}.
+
+        </p>
+        <p class="daytrader-round-info">
+            Gebyrer og kurtage ({{ kurtage_pct }}% af handelsværdi)
+            beløber sig til {{ kurtage }}.
+            Din samlede udbetaling er {{ ialt }}.
+        </p>
+        <p class="daytrader-round-info">
+           Tak for at du handlede med os 💰
+        </p>
+
+        </div>
+
+    <div class="ranking-container">
+      <h2 class="rapport-header ">Topscorerliste</h2>
+
+
+
+      <table class="table table-responsive" id="rankingTable">
+          <tr class="table-corners">
+              <th class="table-ranking-header border-corner-left">#</th>
+              <th class="table-ranking-header"> spiller nr.</th>
+              <th class="table-ranking-header border-corner-right"> tjent i alt</th>
+          </tr>
+          {% for ranking in rankings %}
+              <tr class="table-ranking-row">
+                  <td class="table-ranking-data"><strong>{{ forloop.counter }}</strong></td>
+                  <td class="table-ranking-data"> {{ ranking.0 }} </td>
+                  <td class="table-ranking-data"> {{ ranking.1 }} </td>
+              </tr>
+          {% endfor %}
+      </table>
+    </div>
+    </div>
             <script>
                 let stateData = document.getElementById("state-data");
                 let table = document.querySelector(".table");
@@ -94,10 +119,10 @@
 
                     for (let j = 0; j < companyState.length; j++) {
                         let happyFace = document.createElement("img");
-                        happyFace.src = "{% static 'daytrader/media/happy_face_daytrader.png' %}"
+                        happyFace.src = "{% static 'daytrader/media/happy_face_daytrader.png' %}";
                         happyFace.className = `company-face result-table-face-${j + 1}`;
                         let sadFace = document.createElement("img");
-                        sadFace.src = "{% static 'daytrader/media/sad_face_daytrader.png' %}"
+                        sadFace.src = "{% static 'daytrader/media/sad_face_daytrader.png' %}";
                         sadFace.className = `company-face result-table-face-${j + 1}`;
                         if (companyState[j] === true) {
                             sackContainer.appendChild(happyFace);
@@ -107,7 +132,7 @@
                         }
                     }
 
-                    tableDataState.appendChild(sackContainer)
+                    tableDataState.appendChild(sackContainer);
                     resultTableRow.appendChild(tableDataState);
                     table.appendChild(resultTableRow);
 
@@ -142,76 +167,5 @@
                     resultTableRow.appendChild(tableDataEarned);
                     table.appendChild(resultTableRow);
                 }
-
-
-                {#let data = {{ tilstand|safe }};#}
-                {##}
-                {#for (let iterator = 0; iterator < stateData.length; iterator++) {#}
-                {#    if (iterator % 3 === 0) {#}
-                {##}
-                {#        for (let i = 0; i < data.length; i++) {#}
-                {#            let element = JSON.parse(data[i]);#}
-                {##}
-                {#            element.forEach(item => {#}
-                {#                if (item === true) {#}
-                {#                    console.log(item);#}
-                {#                    let red = document.createElement("img");#}
-                {#                    red.src = "{% static "daytrader/media/red_peep.png" %}";#}
-                {#                    let divElement = document.createElement("div");#}
-                {#                    stateData.appendChild(divElement);#}
-                {#                    divElement.appendChild(red);#}
-                {#                } else {#}
-                {#                    console.log(item)#}
-                {#                    let blue = document.createElement("img");#}
-                {#                    blue.src = "{% static "daytrader/media/blue_peep.png" %}";#}
-                {#                    let divElement = document.createElement("div");#}
-                {#                    stateData.appendChild(divElement);#}
-                {#                    divElement.appendChild(blue);#}
-                {#                }#}
-                {#            });#}
-                {#        }#}
-                {#    }#}
-                {##}
-
             </script>
-        </table>
-
-        <p class="daytrader-round-info results-desc">
-            Du er spiller nummer {{ player.id_in_group }} og
-            du har tjent i alt {{ player.tjent_ialt }}.
-
-        </p>
-        <p class="daytrader-round-info">
-            Gebyrer og kurtage ({{ kurtage_pct }}% af handelsværdi)
-            beløber sig til {{ kurtage }}.
-            Din samlede udbetaling er {{ ialt }}.
-        </p>
-        <p class="daytrader-round-info">
-           Tak for at du handlede med os 💰
-        </p>
-
-
-
-      <div class="ranking-container">
-      <h2 class="rapport-header ">Topscorerliste</h2>
-
-
-
-      <table class="table table-responsive" id="rankingTable">
-          <tr class="table-corners">
-              <th class="table-ranking-header border-corner-left"></th>
-              <th class="table-ranking-header"> spiller nr.</th>
-              <th class="table-ranking-header border-corner-right"> tjent i alt</th>
-          </tr>
-          {% for ranking in rankings %}
-              <tr class="table-ranking-row">
-                  <td class="table-ranking-data"><strong>{{ forloop.counter }}</strong></td>
-                  <td class="table-ranking-data"> {{ ranking.0 }} </td>
-                  <td class="table-ranking-data"> {{ ranking.1 }} </td>
-              </tr>
-          {% endfor %}
-      </table>
-
-
-    </div>
 {% endblock %}

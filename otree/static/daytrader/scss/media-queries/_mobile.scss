@@ -13,7 +13,20 @@
     width: 95%;
     padding: 10px 20px 30px 20px;
 
-    div.content-container {
+    div.ranking-container {
+      table#rankingTable {
+        th.table-ranking-header {
+          font-size: 15px;
+        }
+
+        td.table-ranking-data {
+          text-align: center;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .content-container {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -121,6 +134,12 @@
         font-family: "Patrick Hand", sans-serif;
         border-top: none !important;
         text-align: center;
+      }
+
+      tr.daytrader-table-row {
+        td:first-child {
+          padding-left: 15px;
+        }
       }
 
       .daytrader-table-row {

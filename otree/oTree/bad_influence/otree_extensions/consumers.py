@@ -156,7 +156,8 @@ class ChatConsumer(WebsocketConsumer):
              timestamp=datetime.datetime.now(),
              player_id=data['player_id'],
              chat_id=data['chat_id'],
-             group_id=data['group_id']
+             group_id=data['group_id'],
+             player_name=data['player_name']
         )
 
         # Issues the command 'new_message' for creating a new message and turns the new message to JSON
@@ -186,7 +187,8 @@ class ChatConsumer(WebsocketConsumer):
             'chat_id': message.chat_id,
             'content': message.content,
             'timestamp': str(message.timestamp),
-            'group_id': message.group_id
+            'group_id': message.group_id,
+            'player_name': message.player_name
         }
 
     # Command controller

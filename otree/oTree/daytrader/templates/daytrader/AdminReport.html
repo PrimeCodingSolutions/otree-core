@@ -62,31 +62,6 @@
                 {% for state in valg %}
                     <td class="daytrader-table-data get-col">
                         <div class="face-container">
-{#                            {% if state == 1 %}#}
-{#                                {% for earned in profit %}#}
-{#                                    {% if forloop.counter0|divisibleby:player_number %}#}
-{#                                        {% if earned == 0 %}#}
-{#                                            <img src="{% static 'daytrader/media/grey_circle.svg' %}" alt="">#}
-{#                                        {% else %}#}
-{#                                            <img src="{% static 'daytrader/media/green-plus.svg' %}" alt="green plus"#}
-{#                                                 class="company-face">#}
-{#                                        {% endif %}#}
-{##}
-{#                                    {% endif %}#}
-{#                                {% endfor %}#}
-{##}
-{#                            {% elif state == 0 %}#}
-{#                                {% for earned in profit %}#}
-{#                                    {% if forloop.counter0|divisibleby:player_number and earned is  0 %}#}
-{#                                        <img src="{% static 'daytrader/media/grey_circle.svg' %}" alt="">#}
-{#                                    {% elif forloop.counter0|divisibleby:player_number and earned > 0 %}#}
-{#                                        <img src="{% static 'daytrader/media/yellow-minus.svg' %}" alt="yellow minus"#}
-{#                                             class="company-face">#}
-{#                                    {% endif %}#}
-{#                                {% endfor %}#}
-{##}
-{#                            {% endif %}#}
-
                             {% if state == 1 %}
                                 <img src="{% static 'daytrader/media/green-plus.svg' %}" alt="green plus"
                                      class="company-face">
@@ -113,7 +88,7 @@
 
     <table class="table table-responsive" id="rankingTable">
         <tr class="table-corners">
-            <th class="table-ranking-header border-corner-left"></th>
+            <th class="table-ranking-header border-corner-left">#</th>
             <th class="table-ranking-header"> spiller nr.</th>
             <th class="table-ranking-header border-corner-right"> tjent i alt</th>
         </tr>
