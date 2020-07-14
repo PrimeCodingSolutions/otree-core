@@ -27,7 +27,7 @@ class Constants(BaseConstants):
     high_bonus = 10
     low_bonus = 5
     hub_fraction = 0.4
-    round_length = 120
+    round_length = 12000
     koen = random.choice([True, False])
 
 
@@ -357,7 +357,7 @@ class Player(BasePlayer):
             else:
                 self.expected_score = 3 + len(friends) - 1
         # print(self.id_in_group, self.choice, self.hub, sum_choices, len(friends), self.expected_score)
-        print("Spiller {} har {} point".format(self.id_in_group, self.expected_score))
+        print(sum_choices)
         return self.expected_score
 
     def get_question_title(self):

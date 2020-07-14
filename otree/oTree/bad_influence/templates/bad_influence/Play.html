@@ -101,18 +101,6 @@
         let ws_scheme = isHTTPS ? "wss" : "ws";
         let player_name = "{{ player.navn }}"
 
-        let expectedScore = {{ player.expected_score }};
-        let choiceButton = document.getElementsByClassName("choice-button");
-        let scoreTag = document.querySelector(".expected-score");
-
-
-        for(let i = 0; i < choiceButton.length; i++) {
-            choiceButton[i].onclick = () => {
-                console.log(expectedScore);
-                {#scoreTag.innerHTML = `Forventet score: ${expectedScore}`;#}
-            }
-        }
-
         // Defines the WebSocket route to listen to
         let ws_path = ws_scheme + '://' + window.location.host + "/ws/chat/{{ group.pk }}";
 
