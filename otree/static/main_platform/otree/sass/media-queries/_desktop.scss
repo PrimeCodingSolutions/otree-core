@@ -28,7 +28,8 @@
     .games-title {
       font-size: 60px;
       margin-bottom: 0;
-      margin-top: 12%;
+      margin-top: 5%;
+
     }
 
     p {
@@ -778,6 +779,17 @@
       }
     }
 
+  div.daytrader-introduction-container {
+    justify-content: center;
+    display: flex;
+    margin-top: 3%;
+    flex-direction: column;
+  }
+
+  div.rules {
+    margin-right: 10px;
+    height: 70px;
+  }
 
 }
 

@@ -2317,7 +2317,7 @@ div.welcome-container .card-footer {
   .title-container .games-title {
     font-size: 60px;
     margin-bottom: 0;
-    margin-top: 12%;
+    margin-top: 5%;
   }
   .title-container p {
     text-align: center;
@@ -2913,6 +2913,18 @@ div.welcome-container .card-footer {
   }
   .start-link-white a:hover {
     color: #5f861e;
+  }
+
+  div.daytrader-introduction-container {
+    justify-content: center;
+    display: flex;
+    margin-top: 3%;
+    flex-direction: column;
+  }
+
+  div.rules {
+    margin-right: 10px;
+    height: 70px;
   }
 }
 

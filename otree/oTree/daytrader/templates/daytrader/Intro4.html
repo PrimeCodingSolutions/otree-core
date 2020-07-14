@@ -80,8 +80,18 @@
 
             <p> Yderligere kan du se hvor meget de gik short eller long i tabellen.
                 <br>
-                <small>(Minus er <i class="short-modal-link">short</i>, plus er <i
-                        class="long-modal-link">long</i>)</small>
+                <small>*Minus er
+                    <a class="tip">short<span>At gå short betyder at man låner aktier af sin broker for at sælge dem på markedet med det samme,
+                        fordi man tror at aktieprisen vil falde.</span></a>,
+                    plus er
+                    <a class="tip">long<span>At gå long betyder at man køber aktier fordi man tror at de vil stige i værdi. Senere sælger man aktierne igen (man ”lukker sin position”).
+                        <br>
+                        <br>
+                        Forskellen på købs- og salgsprisen er ens fortjeneste (eller tab).
+                    </span>
+                    </a>
+
+                </small>
             </p>
              <p>Med den viden, hvad er mest sandsynligt at de to tradere har set af ansigter?</p>
              <div class="radio-choices">
@@ -133,6 +143,10 @@
     </div>
 
     <script>
+     $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+     });
+
     /* Hide next choice until correct answer is chosen
         let trader_next_choice = document.getElementById("trader_next_choice");
         trader_next_choice.style.display = "none;";
@@ -360,30 +374,4 @@
             }
         }
     </script>
-
-        <!--
-
-        </div>
-
-
-
-        </div>
-        <div id="shortModal" class="short-modal">
-            <div class="short-modal-content">
-                <div class="daytrader-round-info">
-                    <p>At gå short betyder at man låner aktier af sin broker for at sælge dem på markedet med det samme,
-                        fordi man tror at aktieprisen vil falde.</p>
-                    <p>Senere køber man aktierne igen og afleverer dem tilbage (man ”lukker sin position”). Forskellen
-                        på salgs- og købsprisen er ens fortjeneste (eller tab).</p>
-                </div>
-            </div>
-        </div>
-        <div id="longModal" class="long-modal">
-            <div class="long-modal-content">
-                <div class="daytrader-round-info">
-                    <p>At gå long betyder at man køber aktier fordi man tror at de vil stige i værdi.
-                        Senere sælger man aktierne igen (man ”lukker sin position”).</p>
-                    <p> Forskellen på købs- og salgsprisen er ens fortjeneste (eller tab).</p>
-                </div>
-            </div>-->
 {% endblock %}

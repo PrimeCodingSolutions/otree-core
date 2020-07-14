@@ -59,32 +59,6 @@
         $('[data-toggle="tooltip"]').tooltip()
     });
 
-{% comment %}
-    let futureModal = document.getElementById("futureModal");
-
-    let futureLink = document.querySelector(".daytrader-future");
-
-    let closeModal = document.getElementsByClassName("close")[0];
-
-    futureLink.onclick = function () {
-        futureModal.style.display = "block";
-    };
-
-    window.onclick = function (event) {
-        if (event.target === futureModal) {
-            futureModal.style.display = "none";
-        }
-    }
-
-
-        <div id="futureModal" class="future-modal">
-            <div class="future-modal-content">
-                <p class="daytrader-round-info">En daytrader er en børsmægler som <b>køber (går ”long”)</b> og <b>sælger (går ”short”)</b> mange aktier hver dag for at tjene penge på prisfluktuationerne i løbet af en enkel dag.</p>
-            </div>
-        </div>
-    </div>
-    <b class="daytrader-future">daytrader</b>
-{% endcomment %}
 
 </script>
 {% endblock %}

@@ -135,6 +135,7 @@ def extensions_export_urlpatterns():
 class GamesView(vanilla.TemplateView):
     template_name = 'otree/games.html'
 
+
 class DaytraderIntroView(vanilla.TemplateView):
     template_name = 'otree/daytrader-introduction.html'
 
