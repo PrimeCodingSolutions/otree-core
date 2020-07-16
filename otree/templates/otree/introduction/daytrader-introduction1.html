@@ -1,0 +1,54 @@
+{% extends "otree/BaseAdmin.html" %}
+{% load otree %}
+{% block content %}
+    <style>
+        body {
+            background: #41739D;
+        }
+
+    </style>
+    <div class="daytrader-game-container">
+        <div class="round-introduction">
+            <h2 class="daytrader-round-title">Introduktion</h2>
+        </div>
+        <p class="daytrader-round-info text-center">
+            Der er mange måder, hvorpå der kan opstå bobler i finansverdenen.
+        </p>
+        <p class="daytrader-round-info">
+            Her er en simpel forklaring.
+        </p>
+        <p class="daytrader-round-info text-center">
+            <b>Forestil dig et firma, repræsenteret af en sæk med glade og ikke glade medarbejdere.</b>
+        </p>
+        <div class="daytrader-intro-container-first">
+               <img src="{% static 'main_platform/otree/media/sack-images/sack-with-3-peeps-yellow-happy.svg' %}" alt="sack with peeps"
+                 class="daytrader-sack">
+            <p class="daytrader-round-info daytrader-intro-first flex-md-column">
+               Hvis firmaet har en overvægt af
+                <img src="{% static 'daytrader/media/happy_face_daytrader.png' %}" alt="happy face"
+                     class="reveal-face">
+                medarbejdere, så går det godt, og så får firmaet overskud.
+            </div>
+
+
+     <div class="daytrader-intro-container-first">
+            <p class="daytrader-round-info daytrader-intro-first">
+                Hvis firmaet har en overvægt af
+                <img src="{% static 'daytrader/media/sad_face_daytrader.png' %}" alt="sad face" class="reveal-face"> medarbejdere,
+                så går det skidt, og firmaet giver underskud.
+            </p>
+     <img src="{% static 'main_platform/otree/media/sack-images/sack-with-3-peeps-sad.svg' %}" alt="sack with peeps"
+                 class="daytrader-sack">
+    </div>
+
+            <div class="daytrader-intro-next-btn-container ">
+                        <a  href="{% url 'daytrader-intro' %}" class="daytrader-next-btn">
+                            Tilbage
+                        </a>
+
+                        <a href="{% url 'daytrader-intro2' %}" class="daytrader-next-btn">
+                           Men vent lige...
+                        </a>
+            </div>
+    </div>
+{% endblock %}

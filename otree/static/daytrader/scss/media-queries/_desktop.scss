@@ -7,6 +7,7 @@
     margin-top: 2%;
     width: 90%;
     padding: 40px 7.5%;
+    align-self: center;
 
     div.ranking-container {
       width: 50%;
@@ -180,6 +181,18 @@
       }
 
 
+    }
+
+    .daytrader-intro-next-btn-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+
+       .daytrader-next-btn {
+        font-size: 25px;
+        width: 310px;
+        height: 50px;
+      }
     }
 
     // Styling af det viste ansigt i teksten
@@ -1142,6 +1155,12 @@
       }
 
    }
+  }
+
+  #next_button {
+    display: block;
+    justify-content: center;
+    flex-direction: row;
   }
 
 

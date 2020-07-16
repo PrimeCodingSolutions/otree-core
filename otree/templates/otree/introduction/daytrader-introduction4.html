@@ -1,5 +1,6 @@
 
-{% extends "global/Base.html" %}
+{% extends "otree/BaseAdmin.html" %}
+
 {% load otree %}
 {% block content %}
     <style>
@@ -59,9 +60,18 @@
                 </tr>
             </table>
     <div class="daytrader-next-btn-container">
-            <button class="daytrader-next-btn">
-                Forsæt...
-            </button>
+            <div id="next_button">
+                 <form action="{% url 'daytrader-intro3' %}">
+                        <button class="daytrader-next-btn">
+                            Tilbage
+                        </button>
+                     </form>
+                  <form action="{% url 'daytrader-intro5' %}">
+                        <button class="daytrader-next-btn">
+                           Forsæt..
+                        </button>
+                     </form>
+                    </div>
         </div>
         </div>
 

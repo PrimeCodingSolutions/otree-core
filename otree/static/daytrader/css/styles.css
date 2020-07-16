@@ -301,6 +301,29 @@
     background-color: #5f861e;
     border-color: transparent;
   }
+  div.daytrader-game-container .daytrader-intro-next-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  div.daytrader-game-container .daytrader-intro-next-btn-container .daytrader-next-btn {
+    font-size: 16px;
+    background: #41739D;
+    font-family: "Patrick Hand", sans-serif;
+    width: 216px;
+    height: 40px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid #41739D;
+  }
+  div.daytrader-game-container .daytrader-intro-next-btn-container .daytrader-next-btn:hover {
+    cursor: pointer;
+    background-color: #5f861e;
+    border-color: transparent;
+  }
   div.daytrader-game-container .company-face {
     width: 28px;
     height: 28px;
@@ -2506,6 +2529,7 @@
     margin-top: 2%;
     width: 90%;
     padding: 40px 7.5%;
+    align-self: center;
     /**********************
     *    intro1.html      *
     ***********************/
@@ -2638,6 +2662,16 @@
     justify-content: center;
   }
   div.daytrader-game-container .daytrader-next-btn-container .daytrader-next-btn {
+    font-size: 25px;
+    width: 310px;
+    height: 50px;
+  }
+  div.daytrader-game-container .daytrader-intro-next-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  div.daytrader-game-container .daytrader-intro-next-btn-container .daytrader-next-btn {
     font-size: 25px;
     width: 310px;
     height: 50px;
@@ -3444,6 +3478,12 @@
     text-align: center;
     display: flex;
     justify-content: center;
+  }
+
+  #next_button {
+    display: block;
+    justify-content: center;
+    flex-direction: row;
   }
 }
 

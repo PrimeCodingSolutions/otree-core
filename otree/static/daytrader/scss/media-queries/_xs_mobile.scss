@@ -362,6 +362,32 @@
       }
     }
 
+      .daytrader-intro-next-btn-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+
+       .daytrader-next-btn {
+        font-size: 16px;
+        background: $ku-dark-blue;
+        font-family: "Patrick Hand", sans-serif;
+        width: 216px;
+        height: 40px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: 2px solid $ku-dark-blue;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $ku-dark-green;
+          border-color: transparent;
+        }
+      }
+    }
+
 
     // Styling af det viste ansigt i teksten
     .company-face {
