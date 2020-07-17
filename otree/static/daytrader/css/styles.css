@@ -1152,14 +1152,14 @@
       *  All day trader pages   *
     *****************************/
   }
-  .daytrader-game-container div.ranking-container table#rankingTable th.table-ranking-header {
+  div.daytrader-game-container div.ranking-container table#rankingTable th.table-ranking-header {
     font-size: 15px;
   }
-  .daytrader-game-container div.ranking-container table#rankingTable td.table-ranking-data {
+  div.daytrader-game-container div.ranking-container table#rankingTable td.table-ranking-data {
     text-align: center;
     font-size: 14px;
   }
-  .daytrader-game-container .content-container {
+  div.daytrader-game-container .content-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1231,10 +1231,10 @@
     border-top: none !important;
     text-align: center;
   }
-  .daytrader-game-container .daytrader-table tr.daytrader-table-row td:first-child {
+  div.daytrader-game-container .daytrader-table tr.daytrader-table-row td:first-child {
     padding-left: 15px;
   }
-  .daytrader-game-container .daytrader-table .daytrader-table-row {
+  div.daytrader-game-container .daytrader-table .daytrader-table-row {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
   }
