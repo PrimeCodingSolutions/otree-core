@@ -31,6 +31,7 @@
                             Tid tilbage:
                             <strong><span id="timer" class="otree-timer__time-left"></span></strong>
                         </div>
+                        <div class="expected-score-container text-center">Forventet score: <div class="expected-score"></div></div>
                     </div>
 
                     <div id="ButtonsHolder" class="choice-button-holder">
@@ -46,7 +47,7 @@
                                 <img src="{{ question.minority_color_img }}"> <b>{{ question.minority_choice }}</b>
                             </div>
                         </button>
-                    </div>Forventede point: {{ player.expected_score }}
+                    </div>
                 </div>
 
 
@@ -99,6 +100,18 @@
         let isHTTPS = window.location.protocol.includes('https')
         let ws_scheme = isHTTPS ? "wss" : "ws";
         let player_name = "{{ player.navn }}"
+
+        let expectedScore = {{ player.expected_score }};
+        let choiceButton = document.getElementsByClassName("choice-button");
+        let scoreTag = document.querySelector(".expected-score");
+
+
+        for(let i = 0; i < choiceButton.length; i++) {
+            choiceButton[i].onclick = () => {
+                console.log(expectedScore);
+                {#scoreTag.innerHTML = `Forventet score: ${expectedScore}`;#}
+            }
+        }
 
         // Defines the WebSocket route to listen to
         let ws_path = ws_scheme + '://' + window.location.host + "/ws/chat/{{ group.pk }}";

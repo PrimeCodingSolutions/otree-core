@@ -69,6 +69,10 @@
     position: relative;
     min-height: 300px;
     width: 100%;
+
+    div.expected-score-container {
+      font-size: 22px;
+    }
   }
 
   #timer-text {

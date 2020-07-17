@@ -66,6 +66,15 @@
   .answer-container svg {
     width: 100%;
   }
+  .answer-container div.expected-score-container {
+    font-family: "Patrick Hand", cursive;
+    display: flex;
+    justify-content: center;
+  }
+  .answer-container div.expected-score-container div.expected-score {
+    font-weight: bold;
+    padding-left: 5px;
+  }
 
   #timer-text {
     top: 0;
@@ -462,7 +471,7 @@
   .intro-2 div.bad_influence-form-container div.form-group div.controls div.form-check {
     display: flex;
     flex-direction: row;
-    padding: 15px 0 15px 32%;
+    padding: 15px 0 15px 27%;
   }
   .intro-2 div.bad_influence-form-container div.form-group div.controls div.form-check input.form-check-input[type=radio] {
     -webkit-appearance: none;
@@ -1098,6 +1107,9 @@
       justify-self: center;
     }
   }
+  .intro-2 div.bad_influence-form-container div.form-group div.controls div.form-check {
+    padding: 15px 0 15px 28%;
+  }
   .intro-2 div.bad_influence-form-container div.form-group div.controls div.form-check input.form-check-input[type=radio] {
     -webkit-appearance: none;
     width: 40px;
@@ -1202,6 +1214,9 @@
   }
   .answer-container svg {
     width: 100%;
+  }
+  .answer-container div.expected-score-container {
+    font-size: 18px;
   }
 
   #timer-text {
@@ -1688,6 +1703,9 @@
     position: relative;
     min-height: 300px;
     width: 100%;
+  }
+  .answer-container div.expected-score-container {
+    font-size: 22px;
   }
 
   #timer-text {
