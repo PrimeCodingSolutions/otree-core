@@ -702,5 +702,30 @@
       }
     }
 
+  div.card-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    div.footer-left {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 50%;
+  }
+  div.footer-right {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 50%;
+  }
+
+    div.footer-right-unauth {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+  }
+  }
 
 }

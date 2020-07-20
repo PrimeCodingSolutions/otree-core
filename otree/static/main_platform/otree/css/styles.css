@@ -1090,6 +1090,13 @@ div.welcome-container .card-footer {
     color: #5f861e;
   }
 
+  div.daytrader-introduction-container {
+    justify-content: center;
+    display: flex;
+    margin-top: 12%;
+    flex-direction: column;
+  }
+
   div.rules {
     display: flex;
     flex-direction: row;
@@ -1129,6 +1136,30 @@ div.welcome-container .card-footer {
   }
   div.rules #copyRulesButton:hover {
     color: #5f861e;
+  }
+
+  div.card-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  div.card-footer div.footer-left {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 50%;
+  }
+  div.card-footer div.footer-right {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 50%;
+  }
+  div.card-footer div.footer-right-unauth {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
   }
 }
 @media (min-width: 375px) {
@@ -1688,6 +1719,30 @@ div.welcome-container .card-footer {
   }
   .start-link-white a:hover {
     color: #5f861e;
+  }
+
+  div.card-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  div.card-footer div.footer-left {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 50%;
+  }
+  div.card-footer div.footer-right {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 50%;
+  }
+  div.card-footer div.footer-right-unauth {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
   }
 }
 @media (min-width: 768px) {
@@ -2328,6 +2383,10 @@ div.welcome-container .card-footer {
   }
   .start-link-white a:hover {
     color: #5f861e;
+  }
+
+  div.daytrader-introduction-container {
+    margin-top: 6%;
   }
 
   div.rules {
@@ -3000,10 +3059,7 @@ div.welcome-container .card-footer {
   }
 
   div.daytrader-introduction-container {
-    justify-content: center;
-    display: flex;
-    margin-top: 3%;
-    flex-direction: column;
+    margin-top: 4%;
   }
 
   div.rules {
