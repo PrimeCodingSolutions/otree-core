@@ -301,7 +301,7 @@ table.table-debug td.debug-var-value {
   }
   .align-games .card-footer .game-info {
     padding-bottom: 20px;
-    font-size: 16px;
+    font-size: 11px;
   }
   .align-games .card-footer .game-info p {
     margin-bottom: 0;
@@ -1145,15 +1145,15 @@ div.welcome-container .card-footer {
   }
   div.card-footer div.footer-left {
     display: flex;
-    justify-content: center;
-    flex-direction: row;
-    width: 50%;
+    justify-content: start;
+    flex-direction: column;
+    width: 35%;
   }
   div.card-footer div.footer-right {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-    width: 50%;
+    width: 65%;
   }
   div.card-footer div.footer-right-unauth {
     display: flex;
@@ -1186,8 +1186,7 @@ div.welcome-container .card-footer {
   .title-container {
     margin-bottom: 5%;
   }
-
-  .games-title {
+  .title-container .games-title {
     font-size: 30px;
     margin-top: 3%;
     margin-bottom: 0;
@@ -1730,13 +1729,13 @@ div.welcome-container .card-footer {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    width: 50%;
+    width: 40%;
   }
   div.card-footer div.footer-right {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-    width: 50%;
+    width: 60%;
   }
   div.card-footer div.footer-right-unauth {
     display: flex;
@@ -2431,6 +2430,38 @@ div.welcome-container .card-footer {
   div.rules #copyRulesButton:hover {
     color: #5f861e;
   }
+
+  div.card-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  div.card-footer div.footer-left {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 60%;
+  }
+  div.card-footer div.footer-left div.rules {
+    display: flex;
+    justify-content: center;
+  }
+  div.card-footer div.footer-right {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 40%;
+  }
+  div.card-footer div.footer-right form, div.card-footer div.footer-right p {
+    display: flex;
+    justify-content: flex-end;
+  }
+  div.card-footer div.footer-right-unauth {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+  }
 }
 @media (min-width: 1025px) {
   /*************************
@@ -3102,30 +3133,6 @@ div.welcome-container .card-footer {
   }
   div.rules #copyRulesButton:hover {
     color: #5f861e;
-  }
-
-  div.card-footer {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-  }
-  div.card-footer div.footer-left {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    width: 50%;
-  }
-  div.card-footer div.footer-right {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
-    width: 50%;
-  }
-  div.card-footer div.footer-right-unauth {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
-    width: 100%;
   }
 }
 

@@ -157,7 +157,7 @@
 
       .game-info {
         padding-bottom: 20px;
-        font-size: 16px;
+        font-size: 11px;
 
         p {
           margin-bottom: 0;
@@ -1167,15 +1167,15 @@
 
     div.footer-left {
     display: flex;
-    justify-content: center;
-    flex-direction: row;
-    width: 50%;
+    justify-content: start;
+    flex-direction: column;
+    width: 35%;
   }
   div.footer-right {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-    width: 50%;
+    width: 65%;
   }
 
     div.footer-right-unauth {
