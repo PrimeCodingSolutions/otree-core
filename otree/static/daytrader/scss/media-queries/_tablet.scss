@@ -54,7 +54,7 @@
       .daytrader-start-game-btn {
         font-size: 50px;
         margin: 250px 0 0 20px;
-        width: 189px;
+        width: 300px;
 
     }
        }
@@ -148,6 +148,35 @@
       width: 100%;
       align-items: center;
     }
+
+
+     .daytrader-intro-next-btn-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+
+       .daytrader-next-btn {
+        font-size: 18px;
+        background: $ku-dark-blue;
+        font-family: "Patrick Hand", sans-serif;
+        width: 230px;
+        height: 45px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        border: 2px solid $ku-dark-blue;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $ku-dark-green;
+          border-color: transparent;
+        }
+      }
+    }
+
 
     // Styling af det viste ansigt i teksten
     .company-face {

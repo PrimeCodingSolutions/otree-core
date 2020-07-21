@@ -364,20 +364,21 @@
     }
 
       .daytrader-intro-next-btn-container {
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
 
        .daytrader-next-btn {
-        font-size: 16px;
+        font-size: 14px;
         background: $ku-dark-blue;
         font-family: "Patrick Hand", sans-serif;
-        width: 216px;
-        height: 40px;
+        width: 120px;
+        height: 45px;
         color: white;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         border-radius: 10px;
         border: 2px solid $ku-dark-blue;
 
@@ -562,14 +563,15 @@
     }
 
     div.radio-choices {
-      display: block;
+      display: flex;
+      flex-direction: column;
       justify-content: center;
-      flex-direction: row;
+
 
         .form-check-label {
           font-family: "Patrick Hand", sans-serif;
-          font-size: 17px;
-           padding: 0 45px 5px 20px;
+          font-size: 15px;
+          padding: 8px 0 10px 16px;
 
           :nth-child(2) {
             padding: 0 0 0 15px;
@@ -583,6 +585,8 @@
           border-radius: 50%;
           outline: none;
           border: 3px solid $ku-dark-blue;
+
+
 
           &:before {
             content: '';
@@ -603,6 +607,11 @@
         }
       }
 
+    #container-toggle {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
   }
 
 

@@ -11,9 +11,9 @@
 
     <div class="daytrader-game-container">
         <div class="daytrader-round-info">
-            <h3>
+            <h4>
                 Forestil dig, at du skal handle aktier i dette firma: <b>Pied Piper</b>
-            </h3>
+            </h4>
             <div class="daytrader-sack-button-container">
                 <div class="daytrader-sack-buttons">
                     <table>
@@ -86,45 +86,52 @@
             </p>
              <p>Med den viden, hvad er mest sandsynligt at de to tradere har set af ansigter?</p>
              <div class="radio-choices">
- <input type="radio" id="two-sad-faces" name="faces" value="kede" class="form-check-input">
-            <label for="two-sad-faces" class="form-check-label">Begge tradere har set to <img
+                 <div>
+                <input type="radio" id="two-sad-faces" name="faces" value="kede" class="form-check-input">
+                 <label for="two-sad-faces" class="form-check-label">Begge tradere har set to <img
                     src="{% static 'daytrader/media/sad_face_daytrader.png' %}" alt="sad face"
                     class="company-face"> ansigter</label>
+                     </div>
                  <br>
-
-
-<input type="radio" id="two-happy-faces" name="faces" value="glade" class="form-check-input">
-            <label for="two-happy-faces" class="form-check-label">
-                Begge tradere har set to
+                 <div>
+                 <input type="radio" id="two-happy-faces" name="faces" value="glade" class="form-check-input">
+                 <label for="two-happy-faces" class="form-check-label">
+                        Begge tradere har set to
                 <img
                     src="{% static 'daytrader/media/happy_face_daytrader.png' %}"
                     alt="happy face"
                     class="company-face">
                 ansigter
             </label>
-
+        </div>
             <br>
 
               </div>
             <div id="faces-answer"><!--  JavaScript is appended here --></div>
-    <div id="container-toggle">
+            <div id="container-toggle">
             <div id="trader_next_choice">
                 <p>Nu er det din tur til at tage en beslutning.</p>
                 <p><b>Hvad vil du gøre som den tredje trader?</b></p>
             </div>
            <div class="radio-choices">
+               <div>
                 <input type="radio" id="trader_choice_1" name="choice" value="buy" class="form-check-input">
                 <label for="trader_choice_1" class="form-check-label">Køb &nbsp; (Long)</label>
+                   </div>
                 <br>
+               <div>
                 <input type="radio" id="trader_choice_2" name="choice" value="sell" class="form-check-input">
                 <label for="trader_choice_2" class="form-check-label">Sælg (Kort)</label><br>
+                   </div>
             </div>
 
             <div id="trader_choice"><!--  JavaScript is appended here --></div>
 
-            <div class="daytrader-intro-next-btn-container" >
+
+        <div id="next_button">
+            <div class="daytrader-intro-next-btn-container">
                 <br>
-                <div id="next_button">
+
                  <form action="{% url 'daytrader-intro2' %}">
                         <button class="daytrader-next-btn" >
                             Tilbage
@@ -136,7 +143,7 @@
                         </button>
                      </form>
                     </div>
-            </div>
+                </div>
         </div>
         </div>
     </div>
@@ -146,10 +153,6 @@
         $('[data-toggle="tooltip"]').tooltip()
      });
 
-    /* Hide next choice until correct answer is chosen
-        let trader_next_choice = document.getElementById("trader_next_choice");
-        trader_next_choice.style.display = "none;";
-*/
     let toggleShow = document.getElementById("container-toggle");
     toggleShow.style.display = "none";
 
@@ -188,7 +191,7 @@
                }
                trader_choice_container.appendChild(trader_choice_correct);
                trader_choice_correct.style.color = "#5f861e";
-               next_button.style.display = "block";
+               next_button.style.display = "flex";
 
            } else {
                if (trader_choice_correct.parentNode) {
@@ -221,8 +224,6 @@
         let wrong_guess = document.createTextNode("Forkert..genlæs teksten foroven, og prøv igen.");
         guess_reply_wrong.append(wrong_guess);
 
-
-
         // Use variables to check if the answer is correct and show messages accordingly
         $('input:radio[name="faces"]').change(function () {
            if ($(this).val() === "glade") {
@@ -233,7 +234,7 @@
 
                faces_answer_container.appendChild(guess_reply_correct);
                guess_reply_correct.style.color = "#5f861e";
-               toggleShow.style.display = "block";
+               toggleShow.style.display = "flex";
 
            } else {
 
@@ -247,11 +248,6 @@
 
            }
         });
-
-
-
-
-
 
 
         let containers = document.getElementsByClassName("faceContainer");
@@ -269,13 +265,6 @@
         let sackButtons = document.getElementsByClassName("sack-button");
 
         let radioButton = document.getElementsByClassName("form-check-input");
-        //let inputContainer = document.querySelector(".daytrader-submit-value");
-
-        //for (let button = 0; button < radioButton.length; button++) {
-          //  radioButton[button].onclick = event => {
-            //    inputContainer.style.display = "block";
-            //}
-        //}
 
 
         function toggle(className, displayState) {

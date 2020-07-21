@@ -305,18 +305,19 @@
   div.daytrader-game-container .daytrader-intro-next-btn-container {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
   div.daytrader-game-container .daytrader-intro-next-btn-container .daytrader-next-btn {
-    font-size: 16px;
+    font-size: 14px;
     background: #41739D;
     font-family: "Patrick Hand", sans-serif;
-    width: 216px;
-    height: 40px;
+    width: 120px;
+    height: 45px;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     border-radius: 10px;
     border: 2px solid #41739D;
   }
@@ -461,14 +462,14 @@
     border-radius: 10px;
   }
   div.daytrader-game-container div.radio-choices {
-    display: block;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    flex-direction: row;
   }
   div.daytrader-game-container div.radio-choices .form-check-label {
     font-family: "Patrick Hand", sans-serif;
-    font-size: 17px;
-    padding: 0 45px 5px 20px;
+    font-size: 15px;
+    padding: 8px 0 10px 16px;
   }
   div.daytrader-game-container div.radio-choices .form-check-label :nth-child(2) {
     padding: 0 0 0 15px;
@@ -494,6 +495,11 @@
   }
   div.daytrader-game-container div.radio-choices input.form-check-input[type=radio]:checked {
     border-color: #41739D;
+  }
+  div.daytrader-game-container #container-toggle {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
 
   /*****************************
@@ -1201,6 +1207,28 @@
     width: 300px;
     font-size: 17px;
   }
+  div.daytrader-game-container .daytrader-next-btn-container {
+    display: flex;
+    justify-content: center;
+  }
+  div.daytrader-game-container .daytrader-next-btn-container .daytrader-next-btn {
+    font-size: 18px;
+    background: #41739D;
+    font-family: "Patrick Hand", sans-serif;
+    width: 250px;
+    height: 40px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid #41739D;
+  }
+  div.daytrader-game-container .daytrader-next-btn-container .daytrader-next-btn:hover {
+    cursor: pointer;
+    background-color: #5f861e;
+    border-color: transparent;
+  }
   div.daytrader-game-container .daytrader-intro-title {
     font-size: 45px;
     padding: 20px 0 0 0;
@@ -1863,7 +1891,7 @@
   div.daytrader-game-container .daytrader-intro-frontpage-img .daytrader-start-game-btn {
     font-size: 50px;
     margin: 250px 0 0 20px;
-    width: 189px;
+    width: 300px;
   }
   div.daytrader-game-container .daytrader-intro-container-first {
     margin: 5px 0 0 0;
@@ -1928,6 +1956,30 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
+  }
+  div.daytrader-game-container .daytrader-intro-next-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  div.daytrader-game-container .daytrader-intro-next-btn-container .daytrader-next-btn {
+    font-size: 18px;
+    background: #41739D;
+    font-family: "Patrick Hand", sans-serif;
+    width: 230px;
+    height: 45px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 2px solid #41739D;
+  }
+  div.daytrader-game-container .daytrader-intro-next-btn-container .daytrader-next-btn:hover {
+    cursor: pointer;
+    background-color: #5f861e;
+    border-color: transparent;
   }
   div.daytrader-game-container .company-face {
     width: 50px;
@@ -2670,7 +2722,7 @@
   div.daytrader-game-container .daytrader-intro-next-btn-container {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
   div.daytrader-game-container .daytrader-intro-next-btn-container .daytrader-next-btn {
     font-size: 25px;
@@ -3479,12 +3531,6 @@
     text-align: center;
     display: flex;
     justify-content: center;
-  }
-
-  #next_button {
-    display: block;
-    justify-content: center;
-    flex-direction: row;
   }
 }
 

@@ -184,7 +184,7 @@
     .daytrader-intro-next-btn-container {
       width: 100%;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-evenly;
 
        .daytrader-next-btn {
         font-size: 25px;
@@ -1155,11 +1155,6 @@
    }
   }
 
-  #next_button {
-    display: block;
-    justify-content: center;
-    flex-direction: row;
-  }
 
 
 }
