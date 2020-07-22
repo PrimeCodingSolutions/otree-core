@@ -371,24 +371,6 @@
     padding-bottom: 4%;
 
 
-    .start-link {
-      font-size: 30px;
-      background-color: $ku-red;
-      border-radius: 40px;
-      width: 80%;
-      display: flex;
-      justify-content: center;
-      align-self: center;
-
-      a {
-        text-decoration: none;
-        color: white;
-
-        &:hover {
-          color: $ku-dark-green;
-        }
-      }
-    }
 
   }
 
@@ -667,7 +649,7 @@
   *  Rooms without session - Rooms.html  *
   ***************************************/
   div.room-without-container {
-    margin-top: 10%;
+    margin-top: 4%;
 
     form {
       div.form-group {
@@ -684,7 +666,23 @@
         width: 40%;
       }
     }
+
+    div.start-link {
+      width: 75%;
+      font-size: 30px;
+
+        a {
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+          color: $ku-dark-green;
+        }
+      }
+
+    }
   }
+
 
   /****************************
   *  Rooms with session - Rooms.html  *
