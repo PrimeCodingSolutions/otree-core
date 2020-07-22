@@ -1,4 +1,4 @@
-{% extends "global/Base.html" %}
+{% extends "otree/BaseAdmin.html" %}
 {% load otree %}
 {% block content %}
     <style>
@@ -6,16 +6,7 @@
             background: #41739D;
         }
 
-        ._otree-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
 
-        #timer {
-            display: flex;
-            justify-content: center;
-        }
     </style>
 
     <div class="daytrader-game-container">
@@ -103,7 +94,7 @@
         <div class="daytrader-round-info">
 
             <p>
-                Det kaldes en <a class="tip">informationskaskade <span>En informationskaskade opstår når du tager det samme valg som dem før
+                Det kaldes en <a clasS="tip">informationskaskade <span>En informationskaskade opstår når du tager det samme valg som dem før
                     dig har taget, uafhængigt af hvilken privat information du selv måtte have. </span></a> , og det er rationelt at gøre.
             </p>
             <p>Informationskaskader kaldes nogle gange også for <a class="tip">lemminge-effekter <span>En person kaldes en lemming, hvis vedkommende i en beslutningssituation
@@ -112,43 +103,38 @@
                     <br>
                     En lemmingeeffekt er en beslutningssituation, hvori de fleste individer opfører sig som lemminger.</span></a>.</p>
             <p>
-                Men informationskaskader kan tage fejl. Traderne ignorerede deres private information, fordi de to
+                Men informationskaskader kan tage fejl.
+            </p>
+
+            <p>
+                   Traderne ignorerede deres private information, fordi de to
                 første
-                tradere gik long. Firmaets sande tilstand er i virkeligheden et
+                tradere gik long.
+
+                </p>
+            <p>Firmaets sande tilstand er i virkeligheden et
                 <img src="{% static 'daytrader/media/happy_face_daytrader.png' %}" alt="happy face"
                      class="company-face">
                 og to <img src="{% static 'daytrader/media/sad_face_daytrader.png' %}" alt="sad face"
                            class="company-face">
                 ansigter.
             </p>
-        </div>
-        <div class="daytrader-intro-info-container">
-            <div class="daytrader-next-btn-container">
-                <button class="daytrader-next-btn">
-                    Fortsæt...
-                </button>
-            </div>
+
+
         </div>
 
-        <div id="infoCascadeModal" class="info-cascade-modal">
-            <div class="info-cascade-modal-content">
-                <p class="daytrader-round-info">En informationskaskade opstår når du tager det samme valg som dem før
-                    dig har taget, uafhængigt af hvilken privat information du selv måtte have. </p>
+            <div class="daytrader-intro-next-btn-container">
+               <form action="{% url 'daytrader-intro4' %}">
+                        <button class="daytrader-next-btn">
+                            Tilbage
+                        </button>
+                     </form>
+                  <form action="{% url 'daytrader-intro6' %}">
+                        <button class="daytrader-next-btn">
+                           Forsæt..
+                        </button>
+                     </form>
 
-            </div>
-        </div>
-
-        <div id="lemmingModal" class="lemming-modal">
-            <div class="lemminge-modal-content">
-                <p class="daytrader-round-info">En person kaldes en lemming, hvis vedkommende i en beslutningssituation
-                    følger de valg,
-                    som andre har truffet før, frem for at følge sin egen information. En lemmingeeffekt er en
-                    beslutningssituation, hvori de fleste individer opfører sig som lemminger.
-                    <br>
-                    <a target="_blank"
-                       href="https://digitaluddannelse.org/wp-content/uploads/2019/03/DUDE-_-LIKE-Kap-1.2.pdf">Læs mere
-                        her</a></p>
-            </div>
         </div>
     </div>
 
@@ -192,10 +178,6 @@
                 hiddenSadFaceContainer[item].appendChild(happyFace);
             }
         }
-
-
-
-
 
 
     </script>

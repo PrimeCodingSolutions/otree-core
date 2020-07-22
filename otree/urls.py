@@ -139,6 +139,34 @@ class DaytraderIntroView(vanilla.TemplateView):
     template_name = 'otree/daytrader-introduction.html'
 
 
+class DaytraderIntroView(vanilla.TemplateView):
+    template_name = 'otree/introduction/daytrader-introduction.html'
+
+
+class DaytraderIntro1View(vanilla.TemplateView):
+    template_name = 'otree/introduction/daytrader-introduction1.html'
+
+
+class DaytraderIntro2View(vanilla.TemplateView):
+    template_name = 'otree/introduction/daytrader-introduction2.html'
+
+
+class DaytraderIntro3View(vanilla.TemplateView):
+    template_name = 'otree/introduction/daytrader-introduction3.html'
+
+
+class DaytraderIntro4View(vanilla.TemplateView):
+    template_name = 'otree/introduction/daytrader-introduction4.html'
+
+
+class DaytraderIntro5View(vanilla.TemplateView):
+    template_name = 'otree/introduction/daytrader-introduction5.html'
+
+
+class DaytraderIntro6View(vanilla.TemplateView):
+    template_name = 'otree/introduction/daytrader-introduction6.html'
+
+
 def get_urlpatterns():
     urlpatterns = [
             urls.url(r'^admin/', admin.site.urls),
@@ -149,8 +177,15 @@ def get_urlpatterns():
             urls.url(r'^accounts/logout/$', LogoutView.as_view(), name='logout'),
             urls.url(r'^delete/(?P<pk>\d+)/$', DeleteRoom.as_view(), name="delete_view_with_pk"),
             urls.url(r'^edit/(?P<pk>\d+)/$', UpdateRoom.as_view(), name="update_view_with_pk"),
-            urls.url(r'^daytrader-introduction/$', DaytraderIntroView.as_view(), name="daytrader-intro"),
             path('create_room/', CreateRoom.as_view(), name='create_room'),
+
+            urls.url(r'^daytrader-introduction/$', DaytraderIntroView.as_view(), name="daytrader-intro"),
+            urls.url(r'^daytrader-introduction/1/$', DaytraderIntro1View.as_view(), name="daytrader-intro1"),
+            urls.url(r'^daytrader-introduction/2/$', DaytraderIntro2View.as_view(), name="daytrader-intro2"),
+            urls.url(r'^daytrader-introduction/3/$', DaytraderIntro3View.as_view(), name="daytrader-intro3"),
+            urls.url(r'^daytrader-introduction/4/$', DaytraderIntro4View.as_view(), name="daytrader-intro4"),
+            urls.url(r'^daytrader-introduction/5/$', DaytraderIntro5View.as_view(), name="daytrader-intro5"),
+            urls.url(r'^daytrader-introduction/6/$', DaytraderIntro6View.as_view(), name="daytrader-intro6"),
 
     ]
 

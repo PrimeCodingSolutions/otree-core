@@ -23,7 +23,7 @@
   ******************************/
   .title-container {
     margin-bottom: 5%;
-  }
+
 
   .games-title {
     font-size: 30px;
@@ -31,6 +31,7 @@
     margin-bottom: 0;
     padding-top: 4%;
   }
+     }
 
   .sub-games-title {
     font-size: 14px;
@@ -702,5 +703,31 @@
       }
     }
 
+  div.card-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    div.footer-left {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+      width: 40%;
+
+  }
+  div.footer-right {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+width: 60%;
+  }
+
+    div.footer-right-unauth {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+  }
+  }
 
 }

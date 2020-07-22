@@ -1,4 +1,4 @@
-{% extends "global/Base.html" %}
+{% extends "otree/BaseAdmin.html" %}
 {% load staticfiles otree %}
 {% block content %}
     <style>
@@ -44,11 +44,17 @@
             tilbage.
         </p>
     </div>
-
-        <div class="daytrader-next-btn-container">
-            <button class="daytrader-next-btn">
-                Nu kan du starte med at handle!
-            </button>
+    <div class="daytrader-intro-next-btn-container">
+            <form action="{% url 'daytrader-intro1' %}">
+                    <button class="daytrader-next-btn">
+                        Tilbage
+                    </button>
+                 </form>
+              <form action="{% url 'daytrader-intro3' %}">
+                    <button class="daytrader-next-btn">
+                       Nu kan du starte med at handle!
+                    </button>
+                 </form>
         </div>
     </div>
 
