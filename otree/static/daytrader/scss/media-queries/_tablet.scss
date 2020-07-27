@@ -284,6 +284,9 @@
     }
 
     div.radio-choices {
+      display: flow-root;
+      justify-content: center;
+      flex-direction: column;
 
      .form-check-label {
         font-size: 20px;

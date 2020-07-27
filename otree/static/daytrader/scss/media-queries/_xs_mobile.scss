@@ -558,9 +558,9 @@
     }
 
     div.radio-choices {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+          display: flow-root;
+          justify-content: center;
+          flex-direction: column;
 
 
         .form-check-label {
@@ -1020,6 +1020,7 @@
 
         div.radio-choose {
           padding: 10px 10px 0 10px;
+
         }
 
         div.choice-fields {

@@ -462,9 +462,9 @@
     border-radius: 10px;
   }
   div.daytrader-game-container div.radio-choices {
-    display: flex;
-    flex-direction: column;
+    display: flow-root;
     justify-content: center;
+    flex-direction: column;
   }
   div.daytrader-game-container div.radio-choices .form-check-label {
     font-family: "Patrick Hand", sans-serif;
@@ -1693,6 +1693,11 @@
   div.daytrader-game-container .results-desc {
     padding: 0 30px;
   }
+  div.daytrader-game-container div.radio-choices {
+    display: flow-root;
+    justify-content: center;
+    flex-direction: column;
+  }
   div.daytrader-game-container div.radio-choices .form-check-label {
     font-size: 20px;
   }
@@ -2291,7 +2296,7 @@
     margin: 77px 14px 0 0;
   }
   div.daytrader-game-container div.radio-choices {
-    display: ruby;
+    display: flow-root;
     justify-content: center;
     flex-direction: row;
   }
