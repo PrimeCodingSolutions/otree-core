@@ -1,114 +1,12 @@
-{% load staticfiles otree %}
-<style>
-    .node {
-        stroke: #000;
-        stroke-width: 0px;
-    }
-
-    .node-player {
-        stroke: #000;
-        stroke-width: 3px;
-    }
-
-    .link {
-        stroke: #999;
-        stroke-width: 1.5px;
-    }
-
-    .node-text {
-        font-family: "Annie Use Your Telescope", serif;
-        font-size: 25px;
-    }
-
-    .ticks {
-        font-family: "Annie Use Your Telescope", serif;
-        font-size: 12px;
-        fill: black;
-    }
-
-    .track,
-    .track-inset,
-    .track-overlay {
-        stroke-linecap: round;
-    }
-
-    .track {
-        stroke: #000;
-        stroke-opacity: 0.3;
-        stroke-width: 10px;
-    }
-
-    .track-inset {
-        stroke: #ddd;
-        stroke-width: 8px;
-    }
-
-    .track-overlay {
-        pointer-events: stroke;
-        stroke-width: 50px;
-        cursor: pointer;
-    }
-
-    .handle {
-        fill: #fff;
-        stroke: #000;
-        stroke-opacity: 0.5;
-        stroke-width: 1.25px;
-    }
-
-    path {
-        stroke: darkgray;
-        stroke-width: 2;
-        fill: none;
-    }
-
-    .axis {
-        shape-rendering: crispEdges;
-    }
-
-    .x.axis line {
-        stroke: lightgrey;
-    }
-
-    .x.axis .minor {
-        stroke-opacity: .5;
-    }
-
-    .x.axis path {
-        display: none;
-    }
-
-    .y.axis line, .y.axis path {
-        fill: none;
-        stroke: #000;
-    }
-</style>
-<script src="https://d3js.org/d3.v3.min.js"></script>
-<script src="https://marvl.infotech.monash.edu/webcola/cola.min.js"></script>
 <script>
     let svgContainer = undefined;
     let networkGroup = undefined;
     let sliderGroup = undefined;
     let width = 400;
     let height = 400;
-
-    if(window.innerWidth <= 320) {
-        width = 300;
-        height = 300;
-    }
-    else if(window.innerWidth > 320) {
-        width = 400;
-        height = 400;
-    }
-
-
     let data = JSON.parse('{{ data | safe }}');
     let selectedRunIdx = 0;
-    let $questionHolder1 = $('#questionHolder1');
-    let $questionHolder2 = $('#questionHolder2');
-    let $graphExplanation = $('#graphExplanation');
-    let $faceExplanation = $('#faceExplanation');
-    let $stubbornness = $('#stubbornness');
+    let $questionHolder = $('#questionHolder');
     let startTime = undefined;
     let currentTime = undefined;
     let endTime = undefined;
@@ -135,10 +33,7 @@
         setupConsensus(selectedRun);
         setupHistory(selectedRun);
 
-        $questionHolder1.html(selectedRun.question.result_page_text_1);
-        $graphExplanation.html(selectedRun.question.graph_explanation);
-        $faceExplanation.html(selectedRun.question.face_explanation);
-        $stubbornness.html(selectedRun.question.stubbornness);
+        $questionHolder.html(selectedRun.question.result_page_text)
     };
 
     $(document).ready(function () {
@@ -162,16 +57,16 @@
 <script>
     let nodeById = d3.map();
 
-    let red = "{% static "main_platform/otree/media/peeps/red_peep.png" %}";
-    let blue = "{% static "main_platform/otree/media/peeps/blue_peep.png" %}";
-    let pink = "{% static "main_platform/otree/media/peeps/pink_peep.png" %}";
-    let yellow = "{% static "main_platform/otree/media/peeps/yellow_peep.png" %}";
-    let grey = "{% static "main_platform/otree/media/peeps/grey_peep.png" %}";
-    let green = "{% static "main_platform/otree/media/peeps/green_peep.png" %}";
+    let red = "{% static "bad_influence/red_peep.png" %}";
+    let blue = "{% static "bad_influence/blue_peep.png" %}";
+    let pink = "{% static "bad_influence/pink_peep.png" %}";
+    let yellow = "{% static "bad_influence/yellow_peep.png" %}";
+    let grey = "{% static "bad_influence/grey_peep.png" %}";
+    let green = "{% static "bad_influence/green_peep.png" %}";
 
-    let open_eyes = "{% static "main_platform/otree/media/peeps/open_eyes.png" %}";
-    let closed_eyes = "{% static "main_platform/otree/media/peeps/closed_eyes.png" %}";
-    let happy_eyes = "{% static "main_platform/otree/media/peeps/happy_eyes.png" %}";
+    let open_eyes = "{% static "bad_influence/open_eyes.png" %}";
+    let closed_eyes = "{% static "bad_influence/closed_eyes.png" %}";
+    let happy_eyes = "{% static "bad_influence/happy_eyes.png" %}";
 
     let question = undefined;
 
@@ -189,8 +84,6 @@
             }
         });
     };
-
-
 
     let setupNetwork = function (chosenGraph) {
         let graph = JSON.parse(JSON.stringify(chosenGraph));
@@ -217,7 +110,6 @@
             linked[link.source.id + "," + link.target.id] = 1
         });
 
-
         let neighboring = function (a, b) {
             return linked[a.id + "," + b.id] || linked[b.id + "," + a.id];
         };
@@ -226,22 +118,10 @@
 
         function connectedNodes(d) {
             if (highlighted !== d) {
-                // Make all nodes that aren't neighbours transparent
+                //Make all nodes that aren't neighbours transparent
                 node.transition(1000).style("opacity", function (o) {
                     return neighboring(d, o) ? 1 : 0.3;
-
                 });
-
-                /**
-                // Make all nodes 100% opacity if clicked outside
-                node.transition(1000).style("opacity", function(o) {
-                    let showAll = $('.report-info').on('click', function () {
-                          if (showAll) {
-                        console.log("cliiiiicked!")
-                        }
-                    });
-
-                });**/
 
 
                 // Keep all links
@@ -252,7 +132,9 @@
                     else {
                         return 0.3;
                     }
+
                 });
+
 
             } else {
                 highlighted = null;
@@ -260,12 +142,6 @@
                 // Restore all nodes to being fully opaque
                 node.transition(1000).style("opacity", 1);
                 link.transition(1000).style("opacity", 1);
-             /**    d3.select("body").on("click",function(){
-                     console.log("outside")
-                });
-              on background click then use connectedNodeS?
-              **/
-
             }
         }
 
@@ -285,8 +161,7 @@
             .attr("class", "node")
             .call(force.drag)
             .on('click', function (d) {
-                connectedNodes(d);
-                console.log(connectedNodes)
+                connectedNodes(d)
             });
 
         node
@@ -349,7 +224,7 @@
             .attr("dx", 15)
             .attr("dy", 20)
             .text(function (d) {
-                return d.name;
+                return d.id;
             });
 
         force.on("tick", function () {
@@ -386,7 +261,7 @@
 
         let dropdown = d3.select("#d3historyChoice")
             .insert("select", "svg")
-            .attr("class", "btn btn-secondary dropdown-toggle")
+            .attr("style", "font-family: annie_use_your_telescope; width: 10rem")
             .on("change", dropdownChange);
 
         dropdown.selectAll("option")
@@ -398,11 +273,7 @@
             .text(function (idx) {
                 return data[idx].question.title;
             });
-
-
     });
-
-
 </script>
 <script>
     let setupHistory = function (chosenHistory) {
@@ -510,8 +381,8 @@
 </script>
 <script>
     let margin = {top: 30, right: 30, bottom: 30, left: 65},
-        widthG = 400 - margin.left - margin.right,
-        heightG = 400 - margin.top - margin.bottom;
+        widthG = 300 - margin.left - margin.right,
+        heightG = 300 - margin.top - margin.bottom;
 
     let updateRatio = undefined;
 
@@ -520,6 +391,7 @@
         let end_time = selectedRun.end_time;
         let history = selectedRun.history;
         let question = selectedRun.question;
+        console.log(question);
 
         let data = history.map(function (tick) {
             return {
@@ -647,3 +519,4 @@
         };
     };
 </script>
+

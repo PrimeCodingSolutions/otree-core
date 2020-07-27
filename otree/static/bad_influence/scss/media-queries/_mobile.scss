@@ -56,6 +56,12 @@
 
   }
 
+  /***********************************
+  *   Play.html chat+svg container  *
+  ***********************************/
+  .surround {
+    width: 100%;
+  }
 
   /*****************************
   *   Play.html svg styling    *
@@ -73,34 +79,20 @@
 
   }
 
-  #timer-text {
-    top: 0;
-    left: 8px;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    padding-top: 2%;
-    font-family: "Patrick Hand", cursive;
-
-    #timer {
-      padding-left: 5px;
-    }
-  }
-
 
   .game-row {
     display: flex;
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    margin-top: 2%;
+    margin-top: 6%;
   }
 
   .svg-column {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
     align-self: center;
 
     margin-bottom: 5%;
@@ -109,45 +101,12 @@
     border-style: solid solid solid solid;
   }
 
-  /*********************************
-  *   Play.html timer styling     *
-  *********************************/
-  .flash {
-    animation-name: flash;
-    animation-duration: 0.2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-play-state: running;
-  }
 
-  @keyframes flash {
-    from {
-      color: red;
-    }
-    to {
-      color: black;
-    }
-  }
-
-  /***********************************
-  *   Play.html chat+svg container  *
-  ***********************************/
-  .surround {
-    width: 100%;
-  }
 
   /*********************************
   *   Play.html chat styling      *
   *********************************/
-  #chat {
-    height: 250px;
-    scroll-behavior: smooth;
-    background: #ebeded;
-    border-radius: 5px;
-    padding: 15px;
-    overflow: auto;
-  }
+
 
   #chat::-webkit-scrollbar {
     width: 1em;
@@ -169,6 +128,15 @@
 
   .chat-message b {
     padding: 0 10px 0 0;
+    width: 130px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .chat-message p {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
   }
 
   #chat-container {
@@ -198,6 +166,15 @@
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
       margin-bottom: 2%;
       width: 100%;
+      height: 300px;
+      scroll-behavior: smooth;
+      background: #ebeded;
+      border-radius: 5px;
+      padding: 15px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      word-break: break-word;
+
     }
 
     #message {
@@ -241,19 +218,15 @@
     justify-content: center;
     display: flex;
     width: 100%;
+    flex-direction: row;
 
     .choice-button {
-      width: 45%;
+      width: 70%;
       height: 55px;
-      font-size: 14px;
-      text-transform: uppercase;
+      font-size: 15px;
       letter-spacing: 1px;
       border-radius: 50px;
-      color: black;
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-      font-family: "Annie Use Your Telescope", serif;
-      background-color: transparent;
-      border: 2px solid $ku-red;
+
       margin: 5px 5px 10% 5px;
 
 
@@ -277,8 +250,8 @@
       }
 
       img {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
         align-self: center;
       }
     }

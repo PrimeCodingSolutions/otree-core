@@ -71,24 +71,9 @@
     width: 100%;
 
     div.expected-score-container {
-      font-size: 22px;
+      font-size: 20px;
     }
   }
-
-  #timer-text {
-    top: 0;
-    left: 8px;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    padding-top: 2%;
-    font-family: "Patrick Hand", cursive;
-
-    #timer {
-      padding-left: 5px;
-    }
-  }
-
 
   .game-row {
     display: flex;
@@ -96,6 +81,19 @@
     flex-direction: row;
     width: 100%;
     margin-top: 2%;
+
+
+    div.game-content {
+      display: flex;
+      justify-content: center;
+
+
+      div.game-timer {
+        display: flex;
+        text-align: center;
+        font-size: 25px;
+      }
+    }
   }
 
   .svg-column {
@@ -111,45 +109,11 @@
     border-style: solid solid solid solid;
   }
 
-  /*********************************
-  *   Play.html timer styling     *
-  *********************************/
-  .flash {
-    animation-name: flash;
-    animation-duration: 0.2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-play-state: running;
-  }
 
-  @keyframes flash {
-    from {
-      color: red;
-    }
-    to {
-      color: black;
-    }
-  }
-
-  /***********************************
-  *   Play.html chat+svg container  *
-  ***********************************/
-  .surround {
-    width: 100%;
-  }
 
   /*********************************
   *   Play.html chat styling      *
   *********************************/
-  #chat {
-    height: 250px;
-    scroll-behavior: smooth;
-    background: #ebeded;
-    border-radius: 5px;
-    padding: 15px;
-    overflow: auto;
-  }
 
   #chat::-webkit-scrollbar {
     width: 1em;
@@ -170,7 +134,16 @@
   }
 
   .chat-message b {
-    padding: 0 10px 0 0;
+    padding: 0 0 0 0;
+    width: 180px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .chat-message p {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
   }
 
   #chat-container {
@@ -198,8 +171,12 @@
 
     #chat {
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-      margin-bottom: 2%;
-      width: 80%;
+      width: 90%;
+      height: 350px;
+      scroll-behavior: smooth;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      word-break: break-word;
     }
 
     #message {
@@ -414,13 +391,6 @@
 
     }
 
-    .game-row {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      width: 100%;
-      margin-top: 0;
-    }
 
     button {
       &.start-game {

@@ -70,38 +70,66 @@
     font-family: "Patrick Hand", cursive;
     display: flex;
     justify-content: center;
+    font-size: 14px;
   }
   .answer-container div.expected-score-container div.expected-score {
     font-weight: bold;
     padding-left: 5px;
   }
 
-  #timer-text {
-    top: 0;
-    left: 8px;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    padding-top: 2%;
-    font-family: "Patrick Hand", cursive;
-  }
-  #timer-text #timer {
-    padding-left: 5px;
-  }
-
   .game-row {
+    font-family: "Patrick Hand", sans-serif;
     display: flex;
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    margin-top: 2%;
+    margin-top: 8%;
+  }
+  .game-row div.game-content {
+    display: flex;
+    justify-content: center;
+  }
+  .game-row div.game-content div.game-timer {
+    display: flex;
+    text-align: center;
+    font-size: 20px;
+  }
+  .game-row div.game-content div.game-timer .pulse {
+    -webkit-animation-name: pulsate;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    color: #BF0A30 !important;
+    border-color: #BF0A30 !important;
+  }
+  @-webkit-keyframes pulsate {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(191, 10, 48, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(191, 10, 48, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(191, 10, 48, 0);
+    }
+  }
+  .game-row div.game-content div.game-timer div.game-timer-content {
+    border: solid 6px black;
+    margin-top: -20%;
+    background-color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 5px 5px 5px 5px;
   }
 
   .svg-column {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
     align-self: center;
     margin-bottom: 5%;
     border-color: #901A1E;
@@ -110,44 +138,8 @@
   }
 
   /*********************************
-  *   Play.html timer styling     *
-  *********************************/
-  .flash {
-    animation-name: flash;
-    animation-duration: 0.2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-play-state: running;
-  }
-
-  @keyframes flash {
-    from {
-      color: red;
-    }
-    to {
-      color: black;
-    }
-  }
-  /***********************************
-  *   Play.html chat+svg container  *
-  ***********************************/
-  .surround {
-    width: 100%;
-  }
-
-  /*********************************
   *   Play.html chat styling      *
   *********************************/
-  #chat {
-    height: 250px;
-    scroll-behavior: smooth;
-    background: #ebeded;
-    border-radius: 5px;
-    padding: 15px;
-    overflow: auto;
-  }
-
   #chat::-webkit-scrollbar {
     width: 1em;
   }
@@ -167,7 +159,15 @@
   }
 
   .chat-message b {
-    padding: 0 10px 0 0;
+    width: 100px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .chat-message p {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
   }
 
   #chat-container {
@@ -199,6 +199,12 @@
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     margin-bottom: 2%;
     width: 100%;
+    height: 300px;
+    scroll-behavior: smooth;
+    background: #ebeded;
+    border-radius: 5px;
+    padding: 15px;
+    overflow: auto;
   }
   .chat #message,
 .message #message {
@@ -246,18 +252,23 @@
   .mobile-column {
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
+  }
+  .mobile-column b {
+    padding: 5px 0 0 2px;
   }
 
   .choice-button-holder {
     justify-content: center;
     display: flex;
+    flex-direction: column;
     width: 100%;
+    align-items: center;
   }
   .choice-button-holder .choice-button {
-    width: 45%;
+    width: 70%;
     height: 55px;
-    font-size: 14px;
+    font-size: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 50px;
@@ -283,8 +294,8 @@
     color: white;
   }
   .choice-button-holder .choice-button img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     align-self: center;
   }
 
@@ -376,6 +387,7 @@
   }
   .intro-2 .round-title {
     font-size: 35px;
+    margin-bottom: 0;
   }
   .intro-2 .game-introduction {
     display: flex;
@@ -736,6 +748,13 @@
     flex-direction: column;
   }
 
+  /***********************************
+  *   Play.html chat+svg container  *
+  ***********************************/
+  .surround {
+    width: 100%;
+  }
+
   /*****************************
   *   Play.html svg styling    *
   *******************************/
@@ -750,32 +769,19 @@
     width: 100%;
   }
 
-  #timer-text {
-    top: 0;
-    left: 8px;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    padding-top: 2%;
-    font-family: "Patrick Hand", cursive;
-  }
-  #timer-text #timer {
-    padding-left: 5px;
-  }
-
   .game-row {
     display: flex;
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    margin-top: 2%;
+    margin-top: 6%;
   }
 
   .svg-column {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
     align-self: center;
     margin-bottom: 5%;
     border-color: #901A1E;
@@ -784,44 +790,8 @@
   }
 
   /*********************************
-  *   Play.html timer styling     *
-  *********************************/
-  .flash {
-    animation-name: flash;
-    animation-duration: 0.2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-play-state: running;
-  }
-
-  @keyframes flash {
-    from {
-      color: red;
-    }
-    to {
-      color: black;
-    }
-  }
-  /***********************************
-  *   Play.html chat+svg container  *
-  ***********************************/
-  .surround {
-    width: 100%;
-  }
-
-  /*********************************
   *   Play.html chat styling      *
   *********************************/
-  #chat {
-    height: 250px;
-    scroll-behavior: smooth;
-    background: #ebeded;
-    border-radius: 5px;
-    padding: 15px;
-    overflow: auto;
-  }
-
   #chat::-webkit-scrollbar {
     width: 1em;
   }
@@ -842,6 +812,15 @@
 
   .chat-message b {
     padding: 0 10px 0 0;
+    width: 130px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .chat-message p {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
   }
 
   #chat-container {
@@ -871,6 +850,14 @@
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     margin-bottom: 2%;
     width: 100%;
+    height: 300px;
+    scroll-behavior: smooth;
+    background: #ebeded;
+    border-radius: 5px;
+    padding: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    word-break: break-word;
   }
   .chat #message, .message #message {
     font-size: 20px;
@@ -908,19 +895,14 @@
     justify-content: center;
     display: flex;
     width: 100%;
+    flex-direction: row;
   }
   .choice-button-holder .choice-button {
-    width: 45%;
+    width: 70%;
     height: 55px;
-    font-size: 14px;
-    text-transform: uppercase;
+    font-size: 15px;
     letter-spacing: 1px;
     border-radius: 50px;
-    color: black;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    font-family: "Annie Use Your Telescope", serif;
-    background-color: transparent;
-    border: 2px solid #901A1E;
     margin: 5px 5px 10% 5px;
   }
   .choice-button-holder .choice-button:hover {
@@ -938,8 +920,8 @@
     color: white;
   }
   .choice-button-holder .choice-button img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     align-self: center;
   }
 
@@ -1216,20 +1198,7 @@
     width: 100%;
   }
   .answer-container div.expected-score-container {
-    font-size: 18px;
-  }
-
-  #timer-text {
-    top: 0;
-    left: 8px;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    padding-top: 2%;
-    font-family: "Patrick Hand", cursive;
-  }
-  #timer-text #timer {
-    padding-left: 5px;
+    font-size: 16px;
   }
 
   .game-row {
@@ -1237,59 +1206,21 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    margin-top: 2%;
+    margin-top: 5%;
   }
-
-  .svg-column {
+  .game-row div.game-content {
     display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    width: 90%;
-    margin-bottom: 5%;
-    border-color: #901A1E;
-    border-radius: 2px;
-    border-style: solid solid solid solid;
+    justify-content: center;
   }
-
-  /*********************************
-  *   Play.html timer styling     *
-  *********************************/
-  .flash {
-    animation-name: flash;
-    animation-duration: 0.2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-play-state: running;
-  }
-
-  @keyframes flash {
-    from {
-      color: red;
-    }
-    to {
-      color: black;
-    }
-  }
-  /***********************************
-  *   Play.html chat+svg container  *
-  ***********************************/
-  .surround {
-    width: 100%;
+  .game-row div.game-content div.game-timer {
+    display: flex;
+    text-align: center;
+    font-size: 23px;
   }
 
   /*********************************
   *   Play.html chat styling      *
   *********************************/
-  #chat {
-    height: 250px;
-    scroll-behavior: smooth;
-    background: #ebeded;
-    border-radius: 5px;
-    padding: 15px;
-    overflow: auto;
-  }
-
   #chat::-webkit-scrollbar {
     width: 1em;
   }
@@ -1309,7 +1240,11 @@
   }
 
   .chat-message b {
-    padding: 0 10px 0 0;
+    width: 100px;
+  }
+
+  .chat-message p {
+    width: 100%;
   }
 
   #chat-container {
@@ -1338,7 +1273,15 @@
   .chat #chat, .message #chat {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     margin-bottom: 2%;
-    width: 70%;
+    width: 95%;
+    height: 350px;
+    scroll-behavior: smooth;
+    background: #ebeded;
+    border-radius: 5px;
+    padding: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    word-break: break-word;
   }
   .chat #message, .message #message {
     font-size: 20px;
@@ -1375,19 +1318,16 @@
   .choice-button-holder {
     justify-content: center;
     display: flex;
+    flex-direction: row;
     width: 100%;
+    align-items: center;
   }
 
   .choice-button {
-    width: 235px;
+    width: 70%;
     height: 70px;
     font-size: 18px;
     border-radius: 50px;
-    color: black;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    font-family: "Annie Use Your Telescope", serif;
-    background-color: transparent;
-    border: 2px solid #901A1E;
     margin: 5px 5px 10% 5px;
   }
   .choice-button:hover {
@@ -1705,20 +1645,7 @@
     width: 100%;
   }
   .answer-container div.expected-score-container {
-    font-size: 22px;
-  }
-
-  #timer-text {
-    top: 0;
-    left: 8px;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    padding-top: 2%;
-    font-family: "Patrick Hand", cursive;
-  }
-  #timer-text #timer {
-    padding-left: 5px;
+    font-size: 20px;
   }
 
   .game-row {
@@ -1727,6 +1654,15 @@
     flex-direction: row;
     width: 100%;
     margin-top: 2%;
+  }
+  .game-row div.game-content {
+    display: flex;
+    justify-content: center;
+  }
+  .game-row div.game-content div.game-timer {
+    display: flex;
+    text-align: center;
+    font-size: 25px;
   }
 
   .svg-column {
@@ -1743,44 +1679,8 @@
   }
 
   /*********************************
-  *   Play.html timer styling     *
-  *********************************/
-  .flash {
-    animation-name: flash;
-    animation-duration: 0.2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-play-state: running;
-  }
-
-  @keyframes flash {
-    from {
-      color: red;
-    }
-    to {
-      color: black;
-    }
-  }
-  /***********************************
-  *   Play.html chat+svg container  *
-  ***********************************/
-  .surround {
-    width: 100%;
-  }
-
-  /*********************************
   *   Play.html chat styling      *
   *********************************/
-  #chat {
-    height: 250px;
-    scroll-behavior: smooth;
-    background: #ebeded;
-    border-radius: 5px;
-    padding: 15px;
-    overflow: auto;
-  }
-
   #chat::-webkit-scrollbar {
     width: 1em;
   }
@@ -1800,7 +1700,16 @@
   }
 
   .chat-message b {
-    padding: 0 10px 0 0;
+    padding: 0 0 0 0;
+    width: 180px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .chat-message p {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
   }
 
   #chat-container {
@@ -1828,8 +1737,12 @@
   }
   .chat #chat, .message #chat {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    margin-bottom: 2%;
-    width: 80%;
+    width: 90%;
+    height: 350px;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    word-break: break-word;
   }
   .chat #message, .message #message {
     font-size: 20px;
@@ -2007,13 +1920,6 @@
   .intro-2 .svg-column h2 {
     font-size: 25px;
     padding: 5px;
-  }
-  .intro-2 .game-row {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    width: 100%;
-    margin-top: 0;
   }
   .intro-2 button.start-game {
     display: flex;
