@@ -84,7 +84,7 @@
   }
 
   .game-row {
-     font-family: "Patrick Hand", sans-serif;
+    font-family: "Patrick Hand", sans-serif;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -128,7 +128,8 @@
         }
 
         div.game-timer-content {
-          border: solid 6px black;
+          border: solid 5px $ku-red;
+          border-radius: 5px;
           margin-top: -20%;
           background-color: white;
           font-weight: bold;
@@ -145,11 +146,10 @@
     flex-direction: column;
     width: 100%;
     align-self: center;
-
     margin-bottom: 5%;
-    border-color: $ku-red;
-    border-radius: 2px;
-    border-style: solid solid solid solid;
+    border: solid 5px $ku-red;
+    border-radius: 5px;
+
   }
 
 
@@ -163,9 +163,7 @@
     width: 1em;
   }
 
-  #chat::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
+
 
   #chat::-webkit-scrollbar-thumb {
     background-color: darkgrey;
@@ -178,7 +176,7 @@
   }
 
   .chat-message b {
-    width: 100px;
+    width: 200px;
     display: flex;
     justify-content: flex-start;
   }
@@ -299,7 +297,7 @@
       font-family: "Annie Use Your Telescope", serif;
       background-color: transparent;
       border: 2px solid $ku-red;
-      margin: 5px 5px 10% 5px;
+      margin: 5px 5px 8% 5px;
 
       &:hover {
         background-color: $ku-dark-green;
@@ -459,9 +457,7 @@
       width: 100%;
       padding-right: 0;
       margin-bottom: 2%;
-      border-color: $ku-red;
-      border-radius: 2px;
-      border-style: solid solid solid solid;
+      border: solid 2px $ku-red;
 
       h2 {
         font-size: 20px;

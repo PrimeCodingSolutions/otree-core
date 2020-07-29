@@ -117,7 +117,8 @@
     }
   }
   .game-row div.game-content div.game-timer div.game-timer-content {
-    border: solid 6px black;
+    border: solid 5px #901A1E;
+    border-radius: 5px;
     margin-top: -20%;
     background-color: white;
     font-weight: bold;
@@ -132,9 +133,8 @@
     width: 100%;
     align-self: center;
     margin-bottom: 5%;
-    border-color: #901A1E;
-    border-radius: 2px;
-    border-style: solid solid solid solid;
+    border: solid 5px #901A1E;
+    border-radius: 5px;
   }
 
   /*********************************
@@ -142,10 +142,6 @@
   *********************************/
   #chat::-webkit-scrollbar {
     width: 1em;
-  }
-
-  #chat::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   }
 
   #chat::-webkit-scrollbar-thumb {
@@ -159,7 +155,7 @@
   }
 
   .chat-message b {
-    width: 100px;
+    width: 200px;
     display: flex;
     justify-content: flex-start;
   }
@@ -277,7 +273,7 @@
     font-family: "Annie Use Your Telescope", serif;
     background-color: transparent;
     border: 2px solid #901A1E;
-    margin: 5px 5px 10% 5px;
+    margin: 5px 5px 8% 5px;
   }
   .choice-button-holder .choice-button:hover {
     background-color: #5f861e;
@@ -417,9 +413,7 @@
     width: 100%;
     padding-right: 0;
     margin-bottom: 2%;
-    border-color: #901A1E;
-    border-radius: 2px;
-    border-style: solid solid solid solid;
+    border: solid 2px #901A1E;
   }
   .intro-2 .svg-column h2 {
     font-size: 20px;
@@ -777,27 +771,11 @@
     margin-top: 6%;
   }
 
-  .svg-column {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    width: 100%;
-    align-self: center;
-    margin-bottom: 5%;
-    border-color: #901A1E;
-    border-radius: 2px;
-    border-style: solid solid solid solid;
-  }
-
   /*********************************
   *   Play.html chat styling      *
   *********************************/
   #chat::-webkit-scrollbar {
     width: 1em;
-  }
-
-  #chat::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   }
 
   #chat::-webkit-scrollbar-thumb {
@@ -812,7 +790,7 @@
 
   .chat-message b {
     padding: 0 10px 0 0;
-    width: 130px;
+    width: 170px;
     display: flex;
     justify-content: flex-start;
   }
@@ -888,7 +866,7 @@
   .mobile-column {
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .choice-button-holder {
@@ -898,12 +876,12 @@
     flex-direction: row;
   }
   .choice-button-holder .choice-button {
-    width: 70%;
+    width: 53%;
     height: 55px;
     font-size: 15px;
     letter-spacing: 1px;
     border-radius: 50px;
-    margin: 5px 5px 10% 5px;
+    margin: 5px 5px 8% 5px;
   }
   .choice-button-holder .choice-button:hover {
     background-color: #5f861e;
@@ -1216,138 +1194,6 @@
     display: flex;
     text-align: center;
     font-size: 23px;
-  }
-
-  /*********************************
-  *   Play.html chat styling      *
-  *********************************/
-  #chat::-webkit-scrollbar {
-    width: 1em;
-  }
-
-  #chat::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-
-  #chat::-webkit-scrollbar-thumb {
-    background-color: darkgrey;
-    outline: 1px solid slategrey;
-    border-radius: 10px;
-  }
-
-  .chat-message {
-    display: flex;
-  }
-
-  .chat-message b {
-    width: 100px;
-  }
-
-  .chat-message p {
-    width: 100%;
-  }
-
-  #chat-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    font-family: "Patrick Hand", cursive;
-    width: 100%;
-    align-items: center;
-    margin-bottom: 5%;
-  }
-
-  .chat-title {
-    justify-content: center;
-    display: flex;
-    font-size: 20px;
-    width: 100%;
-  }
-
-  .chat, .message {
-    width: 100%;
-    justify-content: center;
-    display: flex;
-    font-size: 20px;
-  }
-  .chat #chat, .message #chat {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    margin-bottom: 2%;
-    width: 95%;
-    height: 350px;
-    scroll-behavior: smooth;
-    background: #ebeded;
-    border-radius: 5px;
-    padding: 15px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    word-break: break-word;
-  }
-  .chat #message, .message #message {
-    font-size: 20px;
-    max-width: 70%;
-  }
-
-  .send {
-    width: 100%;
-    font-size: 20px;
-    border: none;
-    justify-content: center;
-    display: flex;
-  }
-  .send #send {
-    width: 70%;
-    height: 50px;
-    background-color: #901A1E;
-    font-size: 20px;
-    border-color: transparent;
-  }
-  .send #send:hover {
-    background-color: #5f861e;
-  }
-
-  /*********************************
-  *   Play.html button styling    *
-  *********************************/
-  .mobile-column {
-    display: initial;
-    justify-content: center;
-    flex-direction: row;
-  }
-
-  .choice-button-holder {
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-items: center;
-  }
-
-  .choice-button {
-    width: 70%;
-    height: 70px;
-    font-size: 18px;
-    border-radius: 50px;
-    margin: 5px 5px 10% 5px;
-  }
-  .choice-button:hover {
-    background-color: #5f861e;
-    color: white;
-    border-color: transparent;
-  }
-  .choice-button:active {
-    background-color: #5f861e;
-    color: white;
-  }
-  .choice-button:focus {
-    border-color: #5f861e;
-    background-color: #5f861e;
-    color: white;
-  }
-  .choice-button img {
-    width: 50px;
-    height: 50px;
-    align-self: center;
   }
 
   /*************************************
@@ -1666,16 +1512,8 @@
   }
 
   .svg-column {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
     width: 50%;
     margin-left: 5%;
-    padding-right: 20px;
-    margin-bottom: 5%;
-    border-color: #901A1E;
-    border-radius: 2px;
-    border-style: solid solid solid solid;
   }
 
   /*********************************
@@ -1683,10 +1521,6 @@
   *********************************/
   #chat::-webkit-scrollbar {
     width: 1em;
-  }
-
-  #chat::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   }
 
   #chat::-webkit-scrollbar-thumb {
@@ -1770,41 +1604,36 @@
   /*********************************
   *   Play.html button styling    *
   *********************************/
-  .choice-button-holder {
-    justify-content: center;
+  .mobile-column {
     display: flex;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 20px;
   }
-
-  .choice-button {
-    width: 235px;
+  .mobile-column b {
+    padding: 5px 0 0 2px;
+  }
+  .mobile-column .choice-button {
+    width: 70%;
     height: 70px;
     font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 50px;
-    color: black;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    font-family: "Annie Use Your Telescope", serif;
-    background-color: transparent;
-    border: 2px solid #901A1E;
-    margin-bottom: 10%;
-    margin-left: 5%;
+    margin: 8px 8px 8% 8px;
   }
-  .choice-button:hover {
+  .mobile-column .choice-button:hover {
     background-color: #5f861e;
     color: white;
     border-color: transparent;
   }
-  .choice-button:active {
+  .mobile-column .choice-button:active {
     background-color: #5f861e;
     color: white;
   }
-  .choice-button:focus {
+  .mobile-column .choice-button:focus {
     border-color: #5f861e;
     background-color: #5f861e;
     color: white;
   }
-  .choice-button img {
+  .mobile-column .choice-button img {
     width: 55px;
     height: 55px;
   }
@@ -1906,16 +1735,10 @@
     width: 87%;
   }
   .intro-2 .svg-column {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
     width: 30%;
     margin-right: 2%;
     padding-right: 0;
     margin-bottom: 18%;
-    border-color: #901A1E;
-    border-radius: 2px;
-    border-style: solid solid solid solid;
   }
   .intro-2 .svg-column h2 {
     font-size: 25px;

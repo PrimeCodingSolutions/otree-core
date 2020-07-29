@@ -88,18 +88,7 @@
     margin-top: 6%;
   }
 
-  .svg-column {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    width: 100%;
-    align-self: center;
 
-    margin-bottom: 5%;
-    border-color: $ku-red;
-    border-radius: 2px;
-    border-style: solid solid solid solid;
-  }
 
 
 
@@ -112,9 +101,7 @@
     width: 1em;
   }
 
-  #chat::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
+
 
   #chat::-webkit-scrollbar-thumb {
     background-color: darkgrey;
@@ -128,7 +115,7 @@
 
   .chat-message b {
     padding: 0 10px 0 0;
-    width: 130px;
+    width: 170px;
     display: flex;
     justify-content: flex-start;
   }
@@ -211,7 +198,7 @@
   .mobile-column {
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .choice-button-holder {
@@ -221,13 +208,13 @@
     flex-direction: row;
 
     .choice-button {
-      width: 70%;
+      width: 53%;
       height: 55px;
       font-size: 15px;
       letter-spacing: 1px;
       border-radius: 50px;
 
-      margin: 5px 5px 10% 5px;
+      margin: 5px 5px 8% 5px;
 
 
       &:hover {
