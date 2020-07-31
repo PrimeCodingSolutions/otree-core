@@ -204,44 +204,7 @@
         });
 
 
-        let timeout;
-
-        function greyFaceInterval() {
-            timeout = setTimeout(get_color, 500);
-            return timeout;
-        }
-
-         function get_color(choice) {
-            greyFaceInterval();
-            console.log(greyFaceInterval());
-            if (greyFaceInterval()) {
-                return grey;
-            } else {
-                return choice ? "{{ question.minority_color_img }}" : "{{ question.majority_color_img }}";
-            }
- /**
-        function greyFaceInterval() {
-            setTimeout(get_color, 0);
-        }
-
-        function choiceInterval() {
-            setTimeout(get_color, 20000);
-        }
-
-        function clearGreyFaceInterval() {
-            clearTimeout();
-        }
-
-        function get_color(choice) {
-            greyFaceInterval();
-            if (greyFaceInterval()) {
-                choiceInterval();
-                return grey;
-            } else if(choiceInterval()) {
-                clearGreyFaceInterval();
-                return choice ? "{{ question.minority_color_img }}" : "{{ question.majority_color_img }}";
-            }
-        }**/
+       
     })
 
 
