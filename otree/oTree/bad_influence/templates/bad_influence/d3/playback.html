@@ -97,7 +97,7 @@
             handle.attr("cx", x(value));
             let currentTick = Math.round(x.invert(jQuery(".handle").attr("cx"))/dx);
             let newHistory = history[currentTick];
-            setNodeColors(newHistory);
+            setInterval(setNodeColors(newHistory), 1000);
         };
 
         changeTime(0);

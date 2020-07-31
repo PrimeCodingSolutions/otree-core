@@ -8,14 +8,11 @@
         let milliseconds = Math.floor(remainingTimeoutSeconds * 1000);
 
         $('.otree-timer__time-left').countdown(currentDate.valueOf() + milliseconds)
-
             .on('update.countdown', function (event) {
                 // %-N is "Total count of minutes till the end, non-padded"
                 // %S is seconds left
                 let format = '%-N:%S';
                 $(this).html(event.strftime(format));
-
-
             })
 
 
