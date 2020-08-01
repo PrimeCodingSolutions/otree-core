@@ -600,6 +600,20 @@
       }
     }
   }
+
+  #overlay-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    padding: 0;
+    margin-bottom: 0;
+    z-index: 10;
+    background-color: grey;
+    height: 400px;
+    width: 770px;
+    
+  }
 }
 
 

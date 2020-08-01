@@ -44,6 +44,7 @@
     let happy_eyes = "{% static "main_platform/otree/media/peeps/happy_eyes.png" %}";
 
 
+
     let get_color = function (choice) {
         return choice ? "{{ question.minority_color_img }}" : "{{ question.majority_color_img }}";
     };
@@ -53,8 +54,9 @@
             var node = nodeById.get(n.id);
             if (node) {
                 node.choice = n.choice;
-                svg.select("#node_image_" + node.id)
+                svg.select("#node_image_" + node.id)                   
                     .attr("xlink:href", get_color(n.choice));
+                    
             }
         });
     };
@@ -63,6 +65,7 @@
         width = d3Element.clientWidth;
         svg = d3.select("#d3container")
             .append("svg")
+            .attr("id", "network")
             .attr("width", width)
             .attr("height", height);
 
@@ -119,6 +122,7 @@
                 return d.id === {{ player.id_in_group }} ? ownDisplacement-3.5 : 10
             });
 
+           
 
         node.append("svg:image")
             .attr("id", function (d) {

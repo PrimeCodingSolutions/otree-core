@@ -25,7 +25,7 @@
         <div class="surround">
             <div class="game-row">
                 <!-- Left hand side-->
-                <div class="svg-column">
+                <div class="svg-column" id="network-column">
                     <div class="answer-container" id="d3container">
                         <div class="game-content">
                              <div class="game-timer">
@@ -36,6 +36,7 @@
                             </div>
                         </div>
                             <div class="expected-score-container text-center">Forventet score: <div class="expected-score"></div></div>
+                            <div id="overlay-container"></div>
                     </div>
 
 
@@ -80,24 +81,18 @@
 
 
     <script>
-        // We want to randomise whether the button for the majority choice is on the left or the right
-        // so that players can't catch on an tell which is the majority for the button position
-         {% comment %}$('#ButtonsHolder').css('flex-direction', Math.random() > 0.5 ? 'column' : 'column-reverse');
+        
+      
+            let seconds_left = 30;
+            let overlayContainer = document.getElementById("overlay-container");
 
-        $('.timer_countdown').on('DOMSubtreeModified', function () {
-            let element = $('.timer_countdown');
-
-            if (!element.hasClass('flash')) {
-                let split = element.text().split(':');
-                let minutes = parseInt(split[0]);
-                let seconds = parseInt(split[1]);
-
-                if (minutes <= 0 && seconds <= 20) {
-                    $('.game-timer-content').addClass('flash');
-                    element.addClass('flash')
-                }
-            }
-        }) {% endcomment %}
+            let interval = setInterval(function() {
+                 overlayContainer.innerHTML = "Dit netværk er synligt om:" + "\ " + --seconds_left + " " + "sekunder" + "<br>" + "Du kan i mellemtiden vælge din præference forneden.";
+   
+            }, 1000);
+            
+     
+    
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js"></script>
     <script>
