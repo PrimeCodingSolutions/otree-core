@@ -126,7 +126,7 @@ msgstr ""
 
 #. Translators: the default title of a wait page
 #: .\views\abstract.py:961 .\views\participant.py:291
-msgid "Please wait"
+msgid "Venligst vent.."
 msgstr ""
 
 #: .\views\abstract.py:1403
@@ -138,5 +138,5 @@ msgid "Waiting for the other participant."
 msgstr ""
 
 #: .\views\participant.py:292
-msgid "Waiting for your session to begin"
+msgid "Venter på spillet begynder..."
 msgstr ""

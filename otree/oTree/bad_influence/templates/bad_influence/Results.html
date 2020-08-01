@@ -83,30 +83,10 @@
                     <!-- Explanation for questions -->
                     <div class="d3-row question-title">
                         Spørgsmål kontekst
-                    </div> -->
+                    </div>
                     <div class="d3-row">
                         <div id="questionHolder1"></div>
                     </div>
-                    <!--
-                    <div class="d3-row">
-                        <div id="questionHolder2"></div>
-                    </div>
-                    <br>
-
-                    <div class="d3-row question-title">
-                        Venne-netværk forklaring
-                    </div>
-                    <div class="d3-row">
-                        <div id="faceExplanation"></div>
-                    </div>
-                    <br>
-                    
-                    <div class="d3-row question-title">
-                        Graf forklaring
-                    </div>
-                    <div class="d3-row">
-                        <div id="graphExplanation"></div>
-                    </div>-->
                 </div>
             </div>
 
@@ -114,8 +94,8 @@
                 <h2 class="rapport-header ">Topscorerliste</h2>
                 <table class="table-responsive" id="badInfluenceTableReport">
                     <tr class="report-header-row">
-                        <th class="bad_influence-table-header border-corner-left"></th>
-                        <th class="bad_influence-table-header"> spiller <br> nr.</th>
+                        <th class="bad_influence-table-header border-corner-left">#</th>
+                        <th class="bad_influence-table-header"> spillernavn</th>
                         <th class="bad_influence-table-header"> point <br> ialt</th>
                         <th class="bad_influence-table-header"> fulgt <br> flertallet</th>
                         <th class="bad_influence-table-header"> fulgt sin <br> præference</th>
@@ -172,5 +152,7 @@
             if (playerNum[j].textContent !== player_id) {
             }
         }
+
+
     </script>
 {% endblock %}

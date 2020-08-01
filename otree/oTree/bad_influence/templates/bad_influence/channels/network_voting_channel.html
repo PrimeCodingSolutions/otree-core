@@ -2,18 +2,22 @@
     $(function () {
         let ws_scheme = window.location.protocol === "https:" ? "wss" : "ws";
         let ws_path = ws_scheme + '://' + window.location.host + "/ws/network_voting/{{ player.id }}/{{ group.pk }}";
-        let socket = new WebSocket(ws_path);
+        let socket = new ReconnectingWebSocket(ws_path);
 
         let $guess_true_button = $('#GuessTrueButton');
         let $guess_false_button = $('#GuessFalseButton');
         let $consensus_bar = $('#ConsensusBar');
 
+        let expectedScore = {{ player.expected_score }};
+        let scoreTag = document.querySelector(".expected-score");
+
         let send_guess = function (guess) {
             let message = {
                 'action': 'guess',
                 'payload': guess,
-                'subjective_time': timer.innerText
+                'subjective_time': timer.innerText,
             };
+
 
             if (socket.readyState === WebSocket.OPEN) {
                 socket.send(JSON.stringify({
@@ -36,6 +40,17 @@
             $consensus_bar.html(new_consensus);
             $consensus_bar.attr('aria-valuenow', new_consensus).css('width', new_consensus);
             setNodeColors(obj.ego_graph.nodes);
+
+            // Expected score
+            let nodes = obj.ego_graph['nodes'];
+
+            for (let i = 0; i < nodes.length; i++) {
+                if (nodes[i].id === {{ player.id_in_group }}) {
+                    scoreTag.innerHTML = nodes[i].exp_score + " point"
+                }
+            }
+
+
         }
     })
     ;

@@ -230,8 +230,6 @@ d3.json("{% static 'main_platform/otree/example_data.json' %}", function(error, 
         });
 
 
-
-
         // Add player ID/name and "dig" to yourself.
         node.append("text")
             .attr("class", "node-text")
@@ -239,7 +237,7 @@ d3.json("{% static 'main_platform/otree/example_data.json' %}", function(error, 
             .attr("dx", 15)
             .attr("dy", 20)
             .text(function (d) {
-                return (d.id === "1" ? ("\u00A0" + d.id + " " + "(Dig)") : d.id);
+                return (d.id === "1" ? ("\u00A0" + d.name) : d.name);
             });
 
         force.on("tick", function () {

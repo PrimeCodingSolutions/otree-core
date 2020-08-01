@@ -27,11 +27,18 @@
                 <!-- Left hand side-->
                 <div class="svg-column">
                     <div class="answer-container" id="d3container">
-                        <div id="timer-text">
-                            Tid tilbage:
-                            <strong><span id="timer" class="otree-timer__time-left"></span></strong>
+                        <div class="game-content">
+                             <div class="game-timer">
+                                <div class="game-timer-content game-timer-container">
+                                        <span>Tid tilbage:</span>
+                                        <span class="time_left otree-timer__time-left" id="timer"></span>
+                                </div>
+                            </div>
                         </div>
+                            <div class="expected-score-container text-center">Forventet score: <div class="expected-score"></div></div>
                     </div>
+
+
 
                     <div id="ButtonsHolder" class="choice-button-holder">
                         <button id="GuessFalseButton" type="button" name="choice" value="False"
@@ -46,7 +53,7 @@
                                 <img src="{{ question.minority_color_img }}"> <b>{{ question.minority_choice }}</b>
                             </div>
                         </button>
-                    </div>Forventede point: {{ player.expected_score }}
+                    </div>
                 </div>
 
 
@@ -75,10 +82,10 @@
     <script>
         // We want to randomise whether the button for the majority choice is on the left or the right
         // so that players can't catch on an tell which is the majority for the button position
-        $('#ButtonsHolder').css('flex-direction', Math.random() > 0.5 ? 'row' : 'row-reverse');
+         {% comment %}$('#ButtonsHolder').css('flex-direction', Math.random() > 0.5 ? 'column' : 'column-reverse');
 
-        $('#timer').on('DOMSubtreeModified', function () {
-            let element = $('#timer');
+        $('.timer_countdown').on('DOMSubtreeModified', function () {
+            let element = $('.timer_countdown');
 
             if (!element.hasClass('flash')) {
                 let split = element.text().split(':');
@@ -86,18 +93,31 @@
                 let seconds = parseInt(split[1]);
 
                 if (minutes <= 0 && seconds <= 20) {
-                    $('#timer-text').addClass('flash');
+                    $('.game-timer-content').addClass('flash');
                     element.addClass('flash')
                 }
             }
-        })
+        }) {% endcomment %}
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js"></script>
     <script>
         // Defines the scheme of the WebSocket to be either wss if the protocol is https
         // else it should be ws
-        let isHTTPS = window.location.protocol.includes('https')
+        let isHTTPS = window.location.protocol.includes('https');
         let ws_scheme = isHTTPS ? "wss" : "ws";
+        let player_name = "{{ player.navn }}";
+
+        let expectedScore = {{ player.expected_score }};
+        let choiceButton = document.getElementsByClassName("choice-button");
+        let scoreTag = document.querySelector(".expected-score");
+
+
+        for(let i = 0; i < choiceButton.length; i++) {
+            choiceButton[i].onclick = () => {
+                console.log(expectedScore);
+                {#scoreTag.innerHTML = `Forventet score: ${expectedScore}`;#}
+            }
+        }
 
         // Defines the WebSocket route to listen to
         let ws_path = ws_scheme + '://' + window.location.host + "/ws/chat/{{ group.pk }}";
@@ -116,7 +136,7 @@
                 friend => {
                     players.push(`player_${friend}`)
                 }
-            )
+            );
 
             return players;
         };
@@ -193,7 +213,8 @@
                     'message': message,
                     'player_id': {{ player.id }},
                     'chat_id': {{ player.id_in_group }},
-                    'group_id': {{ group.id }}
+                    'group_id': {{ group.id }},
+                    'player_name': player_name
                 }));
             }
             // Finally reset the input field with an empty value
@@ -236,20 +257,20 @@
             // if the data's chat_id is equal to the player's id in the group, display (Dig) after the Player's name in
             // the frontend. If not just display the Player's name
             if (data.chat_id === {{ player.id_in_group }}) {
-                bElement.textContent = "Spiller " + data.chat_id + " (Dig):";
+                bElement.textContent = player_name + " (Dig):";
             } else {
-                bElement.textContent = "Spiller " + data.chat_id + ":";
+                bElement.textContent = data.player_name + ":";
             }
 
             // Append the bold and paragraph elements into the div element
             divElement.appendChild(bElement);
             divElement.appendChild(pElement);
             // Adds a style attribute to the div element display each chat message with flex box
-            divElement.setAttribute('style', 'display: flex;')
+            divElement.setAttribute('style', 'display: flex;');
             // Adds a class name of 'chat-message' to each chat message
-            divElement.setAttribute('class', 'chat-message')
+            divElement.setAttribute('class', 'chat-message');
             // Adds a id of player's chat id from the data like this 'player_1'
-            divElement.setAttribute('id', `player_${data.chat_id}`)
+            divElement.setAttribute('id', `player_${data.chat_id}`);
             // Appends each chat message to the chat log
             document.querySelector("#chat").appendChild(divElement);
 

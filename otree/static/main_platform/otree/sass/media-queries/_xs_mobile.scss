@@ -40,7 +40,7 @@
     justify-content: center;
     text-align: center;
     font-size: 25px;
-    margin-top: 4%;
+    margin-top: 15%;
     margin-bottom: 0;
     padding-top: 2%;
 
@@ -157,7 +157,7 @@
 
       .game-info {
         padding-bottom: 20px;
-        font-size: 16px;
+        font-size: 11px;
 
         p {
           margin-bottom: 0;
@@ -1105,5 +1105,86 @@
         }
       }
     }
+
+  div.daytrader-introduction-container {
+    justify-content: center;
+    display: flex;
+    margin-top: 12%;
+    flex-direction: column;
+  }
+
+  div.rules {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+
+     a.tip {
+        display: none;
+        padding-right: 8px;
+        text-decoration: none;
+        color: $ku-red;
+      }
+
+      a.tip:hover {
+        cursor: help;
+        position: relative;
+      }
+
+      a.tip span {
+        display: none;
+        text-align: center;
+      }
+
+      a.tip:hover span {
+        border: $ku-red 1px solid;
+        border-radius: .25rem;
+        padding: 8px 8px 8px 8px;
+        display: block;
+        z-index: 100;
+        background-color: white;
+        color: $ku-red;
+        margin: 20px;
+        width: 150px;
+        position: absolute;
+        font-size: 13px;
+        top: 0;
+        text-decoration: none;
+      }
+
+    #copyRulesButton {
+    cursor: pointer;
+
+    &:hover {
+      color: $ku-dark-green;
+    }
+  }
+  }
+
+   div.card-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    div.footer-left {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    width: 35%;
+  }
+  div.footer-right {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 65%;
+  }
+
+    div.footer-right-unauth {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+  }
+  }
+
 }
 

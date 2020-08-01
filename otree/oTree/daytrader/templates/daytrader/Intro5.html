@@ -25,13 +25,13 @@
         </p>
         <p class="daytrader-round-info">
             Og så vil alle ‘rationelle’ tradere fremover gå long, lige meget hvilken information de selv får, fordi
-            der er en overvægt af information som peger på at firmaet har det godt. Prøv at trykke på et af spørgsmålstegnene i sækken for at se din private info.
+            der er en overvægt af information som peger på at firmaet har det godt. Prøv at trykke på et af spørgsmålstegnene i tabellen for at se din private info.
         </p>
         <table class="table daytrader-table">
             <tr class="table-corners">
                 <th class="daytrader-table-header border-corner-left">trader</th>
                 <th class="daytrader-table-header">pris</th>
-                <th class="daytrader-table-header">private info</th>
+                <th class="daytrader-table-header">privat info</th>
                 <th class="daytrader-table-header border-corner-right">handel</th>
             </tr>
             <tr class="daytrader-table-row">
@@ -103,9 +103,14 @@
         <div class="daytrader-round-info">
 
             <p>
-                Det kaldes en <i class="info-cascade-link">informationskaskade</i> , og det er rationelt at gøre.
+                Det kaldes en <a class="tip">informationskaskade <span>En informationskaskade opstår når du tager det samme valg som dem før
+                    dig har taget, uafhængigt af hvilken privat information du selv måtte have. </span></a> , og det er rationelt at gøre.
             </p>
-            <p>Informationskaskader kaldes nogle gange også for <i class="info-lemminge-link">lemminge-effekter</i>.</p>
+            <p>Informationskaskader kaldes nogle gange også for <a class="tip">lemminge-effekter <span>En person kaldes en lemming, hvis vedkommende i en beslutningssituation
+                    følger de valg, som andre har truffet før, frem for at følge sin egen information.
+                    <br>
+                    <br>
+                    En lemmingeeffekt er en beslutningssituation, hvori de fleste individer opfører sig som lemminger.</span></a>.</p>
             <p>
                 Men informationskaskader kan tage fejl. Traderne ignorerede deres private information, fordi de to
                 første
@@ -148,6 +153,10 @@
     </div>
 
     <script>
+          $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+         });
+
         // onClick change image (Sad-face)
         let unknownFaces = document.getElementsByClassName("unknown-face");
         let hiddenFaceContainer = document.getElementsByClassName("reveal-hidden-face");
@@ -184,35 +193,7 @@
             }
         }
 
-        // Information modules
-        let infoCascadeModal = document.getElementById("infoCascadeModal");
-        let infoCascadeLink = document.querySelector(".info-cascade-link");
-        let lemmingModal = document.getElementById("lemmingModal");
-        let lemmingeInfo = document.querySelector(".info-lemminge-link");
 
-
-        infoCascadeLink.onclick = () => {
-            infoCascadeModal.style.display = "block";
-        };
-
-        lemmingeInfo.onclick = () => {
-            lemmingModal.style.display = "block";
-        };
-
-        window.onclick = event => {
-            try {
-                 if (event.target === infoCascadeModal) {
-                infoCascadeModal.style.display = "none";
-            } else {
-                 if (event.target === lemmingModal) {
-                    lemmingModal.style.display = "none";
-                }
-            }
-        }
-            catch(err) {
-                console.log("ERROR: Modal cannot be exited.")
-             }
-        };
 
 
 

@@ -29,6 +29,19 @@
     width: 90%;
     padding: 20px;
 
+    div.ranking-container {
+      table#rankingTable {
+        th.table-ranking-header {
+          font-size: 18px;
+        }
+
+        td.table-ranking-data {
+          text-align: center;
+          font-size: 17px;
+        }
+      }
+    }
+
     div.content-container {
       width: 80%;
     }
@@ -41,7 +54,7 @@
       .daytrader-start-game-btn {
         font-size: 50px;
         margin: 250px 0 0 20px;
-        width: 189px;
+        width: 300px;
 
     }
        }
@@ -116,6 +129,14 @@
         font-weight: bold;
         font-size: 25px;
       }
+
+       a.tip:hover span {
+        padding: 8px 20px 8px 8px;
+        margin: 20px;
+        width: 450px;
+        font-size: 18px;
+        right: 0;
+      }
     }
 
 
@@ -127,6 +148,35 @@
       width: 100%;
       align-items: center;
     }
+
+
+     .daytrader-intro-next-btn-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+
+       .daytrader-next-btn {
+        font-size: 18px;
+        background: $ku-dark-blue;
+        font-family: "Patrick Hand", sans-serif;
+        width: 230px;
+        height: 45px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        border: 2px solid $ku-dark-blue;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $ku-dark-green;
+          border-color: transparent;
+        }
+      }
+    }
+
 
     // Styling af det viste ansigt i teksten
     .company-face {
@@ -163,6 +213,9 @@
       .daytrader-table-row {
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
+        td:first-child {
+          padding-left: 20px;
+        }
       }
     }
 
@@ -229,180 +282,49 @@
     .results-desc {
       padding: 0 30px;
     }
+
+    div.radio-choices {
+      display: flow-root;
+      justify-content: center;
+      flex-direction: column;
+
+     .form-check-label {
+        font-size: 20px;
+     }
+
+        input.form-check-input[type="radio"] {
+          -webkit-appearance: none;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          outline: none;
+          border: 3px solid $ku-dark-blue;
+
+
+          &:before {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 60%;
+            margin: 20% auto;
+            border-radius: 50%;
+          }
+
+          &:checked:before {
+            background: $ku-dark-blue;
+          }
+
+          &:checked {
+            border-color: $ku-dark-blue;
+          }
+        }
+        }
   }
 
 
-  /*****************************
-  *   Play.html svg styling    *
-  *******************************/
-  .answer-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    min-height: 300px;
-    width: 100%;
-
-    svg {
-      width: 100%;
-    }
-
-  }
-
-  #timer-text {
-    top: 0;
-    left: 8px;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    padding-top: 2%;
-    font-family: "Patrick Hand", cursive;
-
-    #timer {
-      padding-left: 5px;
-    }
-  }
 
 
-  .game-row {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 2%;
-  }
 
-  .svg-column {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    width: 90%;
-    align-self: center;
-
-    margin-bottom: 5%;
-    border-color: $ku-red;
-    border-radius: 2px;
-    border-style: solid solid solid solid;
-  }
-
-  /*********************************
-  *   Play.html timer styling     *
-  *********************************/
-  .flash {
-    animation-name: flash;
-    animation-duration: 0.2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-play-state: running;
-  }
-
-  @keyframes flash {
-    from {
-      color: red;
-    }
-    to {
-      color: black;
-    }
-  }
-
-  /***********************************
-  *   Play.html chat+svg container  *
-  ***********************************/
-  .surround {
-    width: 100%;
-  }
-
-  /*********************************
-  *   Play.html chat styling      *
-  *********************************/
-  #chat {
-    height: 250px;
-    scroll-behavior: smooth;
-    background: #ebeded;
-    border-radius: 5px;
-    padding: 15px;
-    overflow: auto;
-  }
-
-  #chat::-webkit-scrollbar {
-    width: 1em;
-  }
-
-  #chat::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-
-  #chat::-webkit-scrollbar-thumb {
-    background-color: darkgrey;
-    outline: 1px solid slategrey;
-    border-radius: 10px;
-  }
-
-  .chat-message {
-    display: flex;
-  }
-
-  .chat-message b {
-    padding: 0 10px 0 0;
-  }
-
-  #chat-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    font-family: "Patrick Hand", cursive;
-    width: 100%;
-    align-items: center;
-    margin-bottom: 5%;
-
-  }
-  .chat-title {
-    justify-content: center;
-    display: flex;
-    font-size: 20px;
-    width: 100%;
-  }
-
-  .chat, .message {
-    width: 100%;
-    justify-content: center;
-    display: flex;
-    font-size: 20px;
-
-    #chat {
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-      margin-bottom: 2%;
-      width: 70%;
-    }
-
-    #message {
-      font-size: 20px;
-      max-width: 70%;
-    }
-  }
-
-  .send {
-    width: 100%;
-    font-size: 20px;
-    border: none;
-    justify-content: center;
-    display: flex;
-
-    #send {
-      width: 70%;
-      height: 50px;
-      background-color: $ku-red;
-      font-size: 20px;
-      border-color: transparent;
-
-
-      &:hover {
-        background-color: $ku-dark-green;
-
-      }
-    }
-
-  }
   /*********************************
   *   Play.html button styling    *
   *********************************/
@@ -794,6 +716,9 @@
               }
             }
         }
+      }
+     div#error {
+        font-size: 16px;
       }
    }
 }

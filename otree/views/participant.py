@@ -226,8 +226,8 @@ class AssignVisitorToRoom(GenericWaitPageMixin, vanilla.View):
                 "otree/WaitPageRoom.html",
                 {
                     'view': self,
-                    'title_text': _('Please wait'),
-                    'body_text': _('Waiting for your session to begin'),
+                    'title_text': _('Venligst vent..'),
+                    'body_text': _('Venter på spillet..'),
                 },
             )
 

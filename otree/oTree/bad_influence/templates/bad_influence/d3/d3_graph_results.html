@@ -22,7 +22,7 @@
 
     .ticks {
         font-family: "Annie Use Your Telescope", serif;
-        font: 12px;
+        font-size: 12px;
         fill: black;
     }
 
@@ -161,6 +161,7 @@
 </script>
 <script>
     let nodeById = d3.map();
+
     let red = "{% static "main_platform/otree/media/peeps/red_peep.png" %}";
     let blue = "{% static "main_platform/otree/media/peeps/blue_peep.png" %}";
     let pink = "{% static "main_platform/otree/media/peeps/pink_peep.png" %}";
@@ -189,6 +190,8 @@
         });
     };
 
+
+
     let setupNetwork = function (chosenGraph) {
         let graph = JSON.parse(JSON.stringify(chosenGraph));
 
@@ -214,6 +217,7 @@
             linked[link.source.id + "," + link.target.id] = 1
         });
 
+
         let neighboring = function (a, b) {
             return linked[a.id + "," + b.id] || linked[b.id + "," + a.id];
         };
@@ -222,10 +226,22 @@
 
         function connectedNodes(d) {
             if (highlighted !== d) {
-                //Make all nodes that aren't neighbours transparent
+                // Make all nodes that aren't neighbours transparent
                 node.transition(1000).style("opacity", function (o) {
                     return neighboring(d, o) ? 1 : 0.3;
+
                 });
+
+                /**
+                // Make all nodes 100% opacity if clicked outside
+                node.transition(1000).style("opacity", function(o) {
+                    let showAll = $('.report-info').on('click', function () {
+                          if (showAll) {
+                        console.log("cliiiiicked!")
+                        }
+                    });
+
+                });**/
 
 
                 // Keep all links
@@ -236,9 +252,7 @@
                     else {
                         return 0.3;
                     }
-
                 });
-
 
             } else {
                 highlighted = null;
@@ -246,6 +260,12 @@
                 // Restore all nodes to being fully opaque
                 node.transition(1000).style("opacity", 1);
                 link.transition(1000).style("opacity", 1);
+             /**    d3.select("body").on("click",function(){
+                     console.log("outside")
+                });
+              on background click then use connectedNodeS?
+              **/
+
             }
         }
 
@@ -265,7 +285,8 @@
             .attr("class", "node")
             .call(force.drag)
             .on('click', function (d) {
-                connectedNodes(d)
+                connectedNodes(d);
+                console.log(connectedNodes)
             });
 
         node
@@ -328,7 +349,7 @@
             .attr("dx", 15)
             .attr("dy", 20)
             .text(function (d) {
-                return d.id;
+                return d.name;
             });
 
         force.on("tick", function () {
@@ -377,7 +398,11 @@
             .text(function (idx) {
                 return data[idx].question.title;
             });
+
+
     });
+
+
 </script>
 <script>
     let setupHistory = function (chosenHistory) {

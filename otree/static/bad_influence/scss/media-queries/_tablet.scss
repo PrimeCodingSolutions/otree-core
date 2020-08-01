@@ -72,19 +72,8 @@
       width: 100%;
     }
 
-  }
-
-  #timer-text {
-    top: 0;
-    left: 8px;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    padding-top: 2%;
-    font-family: "Patrick Hand", cursive;
-
-    #timer {
-      padding-left: 5px;
+    div.expected-score-container {
+      font-size: 16px;
     }
   }
 
@@ -94,59 +83,26 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    margin-top: 2%;
-  }
+    margin-top: 5%;
 
-  .svg-column {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    width: 90%;
-    margin-bottom: 5%;
-    border-color: $ku-red;
-    border-radius: 2px;
-    border-style: solid solid solid solid;
-  }
+      div.game-content {
+        display: flex;
+        justify-content: center;
 
-  /*********************************
-  *   Play.html timer styling     *
-  *********************************/
-  .flash {
-    animation-name: flash;
-    animation-duration: 0.2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-play-state: running;
-  }
-
-  @keyframes flash {
-    from {
-      color: red;
-    }
-    to {
-      color: black;
+      div.game-timer {
+        display: flex;
+        text-align: center;
+        font-size: 23px;
+      }
     }
   }
 
-  /***********************************
-  *   Play.html chat+svg container  *
-  ***********************************/
-  .surround {
-    width: 100%;
-  }
+
 
   /*********************************
   *   Play.html chat styling      *
   *********************************/
-  #chat {
-    height: 250px;
-    scroll-behavior: smooth;
-    background: #ebeded;
-    border-radius: 5px;
-    padding: 15px;
-    overflow: auto;
-  }
+
 
   #chat::-webkit-scrollbar {
     width: 1em;
@@ -167,7 +123,11 @@
   }
 
   .chat-message b {
-    padding: 0 10px 0 0;
+    width: 100px;
+  }
+
+   .chat-message p {
+    width: 100%;
   }
 
   #chat-container {
@@ -196,7 +156,16 @@
     #chat {
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
       margin-bottom: 2%;
-      width: 70%;
+      width: 95%;
+      height: 350px;
+      scroll-behavior: smooth;
+      background: #ebeded;
+      border-radius: 5px;
+      padding: 15px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      word-break: break-word;
+
     }
 
     #message {
@@ -239,19 +208,17 @@
   .choice-button-holder {
     justify-content: center;
     display: flex;
+   flex-direction: row;
     width: 100%;
+    align-items: center;
   }
 
   .choice-button {
-    width: 235px;
+    width: 70%;
     height: 70px;
     font-size: 18px;
     border-radius: 50px;
-    color: black;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    font-family: "Annie Use Your Telescope", serif;
-    background-color: transparent;
-    border: 2px solid $ku-red;
+
     margin: 5px 5px 10% 5px;
 
     &:hover {
@@ -482,9 +449,59 @@
       }
     }
 
+    div.bad_influence-form-container {
+      div.form-group {
+        div.controls {
+          div.form-check {
+            padding: 15px 0 15px 180px;
+            input.form-check-input[type="radio"] {
+              -webkit-appearance: none;
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              outline: none;
+              border: 3px solid $ku-red;
+
+              &:before {
+                content: '';
+                display: block;
+                width: 60%;
+                height: 60%;
+                margin: 20% auto;
+                border-radius: 50%;
+              }
+
+              &:checked:before {
+                background: $ku-red;
+              }
+
+              &:checked {
+                border-color: $ku-red;
+              }
+            }
+
+            label {
+              font-size: 32px;
+              padding: 0 0 0 7.5px;
+            }
+          }
+        }
+      }
+
+      div.button-container {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
   }
 
   .report-info {
+
+    h1.bad_influence-report-title {
+      font-size: 35px;
+    }
+
     div.rapport-header {
       width: 100%;
       margin-top: 24px;
@@ -533,7 +550,7 @@
     div.report-info {
       div.results-title {
         p {
-          font-size: 18px;
+          font-size: 25px;
         }
       }
 
