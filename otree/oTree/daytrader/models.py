@@ -131,7 +131,8 @@ class Subsession(BaseSubsession):
         drawn_faces = [[self.session.vars['{}{}'.format(name, r)][2]
                         for r in range(1, number_of_rounds)] for name in names]
         round_list = [r for r in range(1, number_of_rounds + 1)]
-
+        trade_choice = [[self.session.vars['{}{}'.format(name, r)][4]
+                         for r in range(1, number_of_rounds)] for name in names]
         rankings = []
         if 'profit' in self.session.vars:
             for p in self.get_players():
@@ -180,8 +181,8 @@ class Player(BasePlayer):
     drawn_face = models.BooleanField()
     choice_of_trade = models.IntegerField(
         choices=[
-            [1, 'køb (long)'],
-            [0, 'lån og sælg (short)'],
+            [2, 'køb (long)'],
+            [1, 'lån og sælg (short)'],
         ],
 
         widget=widgets.RadioSelectHorizontal(),
@@ -235,7 +236,7 @@ class Player(BasePlayer):
             previous_choice_of_number_of_shares = self.session.vars[tmp][4]
 
             # calculate price change and add up
-            if previous_choice_of_trade == 1:
+            if previous_choice_of_trade == 2:
                 price_change += Constants.price_change_per_share * previous_choice_of_number_of_shares
             else:
                 price_change -= Constants.price_change_per_share * previous_choice_of_number_of_shares
@@ -272,9 +273,9 @@ class Player(BasePlayer):
         tmp4 = self.session.vars[tmp][4]
 
         price_change = 0.0
-        if tmp3 == 1:
+        if tmp3 == 2:
             price_change += Constants.price_change_per_share * tmp4
-        elif tmp3 == 0:
+        elif tmp3 == 1:
             price_change -= Constants.price_change_per_share * tmp4
         else:
             price_change += 0
@@ -286,7 +287,7 @@ class Player(BasePlayer):
         # in session.vars and summed in self.payoff
         self.session.vars['profit'] = []
         for idp, p in enumerate(self.in_all_rounds()):
-            if p.choice_of_trade == 1:
+            if p.choice_of_trade == 2:
                 self.session.vars['profit'].append((self.closing_price(p.company_name)
                                                     - p.price) * p.choice_of_number_of_shares)
             else:

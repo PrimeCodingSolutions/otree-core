@@ -59,17 +59,55 @@
                         {% endfor %}
                     </div>
                 </td>
-                {% for state in valg %}
+                {% for choice in valg %}
                     <td class="daytrader-table-data get-col">
                         <div class="face-container">
-                            {% if state == 1 %}
+                            {% if choice is 2 %}
                                 <img src="{% static 'daytrader/media/green-plus.svg' %}" alt="green plus"
-                                     class="company-face">
-                            {% else %}
-                                <img src="{% static 'daytrader/media/yellow-minus.svg' %}" alt="yellow minus"
-                                     class="company-face">
+                                        class="company-face">
+                            {% elif choice is 1 %}
+                                <img src="{% static 'daytrader/media/yellow-minus.svg' %}" alt="green plus"
+                                        class="company-face">
+                            {% elif choice is 0 %}
+                                <img src="{% static 'daytrader/media/grey_circle.svg' %}" class="company-face"
+                                     alt="grey-circle">
                             {% endif %}
+
+
+                            {#                            {% if state == 1 %}#}
+                            {#                                {% for earned in profit %}#}
+                            {#                                    {% if forloop.counter0|divisibleby:player_number %}#}
+                            {#                                        {% if earned == 0 %}#}
+                            {#                                            <img src="{% static 'daytrader/media/grey_circle.svg' %}" alt="">#}
+                            {#                                        {% else %}#}
+                            {#                                            <img src="{% static 'daytrader/media/green-plus.svg' %}" alt="green plus"#}
+                            {#                                                 class="company-face">#}
+                            {#                                        {% endif %}#}
+                            {##}
+                            {#                                    {% endif %}#}
+                            {#                                {% endfor %}#}
+                            {##}
+                            {#                            {% elif state == 0 %}#}
+                            {#                                {% for earned in profit %}#}
+                            {#                                    {% if forloop.counter0|divisibleby:player_number and earned is  0 %}#}
+                            {#                                        <img src="{% static 'daytrader/media/grey_circle.svg' %}" alt="">#}
+                            {#                                    {% elif forloop.counter0|divisibleby:player_number and earned > 0 %}#}
+                            {#                                        <img src="{% static 'daytrader/media/yellow-minus.svg' %}" alt="yellow minus"#}
+                            {#                                             class="company-face">#}
+                            {#                                    {% endif %}#}
+                            {#                                {% endfor %}#}
+                            {##}
+                            {#                            {% endif %}#}
+
+                            {#                            {% if state == 1 %}#}
+                            {#                                <img src="{% static 'daytrader/media/green-plus.svg' %}" alt="green plus"#}
+                            {#                                     class="company-face">#}
+                            {#                            {% else %}#}
+                            {#                                <img src="{% static 'daytrader/media/yellow-minus.svg' %}" alt="yellow minus"#}
+                            {#                                             class="company-face">#}
+                            {#                            {% endif %}#}
                         </div>
+
                     </td>
                 {% endfor %}
             </tr>
@@ -83,7 +121,6 @@
 
     <div class="ranking-container">
     <h2 class="rapport-header ">Topscorerliste</h2>
-
 
 
     <table class="table table-responsive" id="rankingTable">
@@ -100,9 +137,6 @@
             </tr>
         {% endfor %}
     </table>
-
-
-
 
 
 {% endblock %}
