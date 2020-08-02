@@ -167,6 +167,15 @@ class DaytraderIntro6View(vanilla.TemplateView):
     template_name = 'otree/introduction/daytrader-introduction6.html'
 
 
+class BadInfluenceIntroView(vanilla.TemplateView):
+    template_name = 'otree/introduction/bad-influence-introduction.html'
+
+
+class BadInfluenceIntro1View(vanilla.TemplateView):
+    template_name = 'otree/introduction/bad-influence-introduction1.html'
+
+
+
 def get_urlpatterns():
     urlpatterns = [
             urls.url(r'^admin/', admin.site.urls),
@@ -177,8 +186,10 @@ def get_urlpatterns():
             urls.url(r'^accounts/logout/$', LogoutView.as_view(), name='logout'),
             urls.url(r'^delete/(?P<pk>\d+)/$', DeleteRoom.as_view(), name="delete_view_with_pk"),
             urls.url(r'^edit/(?P<pk>\d+)/$', UpdateRoom.as_view(), name="update_view_with_pk"),
+
             path('create_room/', CreateRoom.as_view(), name='create_room'),
 
+            # Daytrader rules intro pages
             urls.url(r'^daytrader-introduction/$', DaytraderIntroView.as_view(), name="daytrader-intro"),
             urls.url(r'^daytrader-introduction/1/$', DaytraderIntro1View.as_view(), name="daytrader-intro1"),
             urls.url(r'^daytrader-introduction/2/$', DaytraderIntro2View.as_view(), name="daytrader-intro2"),
@@ -186,6 +197,10 @@ def get_urlpatterns():
             urls.url(r'^daytrader-introduction/4/$', DaytraderIntro4View.as_view(), name="daytrader-intro4"),
             urls.url(r'^daytrader-introduction/5/$', DaytraderIntro5View.as_view(), name="daytrader-intro5"),
             urls.url(r'^daytrader-introduction/6/$', DaytraderIntro6View.as_view(), name="daytrader-intro6"),
+
+            # Bad influence rules intro pages
+            urls.url(r'^bad-influence-introduction/$', BadInfluenceIntroView.as_view(), name="bad-influence-intro"),
+            urls.url(r'^bad-influence-introduction/1/$', BadInfluenceIntro1View.as_view(), name="bad-influence-intro1"),
 
     ]
 

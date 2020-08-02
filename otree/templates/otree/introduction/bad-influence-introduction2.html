@@ -1,0 +1,62 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree %}
+{% block styles %}
+
+<style>
+    body {
+        background-color: #901A1E;
+    }
+
+    .node {
+        stroke: #000;
+        stroke-width: 0;
+    }
+
+    .node-player {
+        stroke: #000;
+        stroke-width: 3px;
+    }
+
+    .link {
+        stroke: #999;
+        stroke-width: 2px;
+    }
+
+    .node-text {
+        font-family: "Patrick Hand", cursive;
+        font-size: 20px;
+
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="game-container container intro-2">
+    <div class="game-introduction">
+        <h2 class="round-title">Vælg et navn</h2>
+    </div>
+
+    <div class="bad_influence-form-container">
+        {% formfield player.navn label=None %}
+        <h3 class="ready-player text-center"></h3>
+        <div class="button-container">
+            <button class="start-game">
+                <span class="button-text">Jeg er klar!</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+    <script>
+        let radioButton = document.getElementsByClassName("form-check-input");
+        let readyPlayer = document.querySelector(".ready-player");
+
+        for(let i = 0; i < radioButton.length; i++) {
+             radioButton[i].onclick = () => {
+                readyPlayer.innerHTML = `Klar til at spille ${radioButton[i].value}?`
+             }
+        }
+    </script>
+{% endblock %}
+
