@@ -69,7 +69,9 @@
 
       .link-container {;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
+
+
         .link {
           color: $ku-red;
           margin: 5% 0;
