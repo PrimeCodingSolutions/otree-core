@@ -91,6 +91,7 @@
     width: 100%;
     margin-top: 8%;
 
+
     div.game-content {
       display: flex;
       justify-content: center;
@@ -222,7 +223,6 @@
       border-radius: 5px;
       padding: 15px;
       overflow: auto;
-
     }
 
     #message {
@@ -285,6 +285,7 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
+    z-index: 4;
 
     .selected {
         background-color: $ku-dark-green !important;
@@ -805,4 +806,30 @@
       }
     }
   }
+
+   #d3container {
+
+    #overlay-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 415px;
+      background:rgba(255,255,255, 0.9);
+      position:absolute;
+      border: solid 2px transparent;
+
+      p {
+        justify-content: center;
+        display: flex;
+        text-align: center;
+        align-content: center;
+        align-items: center;
+        font-size: 15px;
+        font-weight: bold;
+        color: $ku-red;
+      }
+    }
+  }
+
+
 }

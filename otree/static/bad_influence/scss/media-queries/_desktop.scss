@@ -213,7 +213,7 @@
   .choice-button-holder {
     justify-content: center;
     display: flex;
-    z-index: 4;
+
   }
 
   .choice-button {
@@ -610,11 +610,12 @@
 
   #d3container {
 
+
     #overlay-container {
       display: flex;
       justify-content: center;
       width: 100%;
-      height: 415px;
+      height: 375px;
       background:rgba(255,255,255, 0.9);
       position:absolute;
       border: solid 2px transparent;
@@ -627,25 +628,9 @@
         align-items: center;
         font-size: 25px;
         font-weight: bold;
-
         color: $ku-red;
 
       }
-
-        /**
-   #overlay {
-
-    }
-
-    #originalDiv {
-      width: 100px;
-      height: 100px;
-      background-color: blue;
-      z-index: 1;
-      position:absolute;
-      top:0px;
-      left:0px;
-    }**/
     }
   }
 }

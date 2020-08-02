@@ -88,7 +88,6 @@
             $(this).addClass('selected');
         });
 
-
         // Overlay for network
         let seconds_left = 20;
         let overlayContainer = document.getElementById("overlay-container");
@@ -97,78 +96,28 @@
         let parentContainer = document.getElementById("d3container");
         let expectedScoreDisplay = document.getElementById("expectedScore");
         let gameTimerDisplay = document.getElementById("game-timer-surround");
-
-
         const overLayStyles = {
             borderColor: "white",
-
-
         };
 
+        let interval = setInterval(function() {
+             overlayText.innerHTML = "Dit netværk er synligt om:" + "\ " + --seconds_left + " " + "sekunder" + "<br>" + "&darr; Du kan i mellemtiden vælge din præference forneden &darr;";
+            parentContainer.style.filter = "grayscale(1)";
+            expectedScoreDisplay.style.display = "none";
+            gameTimerDisplay.style.display = "none";
+            //choiceButtons.style.backgroundColor = "white";
+             if (seconds_left <= 0)
+            {
+            clearInterval(interval);
+            parentContainer.style.filter = "none";
+            expectedScoreDisplay.style.display = "flex";
+            gameTimerDisplay.style.display = "flex";
+            parentContainer.removeChild(overlayContainer);
+            }
+        }, 1000);
 
 
-            let interval = setInterval(function() {
-                 overlayText.innerHTML = "Dit netværk er synligt om:" + "\ " + --seconds_left + " " + "sekunder" + "<br>" + "&darr; Du kan i mellemtiden vælge din præference forneden &darr;";
-                parentContainer.style.filter = "grayscale(1)";
-                expectedScoreDisplay.style.display = "none";
-                gameTimerDisplay.style.display = "none";
-                //choiceButtons.style.backgroundColor = "white";
-                 if (seconds_left <= 0)
-                {
-                  clearInterval(interval);
-                parentContainer.style.filter = "none";
-                 expectedScoreDisplay.style.display = "flex";
-                 gameTimerDisplay.style.display = "flex";
-                  parentContainer.removeChild(overlayContainer);
-                }
-            }, 1000);
-
-        /**
-         *
-         *   .choice-button {
-    width: 235px;
-    height: 70px;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 50px;
-    color: black;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    font-family: "Annie Use Your Telescope", serif;
-    background-color: transparent;
-    border: 2px solid $ku-red;
-    margin-bottom: 10%;
-    margin-left: 5%;
-
-
-    &:hover {
-      background-color: $ku-dark-green;
-      color: white;
-      border-color: transparent;
-
-    }
-
-    &:active {
-      background-color: $ku-dark-green;
-      color: white;
-
-    }
-
-    &:focus {
-      border-color: $ku-dark-green;
-      background-color: $ku-dark-green;
-      color: white;
-    }
-
-    img {
-      width: 55px;
-      height: 55px;
-    }
-         *
-         * @type {boolean}
-         */
-
-            // Defines the scheme of the WebSocket to be either wss if the protocol is https
+        // Defines the scheme of the WebSocket to be either wss if the protocol is https
         // else it should be ws
         let isHTTPS = window.location.protocol.includes('https');
         let ws_scheme = isHTTPS ? "wss" : "ws";
