@@ -1052,7 +1052,7 @@ class GenericWaitPageMixin:
         return response
 
     # Translators: the default title of a wait page
-    title_text = ugettext_lazy('Please wait')
+    title_text = ugettext_lazy('Vent venligst..')
     body_text = None
 
     def _get_default_body_text(self):
@@ -1529,9 +1529,9 @@ class WaitPage(FormPageOrInGameWaitPage, GenericWaitPageMixin):
     def _get_default_body_text(self):
         num_other_players = self._group_or_subsession.player_set.count() - 1
         if num_other_players > 1:
-            return _('Waiting for the other participants.')
+            return _('Venter på de andre spillere.')
         if num_other_players == 1:
-            return _('Waiting for the other participant.')
+            return _('Venter på de andre spillere.')
         return ''
 
 

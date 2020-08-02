@@ -325,58 +325,7 @@
 
 
 
-  /*********************************
-  *   Play.html button styling    *
-  *********************************/
-  .mobile-column {
-    display: initial;
-    justify-content: center;
-    flex-direction: row;
-  }
 
-  .choice-button-holder {
-    justify-content: center;
-    display: flex;
-    width: 100%;
-  }
-
-  .choice-button {
-    width: 235px;
-    height: 70px;
-    font-size: 18px;
-    border-radius: 50px;
-    color: black;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    font-family: "Annie Use Your Telescope", serif;
-    background-color: transparent;
-    border: 2px solid $ku-red;
-    margin: 5px 5px 10% 5px;
-
-    &:hover {
-      background-color: $ku-dark-green;
-      color: white;
-      border-color: transparent;
-
-    }
-
-    &:active {
-      background-color: $ku-dark-green;
-      color: white;
-
-    }
-
-    &:focus {
-      border-color: $ku-dark-green;
-      background-color: $ku-dark-green;
-      color: white;
-    }
-
-    img {
-      width: 50px;
-      height: 50px;
-      align-self: center;
-    }
-  }
 
   .report-info {
     #tableReport {

@@ -99,153 +99,7 @@
 
 
 
-  /*********************************
-  *   Play.html chat styling      *
-  *********************************/
 
-
-  #chat::-webkit-scrollbar {
-    width: 1em;
-  }
-
-  #chat::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-
-  #chat::-webkit-scrollbar-thumb {
-    background-color: darkgrey;
-    outline: 1px solid slategrey;
-    border-radius: 10px;
-  }
-
-  .chat-message {
-    display: flex;
-  }
-
-  .chat-message b {
-    width: 100px;
-  }
-
-   .chat-message p {
-    width: 100%;
-  }
-
-  #chat-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    font-family: "Patrick Hand", cursive;
-    width: 100%;
-    align-items: center;
-    margin-bottom: 5%;
-
-  }
-  .chat-title {
-    justify-content: center;
-    display: flex;
-    font-size: 20px;
-    width: 100%;
-  }
-
-  .chat, .message {
-    width: 100%;
-    justify-content: center;
-    display: flex;
-    font-size: 20px;
-
-    #chat {
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-      margin-bottom: 2%;
-      width: 95%;
-      height: 350px;
-      scroll-behavior: smooth;
-      background: #ebeded;
-      border-radius: 5px;
-      padding: 15px;
-      overflow-y: scroll;
-      overflow-x: hidden;
-      word-break: break-word;
-
-    }
-
-    #message {
-      font-size: 20px;
-      max-width: 70%;
-    }
-  }
-
-  .send {
-    width: 100%;
-    font-size: 20px;
-    border: none;
-    justify-content: center;
-    display: flex;
-
-    #send {
-      width: 70%;
-      height: 50px;
-      background-color: $ku-red;
-      font-size: 20px;
-      border-color: transparent;
-
-
-      &:hover {
-        background-color: $ku-dark-green;
-
-      }
-    }
-
-  }
-  /*********************************
-  *   Play.html button styling    *
-  *********************************/
-  .mobile-column {
-    display: initial;
-    justify-content: center;
-    flex-direction: row;
-  }
-
-  .choice-button-holder {
-    justify-content: center;
-    display: flex;
-   flex-direction: row;
-    width: 100%;
-    align-items: center;
-  }
-
-  .choice-button {
-    width: 70%;
-    height: 70px;
-    font-size: 18px;
-    border-radius: 50px;
-
-    margin: 5px 5px 10% 5px;
-
-    &:hover {
-      background-color: $ku-dark-green;
-      color: white;
-      border-color: transparent;
-
-    }
-
-    &:active {
-      background-color: $ku-dark-green;
-      color: white;
-
-    }
-
-    &:focus {
-      border-color: $ku-dark-green;
-      background-color: $ku-dark-green;
-      color: white;
-    }
-
-    img {
-      width: 50px;
-      height: 50px;
-      align-self: center;
-    }
-  }
 
   /*************************************
   *   Intro1.html.html table styling   *
@@ -568,6 +422,31 @@
             font-size: 22px;
           }
         }
+      }
+    }
+  }
+
+
+   #d3container {
+
+    #overlay-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 350px;
+      background:rgba(255,255,255, 0.9);
+      position:absolute;
+      border: solid 2px transparent;
+
+      p {
+        justify-content: center;
+        display: flex;
+        text-align: center;
+        align-content: center;
+        align-items: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: $ku-red;
       }
     }
   }

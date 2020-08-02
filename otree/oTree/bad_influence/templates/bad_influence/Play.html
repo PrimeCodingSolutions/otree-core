@@ -25,17 +25,18 @@
         <div class="surround">
             <div class="game-row">
                 <!-- Left hand side-->
-                <div class="svg-column">
+                <div class="svg-column" id="network-column">
                     <div class="answer-container" id="d3container">
                         <div class="game-content">
-                             <div class="game-timer">
+                             <div class="game-timer" id="game-timer-surround">
                                 <div class="game-timer-content game-timer-container">
                                         <span>Tid tilbage:</span>
                                         <span class="time_left otree-timer__time-left" id="timer"></span>
                                 </div>
                             </div>
                         </div>
-                            <div class="expected-score-container text-center">Forventet score: <div class="expected-score"></div></div>
+                            <div class="expected-score-container text-center" id="expectedScore">Forventet score: <div class="expected-score"></div></div>
+                            <div id="overlay-container"></div>
                     </div>
 
 
@@ -79,28 +80,43 @@
     </div>
 
 
-    <script>
-        // We want to randomise whether the button for the majority choice is on the left or the right
-        // so that players can't catch on an tell which is the majority for the button position
-         {% comment %}$('#ButtonsHolder').css('flex-direction', Math.random() > 0.5 ? 'column' : 'column-reverse');
-
-        $('.timer_countdown').on('DOMSubtreeModified', function () {
-            let element = $('.timer_countdown');
-
-            if (!element.hasClass('flash')) {
-                let split = element.text().split(':');
-                let minutes = parseInt(split[0]);
-                let seconds = parseInt(split[1]);
-
-                if (minutes <= 0 && seconds <= 20) {
-                    $('.game-timer-content').addClass('flash');
-                    element.addClass('flash')
-                }
-            }
-        }) {% endcomment %}
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js"></script>
     <script>
+        // Keep button green until other button clicked
+        $('.choice-button').on('click', function(){
+            $('.choice-button').removeClass('selected');
+            $(this).addClass('selected');
+        });
+
+        // Overlay for network
+        let seconds_left = 20;
+        let overlayContainer = document.getElementById("overlay-container");
+        let overlayText = document.createElement("P");
+        overlayContainer.appendChild(overlayText);
+        let parentContainer = document.getElementById("d3container");
+        let expectedScoreDisplay = document.getElementById("expectedScore");
+        let gameTimerDisplay = document.getElementById("game-timer-surround");
+        const overLayStyles = {
+            borderColor: "white",
+        };
+
+        let interval = setInterval(function() {
+             overlayText.innerHTML = "Dit netværk er synligt om:" + "\ " + --seconds_left + " " + "sekunder" + "<br>" + "&darr; Du kan i mellemtiden vælge din præference forneden &darr;";
+            parentContainer.style.filter = "grayscale(1)";
+            expectedScoreDisplay.style.display = "none";
+            gameTimerDisplay.style.display = "none";
+            //choiceButtons.style.backgroundColor = "white";
+             if (seconds_left <= 0)
+            {
+            clearInterval(interval);
+            parentContainer.style.filter = "none";
+            expectedScoreDisplay.style.display = "flex";
+            gameTimerDisplay.style.display = "flex";
+            parentContainer.removeChild(overlayContainer);
+            }
+        }, 1000);
+
+
         // Defines the scheme of the WebSocket to be either wss if the protocol is https
         // else it should be ws
         let isHTTPS = window.location.protocol.includes('https');

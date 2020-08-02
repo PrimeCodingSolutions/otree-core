@@ -1170,53 +1170,6 @@
     width: 100%;
   }
 
-  /*********************************
-  *   Play.html button styling    *
-  *********************************/
-  .mobile-column {
-    display: initial;
-    justify-content: center;
-    flex-direction: row;
-  }
-
-  .choice-button-holder {
-    justify-content: center;
-    display: flex;
-    width: 100%;
-  }
-
-  .choice-button {
-    width: 235px;
-    height: 70px;
-    font-size: 18px;
-    border-radius: 50px;
-    color: black;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    font-family: "Annie Use Your Telescope", serif;
-    background-color: transparent;
-    border: 2px solid #901A1E;
-    margin: 5px 5px 10% 5px;
-  }
-  .choice-button:hover {
-    background-color: #5f861e;
-    color: white;
-    border-color: transparent;
-  }
-  .choice-button:active {
-    background-color: #5f861e;
-    color: white;
-  }
-  .choice-button:focus {
-    border-color: #5f861e;
-    background-color: #5f861e;
-    color: white;
-  }
-  .choice-button img {
-    width: 50px;
-    height: 50px;
-    align-self: center;
-  }
-
   .report-info .rapport-header {
     color: black;
   }
@@ -1722,53 +1675,6 @@
   }
   div.daytrader-game-container div.radio-choices input.form-check-input[type=radio]:checked {
     border-color: #41739D;
-  }
-
-  /*********************************
-  *   Play.html button styling    *
-  *********************************/
-  .mobile-column {
-    display: initial;
-    justify-content: center;
-    flex-direction: row;
-  }
-
-  .choice-button-holder {
-    justify-content: center;
-    display: flex;
-    width: 100%;
-  }
-
-  .choice-button {
-    width: 235px;
-    height: 70px;
-    font-size: 18px;
-    border-radius: 50px;
-    color: black;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    font-family: "Annie Use Your Telescope", serif;
-    background-color: transparent;
-    border: 2px solid #901A1E;
-    margin: 5px 5px 10% 5px;
-  }
-  .choice-button:hover {
-    background-color: #5f861e;
-    color: white;
-    border-color: transparent;
-  }
-  .choice-button:active {
-    background-color: #5f861e;
-    color: white;
-  }
-  .choice-button:focus {
-    border-color: #5f861e;
-    background-color: #5f861e;
-    color: white;
-  }
-  .choice-button img {
-    width: 50px;
-    height: 50px;
-    align-self: center;
   }
 
   .report-info #tableReport {
@@ -2338,17 +2244,6 @@
   }
   .round-introduction .daytrader-round-info-container {
     display: flex;
-  }
-
-  /*****************************
-  *   Play.html svg styling    *
-  *******************************/
-  .answer-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    min-height: 300px;
-    width: 100%;
   }
 
   /*********************************

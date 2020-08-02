@@ -303,7 +303,7 @@ class BrowserBotStartLink(GenericWaitPageMixin, vanilla.View):
         else:
             ctx = {
                 'view': self,
-                'title_text': 'Please wait',
+                'title_text': 'Vent venligst',
                 'body_text': 'Waiting for browser bots session to begin',
             }
             return render(request, "otree/WaitPage.html", ctx)
