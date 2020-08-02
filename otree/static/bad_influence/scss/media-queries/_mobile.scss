@@ -213,28 +213,8 @@
       font-size: 15px;
       letter-spacing: 1px;
       border-radius: 50px;
-
       margin: 5px 5px 8% 5px;
 
-
-      &:hover {
-        background-color: $ku-dark-green;
-        color: white;
-        border-color: transparent;
-
-      }
-
-      &:active {
-        background-color: $ku-dark-green;
-        color: white;
-
-      }
-
-      &:focus {
-        border-color: $ku-dark-green;
-        background-color: $ku-dark-green;
-        color: white;
-      }
 
       img {
         width: 35px;

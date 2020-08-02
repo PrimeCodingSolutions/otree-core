@@ -135,6 +135,7 @@
           font-weight: bold;
           letter-spacing: 1px;
           padding: 5px 5px 5px 5px;
+          z-index: 1;
         }
       }
     }
@@ -285,6 +286,12 @@
     width: 100%;
     align-items: center;
 
+    .selected {
+        background-color: $ku-dark-green !important;
+        color: white;
+
+    }
+
     .choice-button {
       width: 70%;
       height: 55px;
@@ -302,19 +309,10 @@
       &:hover {
         background-color: $ku-dark-green;
         color: white;
-        border-color: transparent;
+
       }
 
-      &:active {
-        background-color: $ku-dark-green;
-        color: white;
-      }
 
-      &:focus {
-        border-color: $ku-dark-green;
-        background-color: $ku-dark-green;
-        color: white;
-      }
 
       img {
         width: 30px;

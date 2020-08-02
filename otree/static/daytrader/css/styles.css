@@ -2246,17 +2246,6 @@
     display: flex;
   }
 
-  /*****************************
-  *   Play.html svg styling    *
-  *******************************/
-  .answer-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    min-height: 300px;
-    width: 100%;
-  }
-
   /*********************************
   *   Play.html button styling    *
   *********************************/
