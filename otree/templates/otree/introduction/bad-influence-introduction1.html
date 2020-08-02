@@ -1,11 +1,12 @@
-{% extends "global/Base.html" %}
-{% load staticfiles otree %}
-{% block styles %}
+{% extends "otree/BaseAdmin.html" %}
+{% load otree_internal static otree %}
 
+{% block content %}
     <style>
         body {
-            background-color: #901A1E;
+           background: #901A1E;
         }
+
 
     .node {
         stroke: #000;
@@ -27,12 +28,13 @@
         font-size: 20px;
 
     }
+
+
     </style>
-{% endblock %}
-{% block content %}
-<div class="game-container container intro-2">
+
+            <div class="game-container container intro-2">
     <div class="game-introduction">
-         <h2 class="round-title">Introduktion</h2>
+         <h2 class="round-title">Regler</h2>
     </div>
 
     <div class="full-text-column">
@@ -73,7 +75,7 @@
                 <p>Hvis dit endelige valg får flertal og også er din præference, får du ekstra point svarende til antallet af venner i dit netværk. </p>
             </div>
             <button class="start-game">
-                <span class="button-text">Forstået!</span>
+                <a href="{% url 'games' %}"><span class="button-text">Forstået!</span></a>
             </button>
             </div>
         </div>
@@ -81,6 +83,8 @@
 </div>
 
 {% endblock %}
+
+
 {% block scripts %}
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="https://marvl.infotech.monash.edu/webcola/cola.min.js"></script>

@@ -253,7 +253,7 @@
   }
   .login-container .game-login .link-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
   }
   .login-container .game-login .link-container .link {
     color: #901A1E;
