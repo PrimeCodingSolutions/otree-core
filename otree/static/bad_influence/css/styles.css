@@ -569,7 +569,7 @@
     border-top: none !important;
     text-align: center;
     vertical-align: middle;
-    padding: 0 20px;
+    padding: 10px 10px 10px 10px;
   }
   .report-info .report-table-container #badInfluenceTableReport .bad_influence-table-row {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
@@ -1912,12 +1912,17 @@
     text-align: center;
     box-shadow: 0px 0px 20px rgba(157, 52, 55, 0.5);
   }
+  .report-table-container-admin #badInfluenceTableReport .bad_influence-table-header .fa-asterisk {
+    font-size: 10px;
+    padding-right: 2px;
+  }
   .report-table-container-admin #badInfluenceTableReport .bad_influence-table-data {
     font-size: 26px;
     font-family: "Patrick Hand", sans-serif;
     border-top: none !important;
     text-align: center;
     vertical-align: middle;
+    padding: 10px 10px 10px 10px;
   }
   .report-table-container-admin #badInfluenceTableReport .bad_influence-table-row {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
@@ -1940,16 +1945,18 @@
     font-size: 22px;
   }
   div.report-info div.report-table-container {
-    width: 70%;
+    width: 100%;
   }
   div.report-info div.report-table-container table#badInfluenceTableReport {
     display: inline-table;
   }
   div.report-info div.report-table-container table#badInfluenceTableReport tr.report-header-row th {
-    font-size: 30px;
+    font-size: 20px;
+    padding: 10px 10px 10px 10px;
   }
   div.report-info div.report-table-container table#badInfluenceTableReport tr.bad_influence-table-row td {
-    font-size: 30px;
+    font-size: 20px;
+    padding: 10px 10px 10px 10px;
   }
   div.report-info div.report-table-container div.explanation {
     display: flex;
@@ -1979,9 +1986,11 @@
   }
   div.results-container div.report-info div.report-table-container table.bad_influence-results-table th, div.results-container div.report-info div.report-table-container table.bad_influence-results-table td {
     font-size: 24px;
+    padding: 10px 10px 10px 10px;
   }
   div.results-container div.report-info div.report-table-container table#badInfluenceTableReport td, div.results-container div.report-info div.report-table-container table#badInfluenceTableReport th {
     font-size: 30px;
+    padding: 10px 10px 10px 10px;
   }
 
   #d3container #overlay-container {
@@ -2002,6 +2011,79 @@
     font-size: 25px;
     font-weight: bold;
     color: #901A1E;
+  }
+
+  .question-tooltip {
+    padding-bottom: 15px;
+  }
+  .question-tooltip a.tip {
+    border-bottom: 1px dashed;
+    text-decoration: none;
+    color: #901A1E;
+  }
+  .question-tooltip a.tip:hover {
+    cursor: help;
+    position: relative;
+    color: #5f861e;
+  }
+  .question-tooltip a.tip span {
+    display: none;
+  }
+  .question-tooltip a.tip:hover span {
+    border: black 1px solid;
+    padding: 8px 8px 8px 8px;
+    display: block;
+    text-align: center;
+    z-index: 100;
+    background-color: white;
+    color: black;
+    margin: 20px;
+    width: 500px;
+    position: absolute;
+    font-size: 15px;
+    top: 10px;
+    text-decoration: none;
+  }
+  .question-tooltip .fa-asterisk {
+    font-size: 10px;
+    padding-right: 2px;
+  }
+
+  a.tip {
+    border-bottom: 1px dashed;
+    text-decoration: none;
+    color: #901A1E;
+  }
+
+  a.tip:hover {
+    cursor: help;
+    position: relative;
+    color: #5f861e;
+  }
+
+  a.tip span {
+    display: none;
+  }
+
+  a.tip:hover span {
+    border: black 1px solid;
+    padding: 8px 8px 8px 8px;
+    display: block;
+    text-align: center;
+    z-index: 100;
+    background-color: white;
+    color: black;
+    margin: 20px;
+    width: 500px;
+    position: absolute;
+    font-size: 15px;
+    top: 10px;
+    text-decoration: none;
+  }
+
+  .fa-asterisk {
+    font-size: 10px;
+    padding-right: 2px;
   }
 }
 @media (min-width: 1150px) {

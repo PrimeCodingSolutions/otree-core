@@ -420,6 +420,7 @@
     }
 
     div.bad_influence-form-container {
+
       div.form-group {
         div.controls {
           display: flex;
@@ -487,6 +488,7 @@
 
       .border-corner-right {
         border-radius: 0 10px 10px 0;
+
       }
 
       .bad_influence-table-header {
@@ -498,6 +500,16 @@
         border-top: none !important;
         text-align: center;
         box-shadow: 0px 0px 20px rgba(157, 52, 55, 0.5);
+
+
+
+
+
+    .fa-asterisk {
+      font-size: 10px;
+      padding-right: 2px;
+    }
+
       }
 
       .bad_influence-table-data {
@@ -506,6 +518,7 @@
         border-top: none !important;
         text-align: center;
         vertical-align: middle;
+        padding: 10px 10px 10px 10px;
       }
 
       .bad_influence-table-row {
@@ -535,20 +548,22 @@
     }
 
     div.report-table-container {
-      width: 70%;
+      width: 100%;
 
       table#badInfluenceTableReport {
         display: inline-table;
 
         tr.report-header-row {
           th {
-            font-size: 30px;
+            font-size: 20px;
+            padding: 10px 10px 10px 10px;
           }
         }
 
         tr.bad_influence-table-row {
           td {
-            font-size: 30px;
+            font-size: 20px;
+            padding: 10px 10px 10px 10px;
           }
         }
       }
@@ -594,6 +609,7 @@
 
           th, td {
             font-size: 24px;
+            padding: 10px 10px 10px 10px;
           }
         }
       }
@@ -602,6 +618,7 @@
         table#badInfluenceTableReport {
           td, th {
             font-size: 30px;
+            padding: 10px 10px 10px 10px;
           }
         }
       }
@@ -633,6 +650,91 @@
       }
     }
   }
+.question-tooltip {
+  padding-bottom: 15px;
+
+   a.tip {
+        border-bottom: 1px dashed;
+        text-decoration: none;
+        color: $ku-red;
+      }
+
+      a.tip:hover {
+        cursor: help;
+        position: relative;
+        color: $ku-dark-green;
+      }
+
+      a.tip span {
+        display: none
+      }
+
+      a.tip:hover span {
+        border: black 1px solid;
+        padding: 8px 8px 8px 8px;
+        display: block;
+        text-align: center;
+        z-index: 100;
+        background-color: white;
+        color: black;
+        margin: 20px;
+        width: 500px;
+        position: absolute;
+        font-size: 15px;
+        top: 10px;
+        text-decoration: none;
+
+      }
+
+    .fa-asterisk {
+      font-size: 10px;
+      padding-right: 2px;
+    }
+
+
+  }
+
+
+  a.tip {
+        border-bottom: 1px dashed;
+        text-decoration: none;
+        color: $ku-red;
+      }
+
+      a.tip:hover {
+        cursor: help;
+        position: relative;
+        color: $ku-dark-green;
+      }
+
+      a.tip span {
+        display: none
+      }
+
+      a.tip:hover span {
+        border: black 1px solid;
+        padding: 8px 8px 8px 8px;
+        display: block;
+        text-align: center;
+        z-index: 100;
+        background-color: white;
+        color: black;
+        margin: 20px;
+        width: 500px;
+        position: absolute;
+        font-size: 15px;
+        top: 10px;
+        text-decoration: none;
+
+      }
+
+    .fa-asterisk {
+      font-size: 10px;
+      padding-right: 2px;
+    }
+
+
+
 }
 
 

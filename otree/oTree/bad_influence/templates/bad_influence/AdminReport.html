@@ -13,21 +13,30 @@
     .rapport-header, .question-title {
         color: #901a1e;
     }
+
+
 </style>
+{% block content %}
+
 
 <!-- Rapport title -->
 <h1 class="bad_influence-report-title">Rapportside</h1>
 
-<!-- Rapport header -->
-<div class="rapport-header">
-    <h2>Vælg et spørgsmål for at se hvordan det gik</h2>
-</div>
-
 
 <div class="dropdown-questions dropdown">
     <div class="d3-row question-title">
+        Vælg et spørgsmål for at se hvordan det gik
+    </div>
+    <div class="d3-row question-title">
         Spørgsmål
     </div>
+    <div class="question-tooltip"><a class="tip">
+    <sup> <i class="fas fa-asterisk"></i></sup>Læs spørgsmålets kontekst<span>
+    <div id="questionHolder1"></div></span></a>
+</div>
+
+
+
     <div class="d3-row">
         <p id="d3historyChoice"></p>
     </div>
@@ -43,16 +52,7 @@
     </div>
 
 
-    <div class="report-info-container">
-        <!-- Explanation for questions -->
-        <div class="d3-row question-title">
-            Spørgsmål kontekst
-        </div>
-        <div class="d3-row">
-            <div id="questionHolder1"></div>
-        </div>
-        <br>
-    </div>
+
 </div>
 <div class="report-table-container">
     <h2 class="rapport-header ">Topscorerliste</h2>
@@ -63,9 +63,12 @@
             <th class="bad_influence-table-header"> point <br> ialt</th>
             <th class="bad_influence-table-header"> fulgt <br> flertallet</th>
             <th class="bad_influence-table-header"> fulgt sin <br> præference</th>
-            <th class="bad_influence-table-header"> stædighed <br> (sekunder)</th>
-            <th class="bad_influence-table-header"> # venner</th>
-            <th class="bad_influence-table-header border-corner-right"> # skift</th>
+            <th class="bad_influence-table-header"><a data-t></a>
+            <a class="tip"><sup> <i class="fas fa-asterisk"></i></sup>stædighed<span>Stædighed (i sekunder) angiver hvor længe en spiller har bibeholdt sin præference når spilleren var i mindretal i venne-netværket. Det giver et praj om, hvor stædigt spilleren forsøgte at få de andre til at skifte mening. </span></a> </th>
+            <th class="bad_influence-table-header">antal venner</th>
+            <th class="bad_influence-table-header border-corner-right">antal skift</th>
+
+
         </tr>
         {% for ranking in rankings %}
         <tr class="bad_influence-table-row">
@@ -74,21 +77,26 @@
             <td class="bad_influence-table-data">{{ ranking.1 }}</td>
             <td class="bad_influence-table-data">{{ ranking.2 }}%</td>
             <td class="bad_influence-table-data">{{ ranking.3 }}%</td>
-            <td class="bad_influence-table-data">{{ ranking.4 }}</td>
+            <td class="bad_influence-table-data">{{ ranking.4 }}s</td>
             <td class="bad_influence-table-data">{{ ranking.5 }}</td>
             <td class="bad_influence-table-data border-corner-right">{{ ranking.6 }}</td>
         </tr>
         {% endfor %}
     </table>
-    <div class="explanation">
-        <div class="report-info-container">
-            <div class="d3-row question-title">
-                Stædighed forklaring
-            </div>
-            <div class="d3-row">
-                <div id="stubbornness"></div>
-            </div>
-        </div>
-    </div>
+
 </div>
-{% include 'bad_influence/d3/d3_graph_results.html' %}
+
+  {% endblock %}
+
+
+{% block scripts %}
+<script>
+     $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
+</script>
+
+
+{% endblock %}
+ {% include 'bad_influence/d3/d3_graph_results.html' %}

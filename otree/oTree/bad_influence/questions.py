@@ -32,7 +32,7 @@ def kontrol(hub, gender, number_of_friends):
             ("Du får 3 point hvis dit endelige valg får flertal i klassen. " +
              "Du får {num} point ekstra hvis dit valg svarer til din præference.")
                 .format(num=number_of_friends),
-        'result_page_text_1': "De blå ansigter viser dem som valgte blå, de røde ansigter viser dem som valgte rød. (" + face_expl + " " + graph_expl + ")",
+        'result_page_text_1': "De blå ansigter viser dem som valgte blå." + "<br>" + "De røde ansigter viser dem som valgte rød." + "<br><br>" + face_expl + " " + graph_expl,
         'graph_explanation': "",
         'face_explanation': "",
         'stubbornness': stubborn_expl,
@@ -59,7 +59,7 @@ def studietur(hub, gender, number_of_friends):
             ("Du får 3 point hvis dit valg får flertal i klassen. " +
              "Du får {num} point ekstra hvis dit valg svarer til din præference.")
                 .format(num=number_of_friends),
-        'result_page_text_1': "De blå ansigter viser dem som ville til Rom. De gule viser dem som ville til Paris. (" + face_expl + " " + graph_expl + ")",
+        'result_page_text_1': "De blå ansigter viser dem som ville til Rom." + "<br>" +  "De gule viser dem som ville til Paris." + "<br><br>" + face_expl + " " + graph_expl,
         'result_page_text_2': "",
         'graph_explanation': graph_expl,
         'face_explanation': face_expl,
@@ -89,7 +89,7 @@ def matematik(hub, gender, number_of_friends):
             ("Du får 3 point hvis dit valg får flertal i klassen. " +
              "Du får {num} point ekstra hvis dit valg svarer til din præference.")
                 .format(num=number_of_friends),
-        'result_page_text_1': "De gule ansigter viser dem som ville mobbe matematiklæreren. De røde viser dem som ikke ville mobbe. (" + face_expl + " " + graph_expl + ")",
+        'result_page_text_1': "De gule ansigter viser dem som ville mobbe matematiklæreren." + "<br>" + "De røde viser dem som ikke ville mobbe." + "<br><br>" + face_expl + " " + graph_expl,
         'result_page_text_2': "",
         'graph_explanation': graph_expl,
         'face_explanation': face_expl,
@@ -119,7 +119,7 @@ def hpv(hub, gender, number_of_friends):
             ("Du får 3 point hvis dit valg får flertal i klassen. " +
              "Du får {num} point ekstra hvis dit valg svarer til din præference.")
                 .format(num=number_of_friends),
-        'result_page_text_1': "De blå ansigter viser dem som gerne ville vaccineres mod HPV. De grønne viser dem som ikke ville vaccineres. (" + face_expl + " " + graph_expl + ")",
+        'result_page_text_1': "De blå ansigter viser dem som gerne ville vaccineres mod HPV." + "<br>" + "De grønne viser dem som ikke ville vaccineres." + "<br><br>" + face_expl + " " + graph_expl,
         'result_page_text_2': "",
         'graph_explanation': graph_expl,
         'face_explanation': face_expl,
@@ -148,7 +148,7 @@ def billeddeling(hub, gender, number_of_friends):
             ("Du får 3 point hvis dit valg får flertal i klassen. " +
              "Du får {num} point ekstra hvis dit valg svarer til din præference.")
                 .format(num=number_of_friends),
-        'result_page_text_1': "De blå ansigter viser dem som ville dele nøgenbilledet. De røde viser dem som ikke ville. (" + face_expl + " " + graph_expl + ")",
+        'result_page_text_1': "De blå ansigter viser dem som ville dele nøgenbilledet." + "<br>" + "De røde viser dem som ikke ville." + "<br><br>" + face_expl + " " + graph_expl,
         'result_page_text_2': "",
         'graph_explanation': graph_expl,
         'face_explanation': face_expl,
@@ -182,7 +182,7 @@ def stikkeri(hub, gender, number_of_friends, city):
             ("Du får 3 point hvis dit valg får flertal i klassen. " +
              "Du får {num} point ekstra hvis dit valg svarer til din præference.")
                 .format(num=number_of_friends),
-        'result_page_text_1': "De gule ansigter viser dem som ville sladre om at det var Oscar og William. De blå viser dem som ikke ville sladre. (" + face_expl + " " + graph_expl + ")",
+        'result_page_text_1': "De gule ansigter viser dem som ville sladre om at det var Oscar og William." + "<br>" + "De blå viser dem som ikke ville sladre." + "<br><br>" + face_expl + " " + graph_expl,
         'result_page_text_2': "",
         'graph_explanation': graph_expl,
         'face_explanation': face_expl,
@@ -213,7 +213,7 @@ def alkohol(hub, gender, number_of_friends):
             ("Du får 3 point hvis dit valg får flertal i klassen. " +
              "Du får {num} point ekstra hvis dit valg svarer til din præference.")
                 .format(num=number_of_friends),
-                'result_page_text_1': "De røde ansigter viser dem som ville smugle sprut med til festen. De gule viser dem som ikke ville. (" + face_expl + " " + graph_expl + ")",
+                'result_page_text_1': "De røde ansigter viser dem som ville smugle sprut med til festen." + "<br>" + "De gule viser dem som ikke ville." + "<br><br>" + face_expl + graph_expl,
         'result_page_text_2': "",
         'graph_explanation': graph_expl,
         'face_explanation': face_expl,
@@ -243,7 +243,7 @@ def klima(hub, gender, number_of_friends):
             ("Du får 3 point hvis dit valg får flertal i klassen. " +
              "Du får {num} point ekstra hvis dit valg svarer til din præference.")
                 .format(num=number_of_friends),
-        'result_page_text_1': "De blå ansigter viser dem som ikke tror at klimaforandringerne er menneskeskabte. De grønne viser dem som tror på det. (" + face_expl + " " + graph_expl + ")",
+        'result_page_text_1': "De blå ansigter viser dem som ikke tror at klimaforandringerne er menneskeskabte." + "<br>" + "De grønne viser dem som tror på det." + "<br><br>" + face_expl + " " + graph_expl,
         'result_page_text_2': "",
         'graph_explanation': graph_expl,
         'face_explanation': face_expl,
@@ -278,7 +278,7 @@ def sexchikane(hub, gender, number_of_friends):
             ("Du får 3 point hvis dit valg får flertal i klassen. " +
              "Du får {num} point ekstra hvis dit valg svarer til din præference.")
                 .format(num=number_of_friends),
-        'result_page_text_1': "De blå ansigter viser dem som ville fortælle rektor om vikarens adfærd. De røde ansigter viser dem som ville ignorere det. (" + face_expl + " " + graph_expl + ")",
+        'result_page_text_1': "De blå ansigter viser dem som ville fortælle rektor om vikarens adfærd." + "<br>" + "De røde ansigter viser dem som ville ignorere det." + "<br><br>" + face_expl + graph_expl,
         'result_page_text_2': "",
         'graph_explanation': graph_expl,
         'face_explanation': face_expl,
@@ -308,7 +308,7 @@ def moon(hub, gender, number_of_friends):
             ("Du får 3 point hvis dit valg får flertal i klassen. " +
              "Du får {num} point ekstra hvis dit valg svarer til din præference.")
                 .format(num=number_of_friends),
-        'result_page_text_1': "De blå ansigter viser dem som ikke troede på at amerikanerne landede på månen. De  gule viser dem som troede på det. (" + face_expl + " " + graph_expl + ")",
+        'result_page_text_1': "De blå ansigter viser dem som ikke troede på at amerikanerne landede på månen." + "<br>" + "De gule viser dem som troede på det." + "<br><br>" + face_expl + graph_expl,
         'result_page_text_2': "",
         'graph_explanation': graph_expl,
         'face_explanation': face_expl,
