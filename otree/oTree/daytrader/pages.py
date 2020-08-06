@@ -91,7 +91,9 @@ class Choose(Page):
             'data': data,
             'rounds': rounds,
             'runder': game_rounds,
-            'current_round': current_round
+            'current_round': current_round,
+            'deals': deals,
+            'choices': choices
         }
 
 
