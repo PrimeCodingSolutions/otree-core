@@ -155,6 +155,8 @@ class Subsession(BaseSubsession):
 
         return {
             'company': list(zip(names, states, choices, drawn_faces)),
+            'valg': choices,
+            'handler': trade_choice,
             'profit': handler,
             'player_number': player_number,
             'round_list': round_list,

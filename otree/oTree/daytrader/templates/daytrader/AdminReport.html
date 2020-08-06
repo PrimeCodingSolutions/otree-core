@@ -62,16 +62,13 @@
                 {% for choice in valg %}
                     <td class="daytrader-table-data get-col">
                         <div class="face-container">
-                            {% if choice is 2 %}
+                            {% comment %}{% if choice is 2 %}
                                 <img src="{% static 'daytrader/media/green-plus.svg' %}" alt="green plus"
                                         class="company-face">
                             {% elif choice is 1 %}
                                 <img src="{% static 'daytrader/media/yellow-minus.svg' %}" alt="green plus"
                                         class="company-face">
-                            {% elif choice is 0 %}
-                                <img src="{% static 'daytrader/media/grey_circle.svg' %}" class="company-face"
-                                     alt="grey-circle">
-                            {% endif %}
+                            {% endif %}{% endcomment %}
 
 
                             {#                            {% if state == 1 %}#}
@@ -151,6 +148,11 @@
     let faces = []
     let faceContainer = document.getElementsByClassName("face-container");
     let tableData = document.getElementsByClassName("daytrader-table-data");
+    let handler = {{ handler }};
+    let trades = handler[0];
+    let valg = {{ valg }};
+    let choices = valg[0];
+    console.log(choices);
 
     drawn_faces.map(item => {
         item.map(element => {
@@ -164,6 +166,8 @@
         faceContainer[i].style.alignItems = "center";
 
         let face = faces[i];
+        let trade = trades[i];
+        let choice = choices[i];
         let happyFace = document.createElement("img");
         happyFace.className = "company-face";
         happyFace.src = "{% static 'daytrader/media/happy_face_daytrader.png' %}";
@@ -172,12 +176,33 @@
         sadFace.className = "company-face";
         sadFace.src = "{% static 'daytrader/media/sad_face_daytrader.png' %}";
 
-        if (face === true) {
+        let greyCircle = document.createElement("img");
+        greyCircle.className = "company-face";
+        greyCircle.src = "{% static 'daytrader/media/grey_circle.svg' %}";
+
+        let plusCircle = document.createElement("img");
+        plusCircle.className = "company-face";
+        plusCircle.src = "{% static 'daytrader/media/green-plus.svg' %}";
+
+        let minusCircle = document.createElement("img");
+        minusCircle.className = "company-face";
+        minusCircle.src =  "{% static 'daytrader/media/yellow-minus.svg' %}";
+
+        if(trade === 0) {
+            faceContainer[i].appendChild(greyCircle);
+        } else if(trade !== 0 && choice === 2) {
+            faceContainer[i].appendChild(plusCircle);
+        } else if(trade !== 0 && choice === 1) {
+            faceContainer[i].appendChild(minusCircle);
+        }
+
+        if(face === true) {
             faceContainer[i].appendChild(happyFace);
         } else {
             faceContainer[i].appendChild(sadFace);
-
         }
+
+
     }
 
     for (let item = 0; item < tableHeaders.length; item++) {
@@ -232,15 +257,15 @@
             const margin = {top: 100, right: 100, bottom: 20, left: 100};
             let width;
             let height = 400;
-            
+
             // Media Queries til grafen på AdminReport over firmaernes udvikling
             if (window.innerWidth > 300) {
                 width = 400;
                 if (window.innerWidth > 350) {
                     width = 450;
-                    if(window.innerWidth > 700) {
+                    if (window.innerWidth > 700) {
                         width = 600;
-                        if(window.innerWidth > 1000) {
+                        if (window.innerWidth > 1000) {
                             width = 1000;
                         }
                     }
