@@ -32,7 +32,7 @@
                 <div class="game-timer-content game-timer-container">
                     <span>RUNDE {{ current_round }}: </span>
                     <br>
-                    <span class="timer_countdown otree-timer__time-left" ></span>
+                    <span class="timer_countdown otree-timer__time-left"></span>
                 </div>
             </div>
             <div class="header-block">
@@ -192,49 +192,60 @@
                                     <p><b><u>Hvor mange aktier?</u></b></p>
                                     <p>Du kan handle med maks. <b>{{ player.can_buy }} aktier. </b>
                                         {% formfield player.choice_of_number_of_shares label=None %}
-                                        <div class="error-message" id="error"><!--  JavaScript is appended here --></div>
-                                        <small><b>Når tiden udløber vil værdien blive gemt.</b></small>
+                                    <div class="error-message" id="error"><!--  JavaScript is appended here --></div>
+                                    <small><b>Når tiden udløber vil værdien blive gemt.</b></small>
                                 </div>
                             </div>
                         </div>
                     </div>
-                <div class="right-game-block">
-                    {% if subsession.round_number > 1 %}
-                    <table class="table company-table">
-                        <tr class="table-corners">
-                            <th class="table-header border-corner-left">Trader</th>
-                            <th class="table-header">Pris</th>
-                            <th class="table-header">Privat info</th>
-                            <th class="table-header border-corner-right">Handel</th>
-                        </tr>
-                        {% for r, price, choice, deals, states in data %}
-                            <tr class="table-row">
-                                <td class="company-id table-data"> {{ r }}</td>
-                                <td class="table-data"> {{ price|c }}</td>
-                                <td class="table-data">
-                                    <img src="{% static 'daytrader/media/unknown_face_daytrader.png' %}" alt="unknown face"
-                                     class="reveal-face">
-                                </td>
-                                <td class="table-data">
-                                {% if choice == True %}
+                    <div class="right-game-block">
+                        {% if subsession.round_number > 1 %}
+                            <table class="table company-table">
+                                <tr class="table-corners">
+                                    <th class="table-header border-corner-left">Trader</th>
+                                    <th class="table-header">Pris</th>
+                                    <th class="table-header">Privat info</th>
+                                    <th class="table-header border-corner-right">Handel</th>
+                                </tr>
+                                {% for r, price, choice, deals, states in data %}
+                                    <tr class="table-row">
+                                        <td class="company-id table-data"> {{ r }}</td>
+                                        <td class="table-data"> {{ price|c }}</td>
+                                        <td class="table-data">
+                                            <img src="{% static 'daytrader/media/unknown_face_daytrader.png' %}"
+                                                 alt="unknown face"
+                                                 class="reveal-face">
+                                        </td>
+                                        {% comment %}<td class="table-data">
+                                {% if  deals > 0 %}
                                     +
                                 {% else %}
-                                    {% if deals > 0 %}
+                                    {% if choice is False %}
                                         -
                                     {% endif %}
                                 {% endif %}
                                 {{ deals }} aktier.
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                    {% else %}
+                                </td>{% endcomment %}
+                                        <td class="table-data">
+                                            {% if choice is 2 %}
+                                                +
+                                            {% elif choice is 1 %}
+                                                -
+                                            {% elif choice is 0 %}
 
-                    {% endif %}
-                </div>
-            </div>
-          {% endif %}
-        </div>
+                                            {% endif %}
+                                            {{ deals }} aktier.
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        {% else %}
+
+                        {% endif %}
+                    </div>
+                    </div>
+                {% endif %}
+    </div>
 
 
 
@@ -242,7 +253,7 @@
 {% endblock %}
 
 {% block scripts %}
-       <script>
+    <script>
 
         // Get players max shares he/she can use
         let player_max_value = {{ player.can_buy }};
@@ -262,7 +273,7 @@
         let border_color = document.getElementById("myInput");
 
         // Use the variables to check for valid value and invalid value
-       $(document).on('keyup', function () {
+        $(document).on('keyup', function () {
             let player_actual_value = document.getElementById("myInput").value;
             if (player_max_value < player_actual_value) {
                 // should be error_containeR?
@@ -277,7 +288,7 @@
                     error_max_value_exceeded.parentNode.removeChild(error_max_value_exceeded);
                 }
             }
-       });
+        });
 
         // Prevent submit with enter key
         $(document).on("keydown", "form", function (event) {
@@ -293,6 +304,9 @@
         let current_group_id = {{ group.id }};
         let companyIds = document.getElementsByClassName("company-id");
         let data = {{ rounds|safe }};
+        let deals = {{ deals }};
+        let choices = {{ choices }};
+        console.log(choices);
         let sackContainer1 = document.querySelector("#sack-container-1");
         let sackContainer2 = document.querySelector("#sack-container-2");
         let sackContainer3 = document.querySelector("#sack-container-3");
@@ -302,6 +316,21 @@
 
         let radioButton = document.getElementsByClassName("form-check-input");
         let inputContainer = document.querySelector(".submit-value");
+
+        let tableRow = document.querySelector(".table-row");
+        for (let i = 0; i < tableRow.length; i++) {
+            console.log(i);
+            let tableDataChoice = document.createElement("td");
+            tableDataChoice.className = "daytrader-table-data";
+            if (choices[i] === 2) {
+                tableDataChoice.textContent = `+${deals[i]}`;
+            } else if (choices[i] === 1) {
+                tableDataChoice.textContent = `-${deals[i]}`;
+            } else {
+                tableDataChoice.textContent = deals[i];
+            }
+            tableRow.appendChild(tableDataChoice);
+        }
 
 
         // Show the InputField, focus the input and select the input
@@ -461,6 +490,7 @@
                 }
             }
         }
+
 
     </script>
 {% endblock %}
