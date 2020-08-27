@@ -276,7 +276,7 @@
         $(document).on('keyup', function () {
             let player_actual_value = document.getElementById("myInput").value;
             if (player_max_value < player_actual_value) {
-                // should be error_containeR?
+                // should be error_container?
                 document.getElementById("error").appendChild(error_max_value_exceeded);
                 border_color.style.borderColor = "#BF0A30";
 
@@ -318,6 +318,8 @@
         let inputContainer = document.querySelector(".submit-value");
 
         let tableRow = document.querySelector(".table-row");
+        if (tableRow !== null) {
+
         for (let i = 0; i < tableRow.length; i++) {
             console.log(i);
             let tableDataChoice = document.createElement("td");
@@ -330,6 +332,7 @@
                 tableDataChoice.textContent = deals[i];
             }
             tableRow.appendChild(tableDataChoice);
+        }
         }
 
 
