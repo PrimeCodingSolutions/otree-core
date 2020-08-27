@@ -731,8 +731,15 @@
   }
   div.results-container div.report-info p.bad_influence-report-title {
     font-size: 20px;
-    margin-top: 7%;
+    font-weight: bold;
+    margin-top: 15%;
+  }
+  div.results-container div.report-info p.question-title {
     color: #901A1E;
+    font-size: 16px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    padding-top: 0;
   }
   div.results-container div.report-info div.dropdown-questions {
     width: 90%;
@@ -775,26 +782,23 @@
     background-color: white;
     color: black;
     margin: 20px;
-    width: 280px;
+    width: 230px;
     position: absolute;
     font-size: 15px;
     top: 10px;
     right: 0;
-    left: -80px;
+    left: -60px;
     text-decoration: none;
   }
-  div.results-container div.report-info div.rapport-header {
-    padding-top: 20px;
+  div.results-container div.report-info h2.rapport-header {
     justify-content: center;
     display: flex;
-    padding-bottom: 20px;
+    padding: 20px 0 20px 0;
     flex-direction: column;
     align-items: center;
     text-align: center;
     color: #901A1E;
-  }
-  div.results-container div.report-info div.rapport-header h1 {
-    font-size: 15px;
+    font-weight: bold;
   }
   div.results-container div.report-info .d3-row {
     display: flex;
@@ -903,13 +907,33 @@
     background-color: white;
     color: black;
     margin: 20px;
-    width: 250px;
+    width: 220px;
     position: absolute;
     font-size: 15px;
     top: 10px;
     right: 0;
-    left: -140px;
+    left: -160px;
     text-decoration: none;
+  }
+
+  #d3container #overlay-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 415px;
+    background: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    border: solid 2px transparent;
+  }
+  #d3container #overlay-container p {
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: #901A1E;
   }
 }
 /**
@@ -1550,17 +1574,6 @@
     width: 95%;
     /** Table hover effekt styling (stubborness) **/
   }
-  div.report-container div.report-info div.report-table-container table.badInfluenceTableReport {
-    border-collapse: separate;
-    display: flex;
-    border-spacing: 0 0.5rem;
-    width: 95%;
-    margin-bottom: 20px;
-  }
-  div.report-container div.report-info div.report-table-container tr.report-header-row {
-    color: white;
-    border-radius: 10px;
-  }
   div.report-container div.report-info div.report-table-container th.bad_influence-table-header {
     background: #901A1E;
     padding: 12px;
@@ -1608,141 +1621,240 @@
     padding-right: 2px;
   }
 
-  /**
-      @supports (display: grid) {
-        body {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          grid-gap: 0.625rem;
-          grid-template-areas: ". main main ." ". main main .";
-        }
+  /*********************************************
+  *  Results Page bad_influence/Results.html  *
+  *********************************************/
+  div.results-container div.report-info {
+    /** Topscorelist table **/
+  }
+  div.results-container div.report-info p.bad_influence-report-title {
+    font-size: 32px;
+  }
+  div.results-container div.report-info p.question-title {
+    color: #901A1E;
+    font-size: 20px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    padding-top: 0;
+  }
+  div.results-container div.report-info div.dropdown-questions {
+    font-size: 18px;
+    /** Tooptip styling for question dropdown **/
+  }
+  div.results-container div.report-info div.dropdown-questions div.question-title {
+    color: #901A1E;
+    font-size: 26px;
+  }
+  div.results-container div.report-info div.dropdown-questions div.question-tooltip a.tip:hover span {
+    width: 280px;
+    font-size: 15px;
+    top: 10px;
+    right: 0;
+    left: -65px;
+  }
+  div.results-container div.report-info div.rapport-header {
+    font-size: 15px;
+  }
+  div.results-container div.report-info .d3-row {
+    font-size: 16px;
+  }
+  div.results-container div.report-info .d3-row #d3consensus {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  div.results-container div.report-info .d3-row p#d3historyChoice select {
+    border-radius: 10px;
+    font-family: "Patrick Hand", sans-serif;
+    font-size: 16px;
+  }
+  div.results-container div.report-info .d3-row .play-button {
+    width: 120px;
+  }
+  div.results-container div.report-info .dropdown-toggle {
+    font-size: 16px;
+  }
+  div.results-container div.report-info div.report-table-container {
+    /** Table hover effekt styling (stubborness) **/
+  }
+  div.results-container div.report-info div.report-table-container th.bad_influence-table-header {
+    font-size: 16px;
+  }
+  div.results-container div.report-info div.report-table-container tr.bad_influence-table-row {
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    color: #901A1E;
+  }
+  div.results-container div.report-info div.report-table-container tr.bad_influence-table-row td {
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+  }
+  div.results-container div.report-info div.report-table-container a.tip {
+    border-bottom: 1px dashed;
+    text-decoration: none;
+    color: white;
+  }
+  div.results-container div.report-info div.report-table-container a.tip:hover {
+    cursor: help;
+    position: relative;
+    color: #5f861e;
+  }
+  div.results-container div.report-info div.report-table-container a.tip span {
+    display: none;
+  }
+  div.results-container div.report-info div.report-table-container a.tip:hover span {
+    border: black 1px solid;
+    padding: 8px 8px 8px 8px;
+    display: block;
+    font-weight: normal;
+    text-align: center;
+    z-index: 100;
+    background-color: white;
+    color: black;
+    margin: 20px;
+    width: 220px;
+    position: absolute;
+    font-size: 15px;
+    top: 10px;
+    right: 0;
+    left: -160px;
+    text-decoration: none;
+  }
 
-        #container {
-          grid-area: main;
-          align-self: center;
-          justify-self: center;
-        }
-      }
-
-      div.bad_influence-form-container {
-        div.form-group {
-          div.controls {
-            div.form-check {
-              padding: 15px 0 15px 28%;
-              input.form-check-input[type="radio"] {
-                -webkit-appearance: none;
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                outline: none;
-                border: 3px solid $ku-red;
-
-                &:before {
-                  content: '';
-                  display: block;
-                  width: 60%;
-                  height: 60%;
-                  margin: 20% auto;
-                  border-radius: 50%;
-                }
-
-                &:checked:before {
-                  background: $ku-red;
-                }
-
-                &:checked {
-                  border-color: $ku-red;
-                }
-              }
-
-              label {
-                font-size: 28px;
-                padding: 0 0 0 7.5px;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    div.results-container {
-      div.report-info {
-        div.results-title {
-          p {
-            font-size: 22px;
-            padding: 0 25px;
-          }
-        }
-
-        div.report-table-container {
-          table.bad_influence-results-table {
-            th, td {
-              font-size: 18px;
-            }
-          }
-        }
-
-        div.report-table-container {
-          table#badInfluenceTableReport {
-            th, td {
-              font-size: 18px;
-            }
-          }
-        }
-      }
-    }
-
-     #d3container {
-
-      #overlay-container {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        height: 415px;
-        background:rgba(255,255,255, 0.9);
-        position:absolute;
-        border: solid 2px transparent;
-
-        p {
-          justify-content: center;
-          display: flex;
-          text-align: center;
-          align-content: center;
-          align-items: center;
-          font-size: 25px;
-          font-weight: bold;
-
-          color: $ku-red;
-
-        }
-      }
-    }
-
-
-     #d3container {
-
-      #overlay-container {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        height: 335px;
-        background:rgba(255,255,255, 0.9);
-        position:absolute;
-        border: solid 2px transparent;
-
-        p {
-          justify-content: center;
-          display: flex;
-          text-align: center;
-          align-content: center;
-          align-items: center;
-          font-size: 18px;
-          font-weight: bold;
-          color: $ku-red;
-        }
-      }
-    } **/
+  #d3container #overlay-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 335px;
+    background: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    border: solid 2px transparent;
+  }
+  #d3container #overlay-container p {
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #901A1E;
+  }
 }
+/**
+    @supports (display: grid) {
+      body {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 0.625rem;
+        grid-template-areas: ". main main ." ". main main .";
+      }
+
+      #container {
+        grid-area: main;
+        align-self: center;
+        justify-self: center;
+      }
+    }
+
+    div.bad_influence-form-container {
+      div.form-group {
+        div.controls {
+          div.form-check {
+            padding: 15px 0 15px 28%;
+            input.form-check-input[type="radio"] {
+              -webkit-appearance: none;
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              outline: none;
+              border: 3px solid $ku-red;
+
+              &:before {
+                content: '';
+                display: block;
+                width: 60%;
+                height: 60%;
+                margin: 20% auto;
+                border-radius: 50%;
+              }
+
+              &:checked:before {
+                background: $ku-red;
+              }
+
+              &:checked {
+                border-color: $ku-red;
+              }
+            }
+
+            label {
+              font-size: 28px;
+              padding: 0 0 0 7.5px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  div.results-container {
+    div.report-info {
+      div.results-title {
+        p {
+          font-size: 22px;
+          padding: 0 25px;
+        }
+      }
+
+      div.report-table-container {
+        table.bad_influence-results-table {
+          th, td {
+            font-size: 18px;
+          }
+        }
+      }
+
+      div.report-table-container {
+        table#badInfluenceTableReport {
+          th, td {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+
+   #d3container {
+
+    #overlay-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 415px;
+      background:rgba(255,255,255, 0.9);
+      position:absolute;
+      border: solid 2px transparent;
+
+      p {
+        justify-content: center;
+        display: flex;
+        text-align: center;
+        align-content: center;
+        align-items: center;
+        font-size: 25px;
+        font-weight: bold;
+
+        color: $ku-red;
+
+      }
+    }
+  }
+
+
+
+  } **/
 @media (min-width: 768px) {
   /*******************************
   *  Hide otree default message  *
@@ -2174,116 +2286,135 @@
     left: -150px;
   }
 
-  /**
+  #d3container #overlay-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    border: solid 2px transparent;
+  }
+  #d3container #overlay-container p {
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #901A1E;
+  }
+}
+/**
 
 
 
-      div.rapport-header {
-        width: 100%;
-        margin-top: 24px;
+    div.rapport-header {
+      width: 100%;
+      margin-top: 24px;
+    }
+
+
+
+    div.report-table-container {
+
+
+
       }
 
+      div.explanation {
+        div.report-info-container {
+          padding: 20px 40px;
 
+          div.question-title {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+  }
+
+  div.results-container {
+    div.report-info {
+      div.results-title {
+        p {
+          font-size: 25px;
+        }
+      }
 
       div.report-table-container {
-
-
-
+        table.bad_influence-results-table {
+          th, td {
+            font-size: 22px;
+          }
         }
 
-        div.explanation {
-          div.report-info-container {
-            padding: 20px 40px;
-
-            div.question-title {
-              font-size: 22px;
-            }
+        table#badInfluenceTableReport {
+          th, td {
+            font-size: 22px;
           }
         }
       }
     }
-
-    div.results-container {
-      div.report-info {
-        div.results-title {
-          p {
-            font-size: 25px;
-          }
-        }
-
-        div.report-table-container {
-          table.bad_influence-results-table {
-            th, td {
-              font-size: 22px;
-            }
-          }
-
-          table#badInfluenceTableReport {
-            th, td {
-              font-size: 22px;
-            }
-          }
-        }
-      }
-    }
+  }
 
 
-     #d3container {
+   #d3container {
 
-      #overlay-container {
-        display: flex;
+    #overlay-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 350px;
+      background:rgba(255,255,255, 0.9);
+      position:absolute;
+      border: solid 2px transparent;
+
+      p {
         justify-content: center;
-        width: 100%;
-        height: 350px;
-        background:rgba(255,255,255, 0.9);
-        position:absolute;
-        border: solid 2px transparent;
-
-        p {
-          justify-content: center;
-          display: flex;
-          text-align: center;
-          align-content: center;
-          align-items: center;
-          font-size: 20px;
-          font-weight: bold;
-          color: $ku-red;
-        }
+        display: flex;
+        text-align: center;
+        align-content: center;
+        align-items: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: $ku-red;
       }
     }
+  }
 
-     .question-tooltip {
-      padding-bottom: 15px;
+   .question-tooltip {
+    padding-bottom: 15px;
 
-     a.tip {
-          border-bottom: 1px dashed;
-          text-decoration: none;
-          color: $ku-red;
-        }
+   a.tip {
+        border-bottom: 1px dashed;
+        text-decoration: none;
+        color: $ku-red;
+      }
 
-        a.tip:hover {
-          cursor: help;
-          position: relative;
-          color: $ku-dark-green;
-        }
+      a.tip:hover {
+        cursor: help;
+        position: relative;
+        color: $ku-dark-green;
+      }
 
-        a.tip span {
-          display: none
-        }
+      a.tip span {
+        display: none
+      }
 
-        a.tip:hover span {
-          width: 500px;
-          position: absolute;
-          font-size: 16px;
-          top: 10px;
-          right: 0;
-          left: -75px;
-        }
-    }
+      a.tip:hover span {
+        width: 500px;
+        position: absolute;
+        font-size: 16px;
+        top: 10px;
+        right: 0;
+        left: -75px;
+      }
+  }
 
 
-  **/
-}
+**/
 @media (min-width: 1024px) {
   /*******************************
   *  Hide otree default message  *
@@ -2694,13 +2825,20 @@
     font-size: 40px;
     margin-top: 5%;
   }
+  div.report-container div.report-info p.question-title {
+    color: #901A1E;
+    font-size: 26px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    padding-top: 0;
+  }
   div.report-container div.report-info div.dropdown-questions {
     font-size: 20px;
     flex-direction: column;
     /** Tooptip styling for question dropdown **/
   }
   div.report-container div.report-info div.dropdown-questions div.question-title {
-    font-size: 20px;
+    font-size: 26px;
     padding-bottom: 10px;
     font-weight: bold;
     padding-top: 0;
@@ -2922,261 +3060,258 @@
     left: -140px;
   }
 
-  /**
-    .report-table-container-admin {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: $ku-red;
+  #d3container #overlay-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 375px;
+    background: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    border: solid 2px transparent;
+  }
+  #d3container #overlay-container p {
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: #901A1E;
+  }
+}
+/**
+  .report-table-container-admin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $ku-red;
 
-      #badInfluenceTableReport {
-        display: inline-table;
-        border-collapse: separate;
-        border-spacing: 0 0.5rem;
+    #badInfluenceTableReport {
+      display: inline-table;
+      border-collapse: separate;
+      border-spacing: 0 0.5rem;
 
-          a.tip {
-          border-bottom: 1px dashed;
-          text-decoration: none;
-          color: $ku-red;
-        }
+        a.tip {
+        border-bottom: 1px dashed;
+        text-decoration: none;
+        color: $ku-red;
+      }
 
-        a.tip:hover {
-          cursor: help;
-          position: relative;
-          color: $ku-dark-green;
-        }
+      a.tip:hover {
+        cursor: help;
+        position: relative;
+        color: $ku-dark-green;
+      }
 
-        a.tip span {
-          display: none
-        }
+      a.tip span {
+        display: none
+      }
 
-        a.tip:hover span {
-          border: black 1px solid;
-          padding: 8px 8px 8px 8px;
-          display: block;
-          text-align: center;
-          z-index: 100;
-          background-color: white;
-          color: black;
-          margin: 20px;
-          width: 500px;
-          position: absolute;
-          font-size: 15px;
-          top: 10px;
-          text-decoration: none;
-
-        }
-
-          .fa-asterisk {
-            font-size: 10px;
-            padding-right: 2px;
-          }
-
-        .border-corner-left {
-          border-radius: 10px 0 0 10px;
-        }
-
-        .border-corner-right {
-          border-radius: 0 10px 10px 0;
-
-        }
-
-        .bad_influence-table-header {
-          background: $ku-red;
-          color: white;
-          font-weight: bold;
-          font-family: "Patrick Hand", sans-serif;
-          font-size: 20px;
-          border-top: none !important;
-          text-align: center;
-          box-shadow: 0px 0px 20px rgba(157, 52, 55, 0.5);
-
+      a.tip:hover span {
+        border: black 1px solid;
+        padding: 8px 8px 8px 8px;
+        display: block;
+        text-align: center;
+        z-index: 100;
+        background-color: white;
+        color: black;
+        margin: 20px;
+        width: 500px;
+        position: absolute;
+        font-size: 15px;
+        top: 10px;
+        text-decoration: none;
 
       }
 
-        .bad_influence-table-data {
-          font-size: 26px;
-          font-family: "Patrick Hand", sans-serif;
-          border-top: none !important;
-          text-align: center;
-          vertical-align: middle;
-          padding: 10px 10px 10px 10px;
+        .fa-asterisk {
+          font-size: 10px;
+          padding-right: 2px;
         }
 
-        .bad_influence-table-row {
-          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
-          border-radius: 10px;
+      .border-corner-left {
+        border-radius: 10px 0 0 10px;
+      }
+
+      .border-corner-right {
+        border-radius: 0 10px 10px 0;
+
+      }
+
+      .bad_influence-table-header {
+        background: $ku-red;
+        color: white;
+        font-weight: bold;
+        font-family: "Patrick Hand", sans-serif;
+        font-size: 20px;
+        border-top: none !important;
+        text-align: center;
+        box-shadow: 0px 0px 20px rgba(157, 52, 55, 0.5);
+
+
+    }
+
+      .bad_influence-table-data {
+        font-size: 26px;
+        font-family: "Patrick Hand", sans-serif;
+        border-top: none !important;
+        text-align: center;
+        vertical-align: middle;
+        padding: 10px 10px 10px 10px;
+      }
+
+      .bad_influence-table-row {
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+      }
+    }
+  }
+
+  div.report-info {
+    h1.bad_influence-report-title {
+      margin-top: 0;
+      font-size: 40px;
+    }
+    div.dropdown-questions {
+      display: flex;
+      align-items: center;
+      width: 70%;
+
+      div.report-info-container {
+        padding: 15px 30px 30px 30px;
+
+        div.question-title {
+          font-size: 22px;
         }
       }
     }
 
-    div.report-info {
-      h1.bad_influence-report-title {
-        margin-top: 0;
-        font-size: 40px;
+    div.report-table-container {
+      width: 100%;
+
+      table#badInfluenceTableReport {
+        display: inline-table;
+
+        tr.report-header-row {
+          th {
+            font-size: 20px;
+            padding: 10px 10px 10px 10px;
+          }
+        }
+
+        tr.bad_influence-table-row {
+          td {
+            font-size: 20px;
+            padding: 10px 10px 10px 10px;
+          }
+        }
       }
-      div.dropdown-questions {
+
+      div.explanation {
         display: flex;
         align-items: center;
-        width: 70%;
 
         div.report-info-container {
-          padding: 15px 30px 30px 30px;
+          padding: 20px 40px;
 
           div.question-title {
             font-size: 22px;
           }
         }
       }
+    }
+  }
+
+
+  div.results-container {
+    div.report-info {
+      div.button-container {
+        width: 30%;
+      }
+
+
+
+      div.results-title {
+        p {
+          font-size: 30px;
+        }
+      }
 
       div.report-table-container {
-        width: 100%;
-
-        table#badInfluenceTableReport {
-          display: inline-table;
-
-          tr.report-header-row {
-            th {
-              font-size: 20px;
-              padding: 10px 10px 10px 10px;
-            }
-          }
-
-          tr.bad_influence-table-row {
-            td {
-              font-size: 20px;
-              padding: 10px 10px 10px 10px;
-            }
-          }
-        }
-
-        div.explanation {
-          display: flex;
-          align-items: center;
-
-          div.report-info-container {
-            padding: 20px 40px;
-
-            div.question-title {
-              font-size: 22px;
-            }
-          }
-        }
-      }
-    }
-
-
-    div.results-container {
-      div.report-info {
-        div.button-container {
-          width: 30%;
-        }
-
-
-
-        div.results-title {
-          p {
-            font-size: 30px;
-          }
-        }
-
-        div.report-table-container {
-          width: 70%;
-          display: flex;
-          justify-content: center;
-
-          table.bad_influence-results-table {
-            display: inline-table;
-            border-spacing: 0 0.6rem;
-
-            th, td {
-              font-size: 24px;
-              padding: 10px 10px 10px 10px;
-            }
-          }
-        }
-
-        div.report-table-container {
-          table#badInfluenceTableReport {
-            td, th {
-              font-size: 30px;
-              padding: 10px 10px 10px 10px;
-            }
-          }
-        }
-      }
-    }
-
-    #d3container {
-      #overlay-container {
+        width: 70%;
         display: flex;
         justify-content: center;
-        width: 100%;
-        height: 375px;
-        background:rgba(255,255,255, 0.9);
-        position:absolute;
-        border: solid 2px transparent;
 
-        p {
-          justify-content: center;
-          display: flex;
-          text-align: center;
-          align-content: center;
-          align-items: center;
-          font-size: 25px;
-          font-weight: bold;
-          color: $ku-red;
+        table.bad_influence-results-table {
+          display: inline-table;
+          border-spacing: 0 0.6rem;
 
+          th, td {
+            font-size: 24px;
+            padding: 10px 10px 10px 10px;
+          }
+        }
+      }
+
+      div.report-table-container {
+        table#badInfluenceTableReport {
+          td, th {
+            font-size: 30px;
+            padding: 10px 10px 10px 10px;
+          }
         }
       }
     }
-  .question-tooltip {
-    padding-bottom: 15px;
+  }
 
-     a.tip {
-          border-bottom: 1px dashed;
-          text-decoration: none;
-          color: $ku-red;
-        }
 
-        a.tip:hover {
-          cursor: help;
-          position: relative;
-          color: $ku-dark-green;
-        }
+.question-tooltip {
+  padding-bottom: 15px;
 
-        a.tip span {
-          display: none
-        }
-
-        a.tip:hover span {
-          border: black 1px solid;
-          padding: 8px 8px 8px 8px;
-          display: block;
-          text-align: center;
-          z-index: 100;
-          background-color: white;
-          color: black;
-          margin: 20px;
-          width: 500px;
-          position: absolute;
-          font-size: 15px;
-          top: 10px;
-          text-decoration: none;
-
-        }
-
-      .fa-asterisk {
-        font-size: 10px;
-        padding-right: 2px;
+   a.tip {
+        border-bottom: 1px dashed;
+        text-decoration: none;
+        color: $ku-red;
       }
 
+      a.tip:hover {
+        cursor: help;
+        position: relative;
+        color: $ku-dark-green;
+      }
 
+      a.tip span {
+        display: none
+      }
+
+      a.tip:hover span {
+        border: black 1px solid;
+        padding: 8px 8px 8px 8px;
+        display: block;
+        text-align: center;
+        z-index: 100;
+        background-color: white;
+        color: black;
+        margin: 20px;
+        width: 500px;
+        position: absolute;
+        font-size: 15px;
+        top: 10px;
+        text-decoration: none;
+
+      }
+
+    .fa-asterisk {
+      font-size: 10px;
+      padding-right: 2px;
     }
 
 
-  **/
-}
+  }
+
+
+**/
 @media (min-width: 1150px) {
   /*************************************
   *   Intro1.html table styling   *
