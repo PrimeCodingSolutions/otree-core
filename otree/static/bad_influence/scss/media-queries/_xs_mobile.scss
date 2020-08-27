@@ -154,18 +154,13 @@
 
   }
 
-
-
-  /*********************************
+/*********************************
 *   Play.html chat styling      *
 *********************************/
-
 
   #chat::-webkit-scrollbar {
     width: 1em;
   }
-
-
 
   #chat::-webkit-scrollbar-thumb {
     background-color: darkgrey;
@@ -251,6 +246,9 @@
     }
   }
 
+/*******************************
+*   Results.html styling      *
+*******************************/
   .results-title {
     font-size: 20px;
     display: flex;
@@ -266,7 +264,8 @@
       padding-bottom: 30px;
     }
   }
-  /*********************************
+
+/*********************************
 *   Play.html button styling    *
 *********************************/
   .mobile-column {
@@ -413,9 +412,9 @@
     }
   }
 
-  /*************************************
-  *   Intro2.html table styling   *
-  **************************************/
+/*************************************
+*   Intro2.html table styling   *
+**************************************/
   .intro-2 {
     font-family: "Patrick Hand", cursive;
 
@@ -570,50 +569,532 @@
         }
       }
     }
-
   }
 
-  .report-info {
+  /*******************************************************
+  *  Teacher Report Page BadInfluence/AdminReport.html  *
+  *******************************************************/
+  div.report-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: $ku-red;
+    font-family: "Patrick Hand", sans-serif;
 
-    h1.bad_influence-report-title {
-      font-size: 28px;
-      margin-top: 5%;
-      color: $ku-red;
+    div.report-info {
+      display: flex;
+      justify-content: center;
+      width: 90%;
+      border-collapse: collapse;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      border-radius: 10px;
+
+      p.bad_influence-report-title {
+        font-size: 30px;
+        margin-top: 7%;
+        color: $ku-red;
+      }
+
+      div.dropdown-questions {
+        width: 90%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-size: 16px;
+        flex-direction: column;
+
+        div.question-title {
+            color: $ku-red;
+            font-size: 16px;
+            padding-bottom: 10px;
+            font-weight: bold;
+            padding-top: 0;
+        }
+
+        /** Tooptip styling for question dropdown **/
+        div.question-tooltip {
+            padding-bottom: 15px;
+
+            a.tip {
+                border-bottom: 1px dashed;
+                text-decoration: none;
+                color: $ku-red;
+              }
+
+            a.tip:hover {
+              cursor: help;
+              position: relative;
+              color: $ku-dark-green;
+            }
+
+            a.tip span {
+              display: none
+            }
+
+            a.tip:hover span {
+              border: black 1px solid;
+              padding: 8px 8px 8px 8px;
+              display: block;
+              text-align: center;
+              z-index: 100;
+              background-color: white;
+              color: black;
+              margin: 20px;
+              width: 280px;
+              position: absolute;
+              font-size: 15px;
+              top: 10px;
+              right: 0;
+              left: -80px;
+              text-decoration: none;
+            }
+          }
+        }
+
+      div.rapport-header {
+        padding-top: 20px;
+        justify-content: center;
+        display: flex;
+        padding-bottom: 20px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        color: $ku-red;
+
+        h2 {
+          color: $ku-red;
+        }
+      }
+
+
+      .d3-row {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        font-size: 14px;
+
+        #d3consensus {
+          display: flex;
+          justify-content: center;
+          width: 74%;
+        }
+
+        #d3playback {
+          display: none;
+        }
+
+        p#d3historyChoice {
+          select {
+            border-radius: 10px;
+            font-family: 'Patrick Hand', sans-serif;
+            font-size: 16px;
+          }
+        }
+
+        .play-button {
+          background-color: $ku-red;
+          color: white;
+          width: 100px;
+          display: flex;
+          justify-content: center;
+          border-color: $ku-red;
+
+          &:hover {
+            background-color: $ku-dark-green;
+            border-color: $ku-dark-green;
+          }
+        }
+      }
+
+      .dropdown-toggle {
+        background-color: $ku-red;
+        color: white;
+        font-size: 14px;
+
+        &:hover {
+          background-color: $ku-dark-green;
+        }
+      }
+
+      /** Topscorelist table **/
+      div.report-table-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 20px;
+        width: 95%;
+
+        table.badInfluenceTableReport {
+          border-collapse: separate;
+          display: flex;
+          border-spacing: 0 0.5rem;
+          width: 95%;
+          margin-bottom: 20px;
+        }
+
+        tr.report-header-row {
+          color: white;
+          border-radius: 10px;
+
+
+           .border-corner-left {
+                border-radius: 10px 0 0 10px;
+            }
+
+           .border-corner-right {
+               border-radius: 0 10px 10px 0;;
+           }
+        }
+
+        th.bad_influence-table-header {
+          background: $ku-red;
+          padding: 12px;
+          text-align: center;
+          font-size: 14px;
+        }
+
+        tr.bad_influence-table-row {
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            color: $ku-red;
+
+          td {
+              padding: 10px;
+              text-align: center;
+              font-size: 14px;
+
+              a {
+                i {
+                  color: $ku-red;
+                }
+              }
+            }
+        }
+
+        /** Table hover effekt styling (stubborness) **/
+        a.tip {
+          border-bottom: 1px dashed;
+          text-decoration: none;
+          color: white;
+
+        }
+
+        a.tip:hover {
+          cursor: help;
+          position: relative;
+          color: $ku-dark-green;
+        }
+
+        a.tip span {
+          display: none
+        }
+
+        a.tip:hover span {
+          border: black 1px solid;
+          padding: 8px 8px 8px 8px;
+          display: block;
+          font-weight: normal;
+          text-align: center;
+          z-index: 100;
+          background-color: white;
+          color: black;
+          margin: 20px;
+          width: 250px;
+          position: absolute;
+          font-size: 15px;
+          top: 10px;
+          right: 0;
+          left: -140px;
+          text-decoration: none;
+        }
+      }
     }
+  }
 
-    div.rapport-header {
+ /*********************************************
+  *  Results Page bad_influence/Results.html  *
+  *********************************************/
+  div.results-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: $ku-red;
+    font-family: "Patrick Hand", sans-serif;
+
+
+    div.report-info {
+      display: flex;
+      justify-content: center;
+      width: 90%;
+      border-collapse: collapse;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      border-radius: 10px;
+
+      p.bad_influence-report-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 15%;
+      }
+
+      p.question-title {
+            color: $ku-red;
+            font-size: 16px;
+            padding-bottom: 10px;
+            font-weight: bold;
+            padding-top: 0;
+        }
+
+      div.dropdown-questions {
+        width: 90%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-size: 16px;
+        flex-direction: column;
+
+        div.question-title {
+            color: $ku-red;
+            font-size: 20px;
+            padding-bottom: 10px;
+            font-weight: bold;
+            padding-top: 0;
+        }
+
+        /** Tooptip styling for question dropdown **/
+        div.question-tooltip {
+           padding-bottom: 15px;
+
+         a.tip {
+              border-bottom: 1px dashed;
+              text-decoration: none;
+              color: $ku-red;
+            }
+
+            a.tip:hover {
+              cursor: help;
+              position: relative;
+              color: $ku-dark-green;
+            }
+
+            a.tip span {
+              display: none;
+            }
+
+            a.tip:hover span {
+              border: black 1px solid;
+              padding: 8px 8px 8px 8px;
+              display: block;
+              text-align: center;
+              z-index: 100;
+              background-color: white;
+              color: black;
+              margin: 20px;
+              width: 230px;
+              position: absolute;
+              font-size: 15px;
+              top: 10px;
+              right: 0;
+              left: -60px;
+              text-decoration: none;
+            }
+          }
+        }
+
+      h2.rapport-header {
+        justify-content: center;
+        display: flex;
+        padding: 20px 0 20px 0;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        color: $ku-red;
+        font-weight: bold;
+
+      }
+
+      .d3-row {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        font-size: 14px;
+
+        #d3consensus {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+        }
+
+        #d3playback {
+          display: none;
+        }
+
+        p#d3historyChoice {
+          select {
+            border-radius: 10px;
+            font-family: 'Patrick Hand', sans-serif;
+            font-size: 16px;
+          }
+        }
+
+        .play-button {
+          background-color: $ku-red;
+          color: white;
+          width: 100px;
+          display: flex;
+          justify-content: center;
+          border-color: $ku-red;
+
+          &:hover {
+            background-color: $ku-dark-green;
+            border-color: $ku-dark-green;
+          }
+        }
+      }
+
+      .dropdown-toggle {
+        background-color: $ku-red;
+        color: white;
+        font-size: 14px;
+
+        &:hover {
+          background-color: $ku-dark-green;
+        }
+      }
+
+      /** Topscorelist table **/
+      div.report-table-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 20px;
+        width: 95%;
+
+        table.badInfluenceTableReport {
+          border-collapse: separate;
+          display: flex;
+          border-spacing: 0 0.5rem;
+          width: 95%;
+          margin-bottom: 20px;
+        }
+
+        tr.report-header-row {
+          color: white;
+          border-radius: 10px;
+
+
+           .border-corner-left {
+                border-radius: 10px 0 0 10px;
+            }
+
+           .border-corner-right {
+               border-radius: 0 10px 10px 0;;
+           }
+        }
+
+        th.bad_influence-table-header {
+          background: $ku-red;
+          padding: 12px;
+          text-align: center;
+          font-size: 14px;
+        }
+
+        tr.bad_influence-table-row {
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            color: $ku-red;
+
+          td {
+              padding: 10px;
+              text-align: center;
+              font-size: 14px;
+
+              a {
+                i {
+                  color: $ku-red;
+                }
+              }
+            }
+        }
+
+        /** Table hover effekt styling (stubborness) **/
+        a.tip {
+          border-bottom: 1px dashed;
+          text-decoration: none;
+          color: white;
+
+        }
+
+        a.tip:hover {
+          cursor: help;
+          position: relative;
+          color: $ku-dark-green;
+        }
+
+        a.tip span {
+          display: none
+        }
+
+        a.tip:hover span {
+          border: black 1px solid;
+          padding: 8px 8px 8px 8px;
+          display: block;
+          font-weight: normal;
+          text-align: center;
+          z-index: 100;
+          background-color: white;
+          color: black;
+          margin: 20px;
+          width: 220px;
+          position: absolute;
+          font-size: 15px;
+          top: 10px;
+          right: 0;
+          left: -160px;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  #d3container {
+
+    #overlay-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 415px;
+      background:rgba(255,255,255, 0.9);
+      position:absolute;
+      border: solid 2px transparent;
+
+      p {
+        justify-content: center;
+        display: flex;
+        text-align: center;
+        align-content: center;
+        align-items: center;
+        font-size: 15px;
+        font-weight: bold;
+        color: $ku-red;
+      }
+    }
+  }
+}
+
+
+
+/**
+      div.rapport-header {
       h2 {
         color: $ku-red;
       }
     }
-
-    .dropdown-questions {
-      width: 90%;
-
-
-      div.report-info-container {
-        background: $ku-red;
-        color: white;
-        text-align: center;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
-        padding: 10px 10px 20px 10px;
-
-        div.question-title {
-          color: white;
-          font-size: 16px;
-        }
-      }
-
-      p#d3historyChoice {
-        select {
-          border-radius: 10px;
-          font-family: 'Patrick Hand', sans-serif;
-          font-size: 16px;
-        }
-      }
-    }
-
     .report-table-container {
       display: flex;
       flex-direction: column;
@@ -627,8 +1108,9 @@
       }
 
       #badInfluenceTableReport {
-        border-collapse: separate;
+        border-collapse: collapse;
         border-spacing: 0 0.5rem;
+        margin-bottom: 30px;
 
         .border-corner-left {
           border-radius: 10px 0 0 10px;
@@ -646,7 +1128,7 @@
           font-family: "Patrick Hand", sans-serif;
           border-top: none !important;
           text-align: center;
-          padding: 0 15px;
+          padding: 15px 15px 15px 15px;
         }
 
         .report-header-row {
@@ -659,7 +1141,7 @@
           border-top: none !important;
           text-align: center;
           vertical-align: middle;
-          padding: 0 20px;
+          padding: 10px 10px 10px 10px;
         }
 
         .bad_influence-table-row {
@@ -688,6 +1170,20 @@
       }
     }
   }
+
+ div.report-info-container {
+        background: $ku-red;
+        color: white;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+        padding: 10px 10px 20px 10px;
+
+        div.question-title {
+          color: white;
+          font-size: 16px;
+        }
+      }
 
   div.results-container {
     div.report-info {
@@ -795,15 +1291,7 @@
         }
       }
 
-      div.dropdown-questions {
-        div.question-title-question {
-          color: $ku-red;
-          font-size: 20px;
-          font-family: 'Roboto Slab', sans-serif;
-          font-weight: bold;
-          margin-bottom: 20px;
-        }
-      }
+
     }
   }
 
@@ -832,4 +1320,6 @@
   }
 
 
-}
+
+
+**/

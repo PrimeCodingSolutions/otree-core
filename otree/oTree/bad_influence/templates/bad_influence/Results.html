@@ -15,121 +15,97 @@
 {% endblock %}
 {% block content %}
     <div class="report-container results-container">
-        <div class="report-info">
-            <div class="results-title">
-                <p>Du er spiller {{ player.id_in_group }} og fik {{ payoff_ialt }} point.</p>
+    <div class="report-info">
+            <div>
+                <p class="bad_influence-report-title">Resultatside</p>
             </div>
-            <div class="report-table-container">
-                <table class="table-responsive bad_influence-results-table">
-                    <tr class="report-header-row">
-                        <th><strong>Runde</strong></th>
-                        <th>point</th>
-                        <th>præference</th>
-                        <th>valg</th>
-                        <th>influencer</th>
-                        <th># venner</th>
-                        <th># skift</th>
-                        <th>stædighed</th>
-                    </tr>
-                    {% for p in player_in_all_rounds %}
-                        <tr class="bad_influence-table-row">
-                            <td><strong>{{ p.round_number }} ({{ p.spg }})</strong></td>
-                            <td>{{ p.points }} </td>
-                            <td>{{ p.preference_str }}</td>
-                            <td>{{ p.choice_str }} </td>
-                            <td>{% if p.hub %}ja{% else %}nej{% endif %}</td>
-                            <td>{{ p.number_of_friends }}</td>
-                            <td>{{ p.opinion_change }}</td>
-                            <td>{{ p.stubborn }}</td>
-                        </tr>
-                    {% endfor %}
-                    <tr class="bad_influence-table-row">
-                        <td><strong> i alt </strong></td>
-                        <td><strong>{{ payoff_ialt }}</strong></td>
-                        <td></td>
-                        <td></td>
-                        <td><strong>{{ fraction_hub }}</strong></td>
-                        <td><strong>{{ total_friends }}</strong></td>
-                        <td><strong>{{ total_opinion_changes }}</strong></td>
-                        <td><strong>{{ total_stubborn }} sek</strong></td>
-                </table>
+            <div>
+                <p class="question-title">Dit spillernavn er <b>{{ player.navn }}</b> og fik <b>{{ payoff_ialt }}</b> point.</p>
             </div>
+              <div class="report-table-container">
+                <table class="table-responsive badInfluenceTableReport" id="badInfluenceTableReport">
+                <tr class="report-header-row">
+                    <th class="bad_influence-table-header border-corner-left"><strong>Runde</strong></th>
+                    <th class="bad_influence-table-header">point</th>
+                    <th class="bad_influence-table-header">præference</th>
+                    <th class="bad_influence-table-header">valg</th>
+                    <th class="bad_influence-table-header">influencer</th>
+                    <th class="bad_influence-table-header"># venner</th>
+                    <th class="bad_influence-table-header"># skift</th>
+                    <th class="bad_influence-table-header border-corner-right"><a class="tip">stædighed<span>Stædighed (i sekunder) angiver hvor længe en spiller har bibeholdt sin præference når spilleren var i mindretal i venne-netværket. Det giver et praj om, hvor stædigt spilleren forsøgte at få de andre til at skifte mening. </span></a> </th>
+                </tr>
+                {% for p in player_in_all_rounds %}
+                <tr class="bad_influence-table-row">
+                    <td class="bad_influence-table-data border-corner-left"><strong>{{ p.round_number }} ({{ p.spg }})</strong></td>
+                    <td class="bad_influence-table-data">{{ p.points }} </td>
+                    <td class="bad_influence-table-data">{{ p.preference_str }}</td>
+                    <td class="bad_influence-table-data">{{ p.choice_str }} </td>
+                    <td class="bad_influence-table-data">{% if p.hub %}ja{% else %}nej{% endif %}</td>
+                    <td class="bad_influence-table-data">{{ p.number_of_friends }}</td>
+                    <td class="bad_influence-table-data">{{ p.opinion_change }}</td>
+                    <td class="bad_influence-table-data border-corner-right">{{ p.stubborn }}</td>
+                </tr>
+                {% endfor %}
+        </table>
+    </div>
 
-
-            <!-- Rapport header -->
-            <div class="rapport-header">
-                <h2>Vælg et spørgsmål for at se hvordan det gik</h2>
-            </div>
-
-            <div class="dropdown-questions dropdown">
-                <div class="d3-row question-title-question">
-                    Spørgsmål
-                </div>
-                <div class="d3-row">
-                    <p id="d3historyChoice"></p>
-                </div>
-
-
-                <div class="d3-row">
-                    <div id="d3container"></div>
-                    <div id="d3consensus"></div>
-                </div>
-
-                <div class="d3-row">
-                    <p id="d3playback"></p>
-                    <button type="button" id="play-button" class="btn btn-primary play-button">Afspil</button>
-                </div>
-                <div class="report-info-container">
-                    <!-- Explanation for questions -->
-                    <div class="d3-row question-title">
-                        Spørgsmål kontekst
-                    </div>
-                    <div class="d3-row">
-                        <div id="questionHolder1"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="report-table-container">
-                <h2 class="rapport-header ">Topscorerliste</h2>
-                <table class="table-responsive" id="badInfluenceTableReport">
-                    <tr class="report-header-row">
-                        <th class="bad_influence-table-header border-corner-left">#</th>
-                        <th class="bad_influence-table-header"> spillernavn</th>
-                        <th class="bad_influence-table-header"> point <br> ialt</th>
-                        <th class="bad_influence-table-header"> fulgt <br> flertallet</th>
-                        <th class="bad_influence-table-header"> fulgt sin <br> præference</th>
-                        <th class="bad_influence-table-header"> stædighed <br> (sekunder)</th>
-                        <th class="bad_influence-table-header"> # venner</th>
-                        <th class="bad_influence-table-header border-corner-right"> # skift</th>
-                    </tr>
-                    {% for ranking in rankings %}
-                        <tr class="bad_influence-table-row">
-                            <td class="bad_influence-table-data">{{ forloop.counter }}</td>
-                            <td class="bad_influence-table-data"><strong
-                                    class="player_number"> {{ ranking.0 }} </strong></td>
-                            <td class="bad_influence-table-data">{{ ranking.1 }}</td>
-                            <td class="bad_influence-table-data">{{ ranking.2 }}%</td>
-                            <td class="bad_influence-table-data">{{ ranking.3 }}%</td>
-                            <td class="bad_influence-table-data">{{ ranking.4 }}</td>
-                            <td class="bad_influence-table-data">{{ ranking.5 }}</td>
-                            <td class="bad_influence-table-data">{{ ranking.6 }}</td>
-                        </tr>
-                    {% endfor %}
-                </table>
-                <div class="explanation">
-                    <div class="report-info-container">
-                        <div class="d3-row question-title">
-                            Stædighed forklaring
-                        </div>
-                        <div class="d3-row">
-                            <div id="stubbornness"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="dropdown-questions dropdown">
+        <div class="question-title">
+            Vælg et spørgsmål for at se hvordan det gik
+        </div>
+        <div class="question-tooltip"><a class="tip">
+            Læs spørgsmålets kontekst<span>
+            <div id="questionHolder1"></div></span></a>
         </div>
     </div>
+
+    <div class="dropdown-questions dropdown">
+        <div class="d3-row">
+            <p id="d3historyChoice"></p>
+        </div>
+
+        <div class="d3-row">
+            <div id="d3container"></div>
+            <div id="d3consensus"></div>
+        </div>
+
+        <div class="d3-row">
+            <p id="d3playback"></p>
+            <button type="button" id="play-button" class="btn btn-primary play-button">Afspil</button>
+        </div>
+    </div>
+
+     <div class="report-table-container">
+        <h2 class="rapport-header">Topscorerliste</h2>
+        <table class="table-responsive badInfluenceTableReport" id="badInfluenceTableReport">
+            <tr class="report-header-row">
+                <th class="bad_influence-table-header border-corner-left">#</th>
+                <th class="bad_influence-table-header"> spillernavn</th>
+                <th class="bad_influence-table-header"> point <br> ialt</th>
+                <th class="bad_influence-table-header"> fulgt <br> flertallet</th>
+                <th class="bad_influence-table-header"> fulgt sin <br> præference</th>
+                <th class="bad_influence-table-header">
+                 <a class="tip">stædighed<span>Stædighed (i sekunder) angiver hvor længe en spiller har bibeholdt sin præference når spilleren var i mindretal i venne-netværket. Det giver et praj om, hvor stædigt spilleren forsøgte at få de andre til at skifte mening. </span></a> </th>
+                <th class="bad_influence-table-header">antal venner</th>
+                <th class="bad_influence-table-header border-corner-right">antal skift</th>
+            </tr>
+            {% for ranking in rankings %}
+            <tr class="bad_influence-table-row">
+                <td class="bad_influence-table-data border-corner-left">{{ forloop.counter }}</td>
+                <td class="bad_influence-table-data"><strong> {{ ranking.0 }} </strong></td>
+                <td class="bad_influence-table-data">{{ ranking.1 }}</td>
+                <td class="bad_influence-table-data">{{ ranking.2 }}%</td>
+                <td class="bad_influence-table-data">{{ ranking.3 }}%</td>
+                <td class="bad_influence-table-data">{{ ranking.4 }}s</td>
+                <td class="bad_influence-table-data">{{ ranking.5 }}</td>
+                <td class="bad_influence-table-data border-corner-right">{{ ranking.6 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </div>
+</div>
+
     {% include 'bad_influence/d3/d3_graph_results.html' %}
     <script>
         /* **TO DO - Finish highlighting of row  */

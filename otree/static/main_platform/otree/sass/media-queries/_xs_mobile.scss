@@ -376,9 +376,9 @@
   }
 
 
-  /********************************************************
-  *  Admin/Teacher panel navigation - CustomSession.html  *
-  *********************************************************/
+/********************************************************
+*  Admin/Teacher panel navigation - CustomSession.html  *
+*********************************************************/
 
   #admin-panel {
     margin-top: 3%;
@@ -388,8 +388,8 @@
     }
 
     .btn-circle {
-      width: 100px;
-      height: 100px;
+      width: 120px;
+      height: 120px;
       padding: 10px 16px;
       font-size: 18px;
       line-height: 1.33;
@@ -545,90 +545,8 @@
   }
 
 
-  /*****************************************************
-  *  Game report page - BadInfluence/AdminReport.html  *
-  ******************************************************/
-  .report-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-family: "Roboto Slab", serif;
-
-    .report-info {
-      width: 90%;
-      border-collapse: collapse;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      background-color: white;
-      border-radius: 10px;
-    }
-
-    .rapport-header {
-      padding-top: 20px;
-      justify-content: center;
-      display: flex;
-      padding-bottom: 20px;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-
-      h2 {
-        font-size: 16px;
-        width: 90%;
-      }
-
-      p {
-        font-size: 16px;
-
-      }
-
-
-      #badInfluenceTableReport {
-        width: 80%;
-
-        .bad_influence-table-header {
-          font-size: 12px;
-        }
-      }
-    }
-
-    .dropdown-questions {
-      display: flex;
-      justify-content: center;
-      font-size: 16px;
-      flex-direction: column;
-
-      .question-title {
-        font-size: 16px;
-        font-weight: bold;
-        padding-bottom: 10px;
-        padding-top: 20px;
-      }
-    }
-
-    .resultater {
-      display: flex;
-      justify-content: center;
-    }
-
-    .d3-row {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: space-evenly;
-      font-size: 14px;
-      font-family: "Roboto Slab", serif;
-
-      #d3consensus {
-        display: flex;
-        justify-content: center;
-        width: 95%;
-      }
-
-      #d3playback {
-        display: none;
-      }
-    }
+/*****************************************************
+*  Game report page - BadInfluence/AdminReport.html  *
 
     .alert-info {
       color: $ku-red;
@@ -644,60 +562,20 @@
     .alert {
       width: 100%;
     }
+******************************************************/
 
-    .graf {
-
-      height: 130px;
-    }
-
-    .explanation {
-      display: flex;
-      justify-content: space-evenly;
-      flex-direction: column;
-    }
-
-    .dropdown-toggle {
-      background-color: $ku-red;
-      color: white;
-      font-size: 14px;
-      width: auto !important;
-
-      &:hover {
-        background-color: $ku-dark-green;
-      }
-    }
-
-    .play-button {
-      background-color: $ku-red;
-      color: white;
-      width: 100px;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 30px;
-
-      &:hover {
-        background-color: $ku-dark-green;
-      }
-    }
-  }
-  .d3-container {
-
-    width: 20%;
-  }
-
-
-  /*****************************************************
-  *  Authenticated demo page - DemoIndex.html  *
-  ******************************************************/
+/*****************************************************
+*  Authenticated demo page - DemoIndex.html  *
+******************************************************/
   .demo-container {
     margin-top: 10%;
     padding: 10px 50px 10px 50px;
   }
 
 
-  /*****************************************************
-  *  Authenticated create session - Sessions.html  *
-  ******************************************************/
+/*****************************************************
+*  Authenticated create session - Sessions.html  *
+******************************************************/
   .create-session-container {
     margin-top: 10%;
     padding: 10px 50px 10px 50px;
@@ -711,7 +589,7 @@
   }
 
 
-  /****************************
+/****************************
 *  Rooms view - Rooms.html  *
 ****************************/
 
@@ -786,8 +664,6 @@
         }
       }
     }
-
-
   }
 
   div.create-room-container {
@@ -813,7 +689,6 @@
       }
     }
   }
-
 
   .report-table-container-rooms {
     display: flex;
@@ -855,9 +730,9 @@
     }
   }
 
-  /****************************
+/***************************************
 *  Rooms without session - Rooms.html  *
-****************************/
+****************************************/
   div.room-without-container {
     width: 90%;
     margin-top: 20%;
@@ -925,9 +800,9 @@
     }
   }
 
-  /****************************
+/*************************************
 *  Rooms with session - Rooms.html  *
-****************************/
+************************************/
 
   div.room-with-container {
     margin-top: 25%;
@@ -967,9 +842,9 @@
     }
   }
 
-  /****************************
+/***********************************
 *  Rooms delete view - Rooms.html  *
-****************************/
+***********************************/
   div.delete-room-container {
     margin-top: 25%;
     background: white;
@@ -1002,8 +877,8 @@
     }
   }
 
-  /****************************
-*  Rooms delete view - Rooms.html  *
+/***********************************
+*  Rooms update view - Rooms.html  *
 ****************************/
   div.update-room-container {
     margin-top: 25%;
@@ -1106,12 +981,16 @@
       }
     }
 
-  div.daytrader-introduction-container {
-    justify-content: center;
-    display: flex;
-    margin-top: 12%;
-    flex-direction: column;
-  }
+div.daytrader-introduction-container {
+  justify-content: center;
+  display: flex;
+  margin-top: 12%;
+  flex-direction: column;
+}
+
+/************************************************
+* Intro pages / Rules page hover effekt styling  *
+**************************************************/
 
   div.rules {
     display: flex;
@@ -1185,7 +1064,6 @@
     width: 100%;
   }
   }
-
 
 }
 

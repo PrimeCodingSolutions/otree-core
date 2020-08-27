@@ -494,8 +494,8 @@ div.welcome-container .card-footer {
     border-color: transparent;
   }
   #admin-panel .btn-circle {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     padding: 10px 16px;
     font-size: 18px;
     line-height: 1.33;
@@ -630,121 +630,22 @@ div.welcome-container .card-footer {
 
   /*****************************************************
   *  Game report page - BadInfluence/AdminReport.html  *
+
+      .alert-info {
+        color: $ku-red;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        text-align: center;
+        padding-top: 0;
+        padding-bottom: 20px;
+      }
+
+      .alert {
+        width: 100%;
+      }
   ******************************************************/
-  .report-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-family: "Roboto Slab", serif;
-  }
-  .report-container .report-info {
-    width: 90%;
-    border-collapse: collapse;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background-color: white;
-    border-radius: 10px;
-  }
-  .report-container .rapport-header {
-    padding-top: 20px;
-    justify-content: center;
-    display: flex;
-    padding-bottom: 20px;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .report-container .rapport-header h2 {
-    font-size: 16px;
-    width: 90%;
-  }
-  .report-container .rapport-header p {
-    font-size: 16px;
-  }
-  .report-container .rapport-header #badInfluenceTableReport {
-    width: 80%;
-  }
-  .report-container .rapport-header #badInfluenceTableReport .bad_influence-table-header {
-    font-size: 12px;
-  }
-  .report-container .dropdown-questions {
-    display: flex;
-    justify-content: center;
-    font-size: 16px;
-    flex-direction: column;
-  }
-  .report-container .dropdown-questions .question-title {
-    font-size: 16px;
-    font-weight: bold;
-    padding-bottom: 10px;
-    padding-top: 20px;
-  }
-  .report-container .resultater {
-    display: flex;
-    justify-content: center;
-  }
-  .report-container .d3-row {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
-    font-size: 14px;
-    font-family: "Roboto Slab", serif;
-  }
-  .report-container .d3-row #d3consensus {
-    display: flex;
-    justify-content: center;
-    width: 95%;
-  }
-  .report-container .d3-row #d3playback {
-    display: none;
-  }
-  .report-container .alert-info {
-    color: #901A1E;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    text-align: center;
-    padding-top: 0;
-    padding-bottom: 20px;
-  }
-  .report-container .alert {
-    width: 100%;
-  }
-  .report-container .graf {
-    height: 130px;
-  }
-  .report-container .explanation {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-  }
-  .report-container .dropdown-toggle {
-    background-color: #901A1E;
-    color: white;
-    font-size: 14px;
-    width: auto !important;
-  }
-  .report-container .dropdown-toggle:hover {
-    background-color: #5f861e;
-  }
-  .report-container .play-button {
-    background-color: #901A1E;
-    color: white;
-    width: 100px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-  }
-  .report-container .play-button:hover {
-    background-color: #5f861e;
-  }
-
-  .d3-container {
-    width: 20%;
-  }
-
   /*****************************************************
   *  Authenticated demo page - DemoIndex.html  *
   ******************************************************/
@@ -881,9 +782,9 @@ div.welcome-container .card-footer {
     border-radius: 10px;
   }
 
-  /****************************
+  /***************************************
   *  Rooms without session - Rooms.html  *
-  ****************************/
+  ****************************************/
   div.room-without-container {
     width: 90%;
     margin-top: 20%;
@@ -940,9 +841,9 @@ div.welcome-container .card-footer {
     color: white;
   }
 
-  /****************************
+  /*************************************
   *  Rooms with session - Rooms.html  *
-  ****************************/
+  ************************************/
   div.room-with-container {
     margin-top: 25%;
     width: 95%;
@@ -972,9 +873,9 @@ div.welcome-container .card-footer {
     color: white;
   }
 
-  /****************************
+  /***********************************
   *  Rooms delete view - Rooms.html  *
-  ****************************/
+  ***********************************/
   div.delete-room-container {
     margin-top: 25%;
     background: white;
@@ -998,8 +899,8 @@ div.welcome-container .card-footer {
     background: #5f861e;
     border: none;
   }
-  /****************************
-  *  Rooms delete view - Rooms.html  *
+  /***********************************
+  *  Rooms update view - Rooms.html  *
   ****************************/
   div.update-room-container {
     margin-top: 25%;
@@ -1096,6 +997,9 @@ div.welcome-container .card-footer {
     flex-direction: column;
   }
 
+  /************************************************
+  * Intro pages / Rules page hover effekt styling  *
+  **************************************************/
   div.rules {
     display: flex;
     flex-direction: row;
@@ -1361,16 +1265,9 @@ div.welcome-container .card-footer {
     border-color: transparent;
   }
   #admin-panel .btn-circle {
-    width: 100px;
-    height: 100px;
-    padding: 10px 16px;
-    font-size: 18px;
-    line-height: 1.33;
-    border-radius: 150px;
-    background-color: white;
-    color: #901A1E;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    font-family: "Annie Use Your Telescope", serif;
+    width: 150px;
+    height: 150px;
+    font-size: 20px;
   }
   #admin-panel .btn-circle:hover {
     color: white;
@@ -1964,8 +1861,8 @@ div.welcome-container .card-footer {
     border-color: transparent;
   }
   #admin-panel .btn-circle {
-    width: 150px;
-    height: 150px;
+    width: 170px;
+    height: 170px;
     padding: 10px 16px;
     font-size: 22px;
     line-height: 1.33;
@@ -2086,112 +1983,132 @@ div.welcome-container .card-footer {
   }
 
   /*****************************************************
-  *  Game report page - BadInfluence/AdminReport.html  *
-  ******************************************************/
-  .report-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    color: #901A1E;
-    font-family: "Roboto Slab", serif;
-  }
-  .report-container .report-info {
-    width: 90%;
-    border-collapse: collapse;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background-color: white;
-    border-radius: 10px;
-  }
-  .report-container .rapport-header {
-    padding-top: 20px;
-    justify-content: center;
-    display: flex;
-    padding-bottom: 20px;
-    flex-direction: column;
-    align-items: center;
-  }
-  .report-container .rapport-header h2 {
-    font-size: 20px;
-  }
-  .report-container .rapport-header p {
-    font-size: 18px;
-    text-align: center;
-  }
-  .report-container .dropdown-questions {
-    display: flex;
-    justify-content: center;
-    font-size: 16px;
-    flex-direction: column;
-  }
-  .report-container .dropdown-questions .question-title {
-    font-size: 20px;
-    font-weight: bold;
-    padding-bottom: 5px;
-  }
-  .report-container .resultater {
-    display: flex;
-    justify-content: center;
-  }
-  .report-container .d3-row {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
-    font-size: 18px;
-    font-family: "Roboto Slab", serif;
-  }
-  .report-container .d3-row #d3consensus {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-  .report-container .d3-row #d3playback {
-    display: none;
-  }
-  .report-container .alert-info {
-    color: #901A1E;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-  }
-  .report-container .alert {
-    width: 100%;
-  }
-  .report-container .graf {
-    height: 130px;
-  }
-  .report-container .explanation {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-  }
-  .report-container .dropdown-toggle {
-    background-color: #901A1E;
-    color: white;
-    font-size: 18px;
-    width: auto !important;
-  }
-  .report-container .dropdown-toggle:hover {
-    background-color: #5f861e;
-  }
-  .report-container .play-button {
-    background-color: #901A1E;
-    color: white;
-    width: 100px;
-    display: flex;
-    justify-content: center;
-  }
-  .report-container .play-button:hover {
-    background-color: #5f861e;
-  }
+    *  Game report page - BadInfluence/AdminReport.html  *
+    *****************************************************
+    .report-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      color: $ku-red;
+      font-family: "Roboto Slab", serif;
 
-  .d3-container {
-    background-color: orange;
-    width: 20%;
-  }
+      .report-info {
+        width: 90%;
+        border-collapse: collapse;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        border-radius: 10px;
+      }
 
+      .rapport-header {
+        padding-top: 20px;
+        justify-content: center;
+        display: flex;
+        padding-bottom: 20px;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+          font-size: 20px;
+        }
+
+        p {
+          font-size: 18px;
+          text-align: center;
+        }
+      }
+
+      .dropdown-questions {
+        display: flex;
+        justify-content: center;
+        font-size: 16px;
+        flex-direction: column;
+
+        .question-title {
+          font-size: 20px;
+          font-weight: bold;
+          padding-bottom: 5px;
+        }
+      }
+
+      .resultater {
+        display: flex;
+        justify-content: center;
+      }
+
+      .d3-row {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        font-size: 18px;
+        font-family: "Roboto Slab", serif;
+
+        #d3consensus {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+        }
+
+        #d3playback {
+          display: none;
+        }
+      }
+
+      .alert-info {
+        color: $ku-red;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+
+      }
+
+      .alert {
+        width: 100%;
+      }
+
+      .graf {
+
+        height: 130px;
+      }
+
+      .explanation {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+      }
+
+      .dropdown-toggle {
+        background-color: $ku-red;
+        color: white;
+        font-size: 18px;
+        width: auto !important;
+
+        &:hover {
+          background-color: $ku-dark-green;
+        }
+      }
+
+      .play-button {
+        background-color: $ku-red;
+        color: white;
+        width: 100px;
+        display: flex;
+        justify-content: center;
+
+        &:hover {
+          background-color: $ku-dark-green;
+        }
+      }
+    }
+
+    .d3-container {
+      background-color: orange;
+      width: 20%;
+    }
+  */
   /*****************************************************
   *  Authenticated demo page - DemoIndex.html  *
   ******************************************************/

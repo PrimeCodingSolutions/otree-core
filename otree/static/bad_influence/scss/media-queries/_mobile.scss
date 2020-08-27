@@ -89,12 +89,9 @@
   }
 
 
-
-
-
-  /*********************************
-  *   Play.html chat styling      *
-  *********************************/
+/*********************************
+*   Play.html chat styling      *
+*********************************/
 
 
   #chat::-webkit-scrollbar {
@@ -420,7 +417,293 @@
         }
       }
     }
+  }
 
+  /*******************************************************
+  *  Teacher Report Page BadInfluence/AdminReport.html  *
+  *******************************************************/
+  div.report-container {
+    div.report-info {
+      p.bad_influence-report-title {
+        font-size: 32px;
+      }
+
+      div.dropdown-questions {
+        font-size: 18px;
+
+        div.question-title {
+            font-size: 18px;
+        }
+
+        /** Tooltip styling for question dropdown **/
+        div.question-tooltip {
+
+            a.tip:hover span {
+              width: 300px;
+              font-size: 17px;
+              top: 10px;
+              right: 0;
+              left: -80px;
+            }
+          }
+        }
+
+      .d3-row {
+        font-size: 16px;
+
+        #d3consensus {
+          width: 82%;
+        }
+
+        p#d3historyChoice {
+          select {
+            border-radius: 10px;
+            font-family: 'Patrick Hand', sans-serif;
+            font-size: 18px;
+          }
+        }
+
+        .play-button {
+          width: 120px;
+        }
+      }
+
+      .dropdown-toggle {
+        background-color: $ku-red;
+        color: white;
+        font-size: 14px;
+
+        &:hover {
+          background-color: $ku-dark-green;
+        }
+      }
+
+      /** Topscorelist table **/
+      div.report-table-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 20px;
+        width: 95%;
+
+
+
+
+        th.bad_influence-table-header {
+          background: $ku-red;
+          padding: 12px;
+          text-align: center;
+          font-size: 16px;
+
+           td {
+              padding: 10px;
+              text-align: center;
+              font-size: 16px;
+
+          }
+        }
+
+
+        /** Table hover effekt styling (stubborness) **/
+        a.tip {
+          border-bottom: 1px dashed;
+          text-decoration: none;
+          color: white;
+
+        }
+
+        a.tip:hover {
+          cursor: help;
+          position: relative;
+          color: $ku-dark-green;
+        }
+
+        a.tip span {
+          display: none
+        }
+
+        a.tip:hover span {
+          border: black 1px solid;
+          padding: 8px 8px 8px 8px;
+          display: block;
+          font-weight: normal;
+          text-align: center;
+          z-index: 100;
+          background-color: white;
+          color: black;
+          margin: 20px;
+          width: 250px;
+          position: absolute;
+          font-size: 15px;
+          top: 10px;
+          right: 0;
+          left: -140px;
+          text-decoration: none;
+        }
+
+      .fa-asterisk {
+        font-size: 10px;
+        padding-right: 2px;
+      }
+      }
+    }
+  }
+  /*********************************************
+  *  Results Page bad_influence/Results.html  *
+  *********************************************/
+  div.results-container {
+    div.report-info {
+      p.bad_influence-report-title {
+        font-size: 32px;
+      }
+
+       p.question-title {
+            color: $ku-red;
+            font-size: 20px;
+            padding-bottom: 10px;
+            font-weight: bold;
+            padding-top: 0;
+        }
+
+      div.dropdown-questions {
+        font-size: 18px;
+
+        div.question-title {
+            color: $ku-red;
+            font-size: 26px;
+        }
+
+        /** Tooptip styling for question dropdown **/
+        div.question-tooltip {
+            a.tip:hover span {
+              width: 280px;
+              font-size: 15px;
+              top: 10px;
+              right: 0;
+              left: -65px;
+            }
+          }
+        }
+
+      div.rapport-header {
+        font-size: 15px;
+
+      }
+
+      .d3-row {
+        font-size: 16px;
+
+        #d3consensus {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+        }
+
+        p#d3historyChoice {
+          select {
+            border-radius: 10px;
+            font-family: 'Patrick Hand', sans-serif;
+            font-size: 16px;
+          }
+        }
+
+        .play-button {
+          width: 120px;
+
+        }
+      }
+
+      .dropdown-toggle {
+        font-size: 16px;
+
+
+      }
+
+      /** Topscorelist table **/
+      div.report-table-container {
+
+        th.bad_influence-table-header {
+          font-size: 16px;
+        }
+
+        tr.bad_influence-table-row {
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            color: $ku-red;
+
+          td {
+              padding: 10px;
+              text-align: center;
+              font-size: 16px;
+
+            }
+        }
+
+        /** Table hover effekt styling (stubborness) **/
+        a.tip {
+          border-bottom: 1px dashed;
+          text-decoration: none;
+          color: white;
+
+        }
+
+        a.tip:hover {
+          cursor: help;
+          position: relative;
+          color: $ku-dark-green;
+        }
+
+        a.tip span {
+          display: none
+        }
+
+        a.tip:hover span {
+          border: black 1px solid;
+          padding: 8px 8px 8px 8px;
+          display: block;
+          font-weight: normal;
+          text-align: center;
+          z-index: 100;
+          background-color: white;
+          color: black;
+          margin: 20px;
+          width: 220px;
+          position: absolute;
+          font-size: 15px;
+          top: 10px;
+          right: 0;
+          left: -160px;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  #d3container {
+
+      #overlay-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 335px;
+        background:rgba(255,255,255, 0.9);
+        position:absolute;
+        border: solid 2px transparent;
+
+        p {
+          justify-content: center;
+          display: flex;
+          text-align: center;
+          align-content: center;
+          align-items: center;
+          font-size: 18px;
+          font-weight: bold;
+          color: $ku-red;
+        }
+      }
+    }
+  }
+/**
     @supports (display: grid) {
       body {
         display: grid;
@@ -531,30 +814,9 @@
   }
 
 
-   #d3container {
 
-    #overlay-container {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      height: 335px;
-      background:rgba(255,255,255, 0.9);
-      position:absolute;
-      border: solid 2px transparent;
+  } **/
 
-      p {
-        justify-content: center;
-        display: flex;
-        text-align: center;
-        align-content: center;
-        align-items: center;
-        font-size: 18px;
-        font-weight: bold;
-        color: $ku-red;
-      }
-    }
-  }
-}
 
 
 

@@ -600,18 +600,6 @@
     font-size: 13px;
   }
 
-  /* Admin Navbar */
-  #admin-panel {
-    margin-top: 15%;
-  }
-  #admin-panel .btn-circle {
-    width: 72.5px;
-    height: 72.5px;
-    font-size: 18px;
-    padding: 0;
-    text-align: center;
-  }
-
   .admin-table-data {
     display: flex;
     justify-content: center;
@@ -1170,9 +1158,6 @@
     width: 100%;
   }
 
-  .report-info .rapport-header {
-    color: black;
-  }
   .report-info .ranking-container #rankingTable .table-ranking-header {
     font-size: 15px;
   }
@@ -1697,18 +1682,6 @@
   }
   .report-info .ranking-container #rankingTable .table-ranking-data {
     font-size: 17px;
-  }
-
-  /* Admin Navbar */
-  #admin-panel {
-    margin-top: 7.5%;
-  }
-  #admin-panel .btn-circle {
-    width: 150px;
-    height: 150px;
-    font-size: 24px;
-    padding: 0;
-    text-align: center;
   }
 
   /*********************
@@ -2498,18 +2471,6 @@
     padding: 0;
     width: 60px;
     height: 60px;
-  }
-
-  /* Admin Navbar */
-  #admin-panel {
-    margin-top: 1%;
-  }
-  #admin-panel .btn-circle {
-    width: 175px;
-    height: 175px;
-    font-size: 26px;
-    padding: 0;
-    text-align: center;
   }
 
   /*********************
