@@ -12,7 +12,7 @@ Welcome to Dude Multiplayer. This project uses the open source platform for beha
     otree devserver
 ```
 
-## How to create a admin user:
+## How to create an admin user:
 1. Create an admin user by using the following command:
 ```
     otree createsuperuser
