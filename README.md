@@ -17,7 +17,7 @@ Welcome to Dude Multiplayer. This project uses the open source platform for beha
 ```
     otree createsuperuser
 ```
-Or, if you are using shellbash, try the following command:
+...Or, if you are using shellbash, try the following command:
 ```
     winpty python manage.py createsuperuser
 ```
