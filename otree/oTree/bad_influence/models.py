@@ -137,6 +137,10 @@ class Subsession(BaseSubsession):
         } for group in group.in_all_rounds()]
 
         rankings = []
+
+        for player in group.get_players():
+            print(player.navn)
+
         for p in self.get_players():
             p.stubborn_total = sum([player.stubborn for player in p.in_all_rounds()])
             p.opinion_change_total = sum([player.opinion_change for player in p.in_all_rounds()])
@@ -147,6 +151,7 @@ class Subsession(BaseSubsession):
             rankings.append((p.navn, p.points_total, p.fulgt_flertallet_pct,
                              p.fulgt_preference_pct, np.around(p.stubborn_total, 1),
                              p.number_of_friends_total, p.opinion_change_total))
+            print(p.navn)
 
         return {
             "data": json.dumps(data),

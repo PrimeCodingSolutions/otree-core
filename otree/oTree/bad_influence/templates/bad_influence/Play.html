@@ -28,17 +28,18 @@
                 <div class="svg-column" id="network-column">
                     <div class="answer-container" id="d3container">
                         <div class="game-content">
-                             <div class="game-timer" id="game-timer-surround">
+                            <div class="game-timer" id="game-timer-surround">
                                 <div class="game-timer-content game-timer-container">
-                                        <span>Tid tilbage:</span>
-                                        <span class="time_left otree-timer__time-left" id="timer"></span>
+                                    <span>Tid tilbage:</span>
+                                    <span class="time_left otree-timer__time-left" id="timer"></span>
                                 </div>
                             </div>
                         </div>
-                            <div class="expected-score-container text-center" id="expectedScore">Forventet score: <div class="expected-score"></div></div>
-                            <div id="overlay-container"></div>
+                        <div class="expected-score-container text-center" id="expectedScore">Forventet score:
+                            <div class="expected-score">{{ player.expected_score }} point</div>
+                        </div>
+                        <div id="overlay-container"></div>
                     </div>
-
 
 
                     <div id="ButtonsHolder" class="choice-button-holder">
@@ -83,7 +84,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js"></script>
     <script>
         // Keep button green until other button clicked
-        $('.choice-button').on('click', function(){
+        $('.choice-button').on('click', function () {
             $('.choice-button').removeClass('selected');
             $(this).addClass('selected');
         });
@@ -99,22 +100,39 @@
         const overLayStyles = {
             borderColor: "white",
         };
+        let current_group_id = {{ group.id }};
+        let existingGroups = JSON.parse(localStorage.getItem("all_groups"));
+        if (existingGroups === null) existingGroups = [];
 
-        let interval = setInterval(function() {
-             overlayText.innerHTML = "Dit netværk er synligt om:" + "\ " + --seconds_left + " " + "sekunder" + "<br>" + "&darr; Du kan i mellemtiden vælge din præference forneden &darr;";
+
+        let interval = setInterval(function () {
+            overlayText.innerHTML = "Dit netværk er synligt om:" + "\ " + --seconds_left + " " + "sekunder" + "<br>" + "&darr; Du kan i mellemtiden vælge din præference forneden &darr;";
             parentContainer.style.filter = "grayscale(1)";
             expectedScoreDisplay.style.display = "none";
             gameTimerDisplay.style.display = "none";
-            //choiceButtons.style.backgroundColor = "white";
-             if (seconds_left <= 0)
-            {
-            clearInterval(interval);
-            parentContainer.style.filter = "none";
-            expectedScoreDisplay.style.display = "flex";
-            gameTimerDisplay.style.display = "flex";
-            parentContainer.removeChild(overlayContainer);
+
+            localStorage.setItem("current_group", JSON.stringify(current_group_id));
+            existingGroups.push(current_group_id);
+            localStorage.setItem("all_groups", JSON.stringify(existingGroups));
+            // choiceButtons.style.backgroundColor = "white";
+            if (seconds_left <= 0) {
+                clearInterval(interval);
+                parentContainer.style.filter = "none";
+                expectedScoreDisplay.style.display = "flex";
+                gameTimerDisplay.style.display = "flex";
+                parentContainer.removeChild(overlayContainer);
             }
         }, 1000);
+
+        existingGroups.forEach(item => {
+            if (item === current_group_id) {
+                clearInterval(interval);
+                parentContainer.style.filter = "none";
+                expectedScoreDisplay.style.display = "flex";
+                gameTimerDisplay.style.display = "flex";
+                overlayContainer.style.display = "none";
+            }
+        })
 
 
         // Defines the scheme of the WebSocket to be either wss if the protocol is https
@@ -122,18 +140,6 @@
         let isHTTPS = window.location.protocol.includes('https');
         let ws_scheme = isHTTPS ? "wss" : "ws";
         let player_name = "{{ player.navn }}";
-
-        let expectedScore = {{ player.expected_score }};
-        let choiceButton = document.getElementsByClassName("choice-button");
-        let scoreTag = document.querySelector(".expected-score");
-
-
-        for(let i = 0; i < choiceButton.length; i++) {
-            choiceButton[i].onclick = () => {
-                console.log(expectedScore);
-                {#scoreTag.innerHTML = `Forventet score: ${expectedScore}`;#}
-            }
-        }
 
         // Defines the WebSocket route to listen to
         let ws_path = ws_scheme + '://' + window.location.host + "/ws/chat/{{ group.pk }}";
@@ -296,6 +302,9 @@
         function fetchMessages() {
             socket.send(JSON.stringify({'command': 'fetch_messages', 'group_id': {{ group.id }}}));
         }
+
+
+        // Overlay LocalStorage
 
     </script>
 {% endblock %}
