@@ -24,8 +24,16 @@ Welcome to Dude Multiplayer. This project uses the open source platform for beha
 
 2. Run the server again and log in:
 ```
-    otree createsuperuser
     otree devserver
 ```
 
+# The games
+## Bad Influence
+Bad Influence is a multiplayer network voting game for the whole class. The players vote about ten different questions and dilemmas, and their objective is to convince their network to choose the same preference as yours.
 
+<img src="https://github.com/PrimeCodingSolutions/otree-core/blob/master/otree/static/main_platform/otree/media/bad-influence-network.gif" width="200" height="200">
+
+## Daytrader
+Daytrader is a game about how bubbles can arise in the financial world. The players are 'daytraders' in a fictitious stock exchange, and trade in shares in a number of fictitious companies, while at the same time gain insight into the real state of the companies.
+
+<img src="https://github.com/PrimeCodingSolutions/otree-core/blob/master/otree/static/main_platform/otree/media/sack-images/sack-questionmark.svg" width="200" height="200">
