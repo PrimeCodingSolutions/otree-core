@@ -8,7 +8,7 @@
         let $guess_false_button = $('#GuessFalseButton');
         let $consensus_bar = $('#ConsensusBar');
 
-        let expectedScore = {{ player.expected_score }};
+        console.log(expectedScore);
         let scoreTag = document.querySelector(".expected-score");
 
         let send_guess = function (guess) {
@@ -43,10 +43,11 @@
 
             // Expected score
             let nodes = obj.ego_graph['nodes'];
-
+            console.log({{ player.expected_score }});
             for (let i = 0; i < nodes.length; i++) {
                 if (nodes[i].id === {{ player.id_in_group }}) {
-                    scoreTag.innerHTML = nodes[i].exp_score + " point"
+                    console.log({{ player.expected_score }});
+                    scoreTag.innerHTML =nodes[i].exp_score + " point"
                 }
             }
 
