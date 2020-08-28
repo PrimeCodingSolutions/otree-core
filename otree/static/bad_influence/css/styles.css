@@ -646,6 +646,7 @@
     border-spacing: 0 0.5rem;
     width: 95%;
     margin-bottom: 20px;
+    justify-content: center;
   }
   div.report-container div.report-info div.report-table-container tr.report-header-row {
     color: white;

@@ -139,7 +139,7 @@ class Subsession(BaseSubsession):
         rankings = []
 
         for player in group.get_players():
-            print(player.navn)
+
 
         for p in self.get_players():
             p.navn = p.participant.vars["name"]
