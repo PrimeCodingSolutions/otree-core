@@ -1,44 +1,31 @@
 
-## How to run KU-Læringsspil
+# Dude Multiplayer (BETA)
+Welcome to Dude Multiplayer. This project uses the open source platform for behavioral research called [https://www.otree.org/]. This project currently has two games, Bad Influence and DayTrader. The language for the platform and games is Danish. 
 
-### Use following methodology when git cloning the project:
-
-type
+## Set-up steps
+1. Clone the project
+2. Navigate to the project and use the following commands:
 ```
-    cd otree-core
     pip install -e .
     cd otree
     cd oTree
     otree devserver
 ```
 
-### How to log into the system as an admin:
-
-Create an admin/superuser with the following commands in your terminal:
+## How to create a admin user:
+1. Create an admin user by using the following command:
 ```
     otree createsuperuser
-    otree devserver
 ```
-Log in via. login button on the front page /spil/
-
-OR
-
-Log in with the admin login and enter the admin panel with the URL:
-
-/admin/
-
-
-IF you are using shellbash and getting an error when creating a super user, try to use the following command:
-
+Or, if you are using shellbash, try the following command:
 ```
     winpty python manage.py createsuperuser
 ```
 
-<!--
-How to log into the system as a player:
+2. Run the server again and log in:
+```
+    otree createsuperuser
+    otree devserver
+```
 
-    To log in as a player:
-       1. create a session/game
-       2. go to the admin panel and choose a player username
-       3. then log into the system with the username and the password: 123456
--->
+
