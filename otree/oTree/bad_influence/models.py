@@ -142,12 +142,15 @@ class Subsession(BaseSubsession):
             print(player.navn)
 
         for p in self.get_players():
+            p.navn = p.participant.vars["name"]
             p.stubborn_total = sum([player.stubborn for player in p.in_all_rounds()])
             p.opinion_change_total = sum([player.opinion_change for player in p.in_all_rounds()])
             p.number_of_friends_total = sum([player.number_of_friends for player in p.in_all_rounds()])
             p.points_total = sum([player.points for player in p.in_all_rounds()])
-            p.fulgt_flertallet_pct = 100*sum([1 for player in p.in_all_rounds() if player.points != 0])/Constants.num_rounds
-            p.fulgt_preference_pct = 100*sum([1 for player in p.in_all_rounds() if player.hub == player.choice])/Constants.num_rounds
+            p.fulgt_flertallet_pct = 100 * sum(
+                [1 for player in p.in_all_rounds() if player.points != 0]) / Constants.num_rounds
+            p.fulgt_preference_pct = 100 * sum(
+                [1 for player in p.in_all_rounds() if player.hub == player.choice]) / Constants.num_rounds
             rankings.append((p.navn, p.points_total, p.fulgt_flertallet_pct,
                              p.fulgt_preference_pct, np.around(p.stubborn_total, 1),
                              p.number_of_friends_total, p.opinion_change_total))
